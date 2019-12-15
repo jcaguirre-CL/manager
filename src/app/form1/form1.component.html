@@ -1,0 +1,39 @@
+<div class="card-container">
+
+
+<div class="jumbotron">
+    <div class="container">
+      <ngb-alert type="success" [dismissible]="false">
+        Bootstrap is working!
+      </ngb-alert>
+  
+      <h1>
+        <i class="fa fa-bath" aria-hidden="true"></i>
+        And so is Font Awesome!
+      </h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <p>
+      A progress bar:
+      <ngb-progressbar showValue="true" type="success" [value]="65">
+      </ngb-progressbar>
+    </p>
+    <button type="button" class="btn btn-outline-secondary mr-2" ngbPopover="Popover content" popoverTitle="Simple Popover"> Show Popover </button>
+    <button type="button" class="btn btn-outline-secondary mr-2" ngbPopover="Popover content" popoverTitle="Simple Popover"> Show Popover </button>
+    <button type="button" class="btn btn-outline-secondary mr-2" ngbPopover="Popover content" popoverTitle="Simple Popover"> Show Popover </button>
+    <button type="button" class="btn btn-outline-secondary mr-2" ngbPopover="Popover content" popoverTitle="Simple Popover"> Show Popover </button>
+    <button type="button" class="btn btn-outline-secondary mr-2" ngbPopover="Popover content" popoverTitle="Simple Popover"> Show Popover </button>
+    <button type="button" class="btn btn-outline-secondary mr-2" ngbPopover="Popover content" popoverTitle="Simple Popover"> Show Popover </button>
+
+    <ng-template #popContent>Hello, <b>Popover</b>! content</ng-template>
+    <ng-template #popTitle>Title with Fancy <b> bold</b>, <i>italics</i> and <u>underlined</u> text</ng-template>
+     
+    <button type="button" class="btn btn-outline-secondary" [ngbPopover]="popContent" [popoverTitle]="popTitle">
+      Popover with HTML!
+    </button>
+
+</div>
+</div>
+
