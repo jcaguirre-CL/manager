@@ -1,0 +1,144 @@
+<mat-card class="example-form basic-container">
+  <mat-card-title>INGRESO DE EVENTO</mat-card-title>
+  <mat-card-subtitle>
+    Al finalizar el encargado de C13 deberá aprobar mediante código PIN personal
+  </mat-card-subtitle>
+  <mat-card-content>
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap fxLayoutAlign="center" fxLayoutGap="25px">
+        <div fxFlex="50">
+          <div class="jumbotron">
+              <form>
+                <mat-form-field class="example-full-width">
+                  <input matInput [matDatepicker]="picker" placeholder="Fecha del evento" [formControl]="stateCtrl">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker touchUi #picker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Responsable" aria-label="Responsable" [matAutocomplete]="auto" [formControl]="stateCtrl">
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+                      <!-- <img class="example-option-img" aria-hidden [src]="state.flag" height="25"> -->
+                      <span>{{state.name}}</span> |
+                      <small>Resp: {{state.population}}</small>
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              
+
+                
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Atención" [popoverTitle]="popTitle" [ngbPopover]="popContent" [formControl]="stateCtrl">
+                </mat-form-field>
+              
+          
+                  <ng-template #popTitle>Ayuda</ng-template>
+                  <ng-template #popContent>Descripcion extendida</ng-template>
+
+                <mat-form-field class="example-full-width">
+                  <textarea matInput placeholder="Descripción" [formControl]="stateCtrl"></textarea>
+                </mat-form-field>
+              
+                <mat-form-field class="example-full-width">
+                  <mat-select placeholder="Area" [formControl]="stateCtrl">
+                    <mat-option value="option">Area 1</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <br>
+              
+                <mat-slide-toggle
+                  [checked]="stateCtrl.disabled"
+                  (change)="stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()">
+                  Bloquear ingreso?
+                </mat-slide-toggle>
+                <br>
+              </form>
+          </div>
+          <div class="row">
+          <!-- <div class="row" *ngIf="!selectedEventGroup" [formGroup]="selectedEventGroup"> -->
+            <!-- <div class="col-md-12" *ngIf="selectedEventGroup.errors?.toppingPizzaSize">
+              <div  class="ValidationErrorLabel mg-bottom-15">
+                {{selectedEventGroup.errors?.toppingPizzaSize?.message}}
+              </div>
+            </div> -->
+            <div class="col-md-6 offset-md-3">
+              <!-- <app-opc1-operaciones formControlName="size"></app-opc1-operaciones> -->
+            </div>
+            <div class="col-md-12 mg-top-15">
+              <h5>Incidentes</h5>
+              <div class="ToppingsSelector" >
+                <!-- <div class="ToppingsSelector__item" *ngFor="let topping of toppingsArray.controls" [formGroup]="topping" >
+                  <mat-checkbox [formControl]="topping.get('selected')">
+                    {{topping.get('name').value}}
+                  </mat-checkbox>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxFlex="50">
+            <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-title>INFORME DE OPERACION</mat-card-title>
+
+                  <mat-card-subtitle class="DetalleInforme">
+                      <mat-form-field>
+                          <input matInput placeholder="Generado por:" [value]="responsable.nombre" [formControl]="mostrarResponsable" readonly />
+                        </mat-form-field>
+                        <mat-form-field>
+                          <input matInput placeholder="Responsabilidad:" [value]="responsable.responsabilidad" formControlName="lastName" readonly/>
+                        </mat-form-field>
+                  </mat-card-subtitle>
+                </mat-card-header>
+                <mat-divider inset='True'></mat-divider>
+
+                <mat-card-content class="DetalleInforme">
+                  <p>
+                    El presente Informe de operacion informa los eventos ocurridos durante
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button>APROBAR</button>
+                  <button mat-button>RECHAZAR</button>
+                </mat-card-actions>
+              </mat-card>
+            <!-- <div class="jumbotron">
+                <mat-list>
+                  <mat-list-item>Item 1</mat-list-item>
+                  <mat-divider inset='True'></mat-divider>
+                  <mat-list-item>
+                      <div class="col-md-12">
+                          <h4>
+                            Detalle del supervisor
+                          </h4>
+                        </div>
+                      <input matInput placeholder="Nombre" [value]="responsable.nombre" [formControl]="mostrarResponsable" />
+                      <input matInput placeholder="Responsabilidad" [value]="responsable.responsabilidad" formControlName="lastName" />
+                  </mat-list-item>
+                  <mat-divider inset='True'></mat-divider>
+                    <div class="row">
+                    
+                      <div class="col-md-12">
+                          <h4>
+                            Detalle del supervisor
+                          </h4>
+                        </div>
+                      <mat-form-field>
+                            <input matInput placeholder="Nombre" [value]="responsable.nombre" [formControl]="mostrarResponsable" />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="Responsabilidad" [value]="responsable.responsabilidad" formControlName="lastName" />
+                          </mat-form-field>
+                    </div>
+                </mat-list>
+            </div> -->
+        </div>
+      </div>
+  </mat-card-content>
+  <mat-card-footer style="width:95%">
+  </mat-card-footer>
+</mat-card>
+
+
+<div class="example-container">
+
+  </div>

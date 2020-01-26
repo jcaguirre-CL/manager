@@ -1,0 +1,44 @@
+<div class="jumbotron" [formGroup]="form">
+    <mat-form-field class="example-full-width">
+      <input matInput [matDatepicker]="picker" placeholder="Fecha del evento">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker touchUi #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Responsable" aria-label="Responsable" [matAutocomplete]="auto" [formControl]="stateCtrl">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+          <!-- <img class="example-option-img" aria-hidden [src]="state.flag" height="25"> -->
+          <span>{{state.name}}</span> |
+          <small>Resp: {{state.population}}</small>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  
+    <br>
+  
+    <mat-slide-toggle
+      [checked]="stateCtrl.disabled"
+      (change)="stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()">
+      Bloquear ingreso?
+    </mat-slide-toggle>
+    <br>
+    
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Atención" [popoverTitle]="popTitle" [ngbPopover]="popContent">
+    </mat-form-field>
+  
+
+      <ng-template #popTitle>Ayuda</ng-template>
+      <ng-template #popContent>Descripcion extendida</ng-template>
+
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Descripción"></textarea>
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-select placeholder="Area">
+        <mat-option value="option">Area 1</mat-option>
+      </mat-select>
+    </mat-form-field>
+</div>
