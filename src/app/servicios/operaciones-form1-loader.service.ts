@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IEventoFormInterface, IToppingItem, PizzaToppingsEnum } from './evento-operaciones.interface';
+import { IIncidenteFormInterface, IDetalleItem, IncidenteDetallesEnum } from './evento-operaciones.interface';
 import { OperacionesForm1ServicioService } from './operaciones-form1-servicio.service';
 
 @Injectable({
@@ -13,25 +13,25 @@ export class OperacionesForm1LoaderService {
 
   }
 
-  loadPizzaForEdit(data: IEventoFormInterface): void {
+  loadPizzaForEdit(data: IIncidenteFormInterface): void {
     this.operacionesForm1ServicioService.form.patchValue({
-      customerDetails: {
-        ...data.customerDetails
+      detalleeventoOperaciones: {
+        ...data.detalleeventoOperaciones
       }
     });
 
-    for (const pizza of data.pizzas) {
-      const group = this.operacionesForm1ServicioService.addPizza();
+    for (const incidente of data.incidentes) {
+      const group = this.operacionesForm1ServicioService.addIncidente();
       group.patchValue({
-        size: pizza.size,
-        toppings: this.prefillToppingsSelection(group.get('toppings').value, pizza.toppings as PizzaToppingsEnum[])
+        area: incidente.area,
+        detalles: this.prefillDetallesSelection(group.get('detalles').value, incidente.detalles as IncidenteDetallesEnum[])
       });
     }
   }
 
-  prefillToppingsSelection(toppings: IToppingItem[], selectedToppings: PizzaToppingsEnum[]): IToppingItem[] {
-    return toppings.map((i) => {
-      if (selectedToppings.includes(i.name)) {
+  prefillDetallesSelection(detalles: IDetalleItem[], selectedDetalles: IncidenteDetallesEnum[]): IDetalleItem[] {
+    return detalles.map((i) => {
+      if (selectedDetalles.includes(i.name)) {
         i.selected = true;
       }
 

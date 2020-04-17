@@ -1,7 +1,7 @@
 import { Component, OnInit, forwardRef } from '@angular/core';
 
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { PizzaSizeEnum } from '../servicios/evento-operaciones.interface';
+import { IncidenteAreaEnum } from '../servicios/evento-operaciones.interface';
 
 @Component({
   selector: 'app-opc1-operaciones',
@@ -16,21 +16,21 @@ import { PizzaSizeEnum } from '../servicios/evento-operaciones.interface';
   ]
 })
 export class Opc1OperacionesComponent implements ControlValueAccessor {
-  pizzaSize: PizzaSizeEnum;
-  PizzaSizeEnum = PizzaSizeEnum;
+  incidenteArea: IncidenteAreaEnum;
+  IncidenteAreaEnum = IncidenteAreaEnum;
   constructor() { }
 
   ngOnInit() {
   }
 
-  changeSize(size: PizzaSizeEnum) {
-    this.pizzaSize = size;
-    this.propagateChange(size);
+  changeSize(area: IncidenteAreaEnum) {
+    this.incidenteArea = area;
+    this.propagateChange(area);
   }
 
-  propagateChange = (value: PizzaSizeEnum) => {};
-  writeValue(value: PizzaSizeEnum) {
-    this.pizzaSize = value;
+  propagateChange = (value: IncidenteAreaEnum) => {};
+  writeValue(value: IncidenteAreaEnum) {
+    this.incidenteArea = value;
   }
 
   registerOnChange(fn) {

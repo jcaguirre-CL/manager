@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormArray, FormGroup } from '@angular/forms';
-import { IPizzaItem, IToppingItem, PizzaSizeEnum } from '../servicios/evento-operaciones.interface';
+import { IIncidenteItem, IDetalleItem, IncidenteAreaEnum } from '../servicios/evento-operaciones.interface';
 import { OperacionesForm1ServicioService } from '../servicios/operaciones-form1-servicio.service';
 
 @Component({
@@ -11,12 +11,12 @@ import { OperacionesForm1ServicioService } from '../servicios/operaciones-form1-
 export class ListaIncidentesOperacionesComponent implements OnInit {
   @Input() group: FormGroup;
 
-  @Output() deletePizza = new EventEmitter<number>();
-  @Output() addPizza = new EventEmitter();
-  @Output() pizzaSelected = new EventEmitter<number>();
+  @Output() deleteIncidente = new EventEmitter<number>();
+  @Output() addIncidente = new EventEmitter();
+  @Output() incidenteSelected = new EventEmitter<number>();
 
-  get pizzasArray(): FormArray {
-    return this.group.get('pizzas') as FormArray;
+  get incidentesArray(): FormArray {
+    return this.group.get('incidentes') as FormArray;
   }
 
   constructor(
@@ -33,38 +33,38 @@ export class ListaIncidentesOperacionesComponent implements OnInit {
     };
   }
 
-  getPizzaTitle(pizza: IPizzaItem): string {
-    const selectedToppings = this.operacionesForm1ServicioService
-      .getSelectedToppings((pizza.toppings as IToppingItem[]))
+  getIncidenteTitle(incidente: IIncidenteItem): string {
+    const selectedDetalles = this.operacionesForm1ServicioService
+      .getSelectedDetalles((incidente.detalles as IDetalleItem[]))
       .map(i => i.name);
 
-    const toppingsString = this.getToppingsString(selectedToppings);
-    const sizeString = this.getPizzaSizeTitle(pizza.size);
+    const detallesString = this.getDetallesString(selectedDetalles);
+    const areaString = this.getIncidenteAreaTitle(incidente.area);
 
-    return `Tipo Incidencia: ${sizeString}  ${toppingsString}`;
+    return `Tipo Incidencia: ${areaString}  ${detallesString}`;
   }
 
-  private getToppingsString(toppings: string[]): string {
-    if (!toppings || !toppings.length) return '';
+  private getDetallesString(detalles: string[]): string {
+    if (!detalles || !detalles.length) return '';
 
-    return `- ${toppings.toString()}`;
+    return `- ${detalles.toString()}`;
   }
 
-  private getPizzaSizeTitle(size: PizzaSizeEnum): string {
-    let pizzaSize;
-    switch (size) {
-      case PizzaSizeEnum.SMALL:
-        pizzaSize = 'Menor';
+  private getIncidenteAreaTitle(area: IncidenteAreaEnum): string {
+    let incidenteArea;
+    switch (area) {
+      case IncidenteAreaEnum.AREA1:
+        incidenteArea = 'AREA 1';
         break;
-      case PizzaSizeEnum.MEDIUM:
-        pizzaSize = 'Grave';
+      case IncidenteAreaEnum.AREA2:
+        incidenteArea = 'AREA 2';
         break;
-      case PizzaSizeEnum.LARGE:
-        pizzaSize = 'Crítica';
+      case IncidenteAreaEnum.AREA3:
+        incidenteArea = 'AREA 3';
         break;
     }
 
-    return pizzaSize;
+    return incidenteArea;
   }
 
 }

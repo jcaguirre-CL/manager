@@ -9,10 +9,20 @@ import { map, startWith } from 'rxjs/operators';
 import { AbstractControl, FormArray, FormGroup } from '@angular/forms';
 // ****
 import { OperacionesForm1ValidadorService } from '../servicios/operaciones-form1-validador.service';
-import { IEventoFormInterface } from '../servicios/evento-operaciones.interface';
+import { IIncidenteFormInterface } from '../servicios/evento-operaciones.interface';
 import { OperacionesForm1ServicioService } from '../servicios/operaciones-form1-servicio.service';
 import { OperacionesForm1LoaderService } from '../servicios/operaciones-form1-loader.service';
 // ******
+
+// import { DEMO_PIZZA } from './services/demo-pizza-item';
+import { DEMO_INCIDENTE } from '../servicios/demo-incidente-item';
+// import { IPizzaFormInterface } from './services/pizza-form.interface';
+/* 
+import { PizzaFormValidatorsService } from './services/pizza-form-validators.service';
+import { PizzaFormService } from './services/pizza-form.service';
+import { PizzaLoaderService } from './services/pizza-loader.service';
+ */
+
 export interface State {
   flag: string;
   name: string;
@@ -28,18 +38,23 @@ export interface Responsable {
   selector: 'app-form1',
   templateUrl: './form1.component.html',
   styleUrls: ['./form1.component.css'],
-  providers: [NgbPopoverConfig]
+  providers: [
+    NgbPopoverConfig,
+    OperacionesForm1ServicioService,
+    OperacionesForm1ValidadorService,
+    OperacionesForm1LoaderService
+  ]
 })
 export class Form1Component implements OnInit {
 
-  @Input() selectedEventGroup: AbstractControl;
-  @Output() addPizza = new EventEmitter();
+/*   @Input() selectedEventGroup: AbstractControl;
+  @Output() addPizza = new EventEmitter(); */
 
-  get toppingsArray(): FormArray {
+/*   get toppingsArray(): FormArray {
     if (!this.selectedEventGroup) return;
 
     return this.selectedEventGroup.get('toppings') as FormArray;
-  }
+  } */
 
   stateCtrl = new FormControl();
   mostrarResponsable = new FormControl();
@@ -72,8 +87,22 @@ export class Form1Component implements OnInit {
     }
   ];
 
+  editMode = false;
+  get form(): FormGroup {
+    return this.operacionesForm1ServicioService.form;
+  }
 
-  constructor(config: NgbPopoverConfig) {
+  get selectedIncidenteGroup(): AbstractControl {
+    if (!this.operacionesForm1ServicioService.incidentesArray.length) return;
+
+    return this.operacionesForm1ServicioService.incidentesArray.at(this.form.get('selectedIncidente').value);
+  }
+
+  constructor(
+    config: NgbPopoverConfig,
+    private operacionesForm1LoaderService: OperacionesForm1LoaderService,
+    private operacionesForm1ServicioService: OperacionesForm1ServicioService
+    ) {
     // customize default values of popovers used by this component tree
     config.placement = 'top-left';
     config.triggers = 'hover';

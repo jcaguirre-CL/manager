@@ -4,10 +4,10 @@
     Al finalizar el encargado de C13 deberá aprobar mediante código PIN personal
   </mat-card-subtitle>
   <mat-card-content>
-      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap fxLayoutAlign="center" fxLayoutGap="25px">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap fxLayoutAlign="center" fxLayoutGap="25px" [formGroup]="form">
         <div fxFlex="50">
           <div class="jumbotron">
-            <app-detalle-evento-operaciones></app-detalle-evento-operaciones>
+            <app-detalle-evento-operaciones [group]="form.get('detalleeventoOperaciones')"></app-detalle-evento-operaciones>
             <!-- <app-detalle-evento-operaciones [group]="form.get('eventoDetails')"></app-detalle-evento-operaciones> -->
           </div>
           <div class="row">
@@ -23,17 +23,19 @@
             <div class="col-md-12 mg-top-15">
               <h5>Incidentes</h5>
               <div class="ToppingsSelector" >
-                <app-detalle-incidente-operaciones (addPizza)="onPizzaAdd()"
-                    [selectedPizzaGroup]="selectedPizzaGroup">
+                <!-- <app-detalle-incidente-operaciones (addPizza)="onPizzaAdd()" -->
+                  <!-- [selectedPizzaGroup]="selectedPizzaGroup"> -->
+                <app-detalle-incidente-operaciones (addIncidente)="onIncidenteAdd()"
+                                                    [selectedIncidenteGroup]="selectedIncidenteGroup">
                 </app-detalle-incidente-operaciones>
               </div>
-              <div class="ToppingsSelector" >
+<!--               <div class="ToppingsSelector" >
                 <app-lista-incidentes-operaciones [group]="form"
                   (pizzaSelected)="onPizzaSelected($event)"
                   (addPizza)="onPizzaAdd()"
                   (deletePizza)="onPizzaDelete($event)">
                 </app-lista-incidentes-operaciones>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -57,9 +59,21 @@
                   <p>
                     El presente Informe de operacion informa los eventos ocurridos durante
                   </p>
+                  <div class="ToppingsSelector" >
+                    <app-lista-incidentes-operaciones [group]="form"
+                      (pizzaSelected)="onPizzaSelected($event)"
+                      (addPizza)="onPizzaAdd()"
+                      (deletePizza)="onPizzaDelete($event)">
+                    </app-lista-incidentes-operaciones>
+                  </div>
+                  <!-- insertar aqui app-incidente-list -->
                 </mat-card-content>
                 <mat-card-actions>
-                  <button mat-button>APROBAR</button>
+                  <button mat-raised-button color="primary" (click)="submit(form.value)">
+                  <!-- <button class="pull-right" mat-raised-button color="primary" (click)="submit(form.value)"> -->
+                    APROBAR
+                  </button>
+                    <!-- <button mat-button>APROBAR</button> -->
                   <button mat-button>RECHAZAR</button>
                 </mat-card-actions>
               </mat-card>

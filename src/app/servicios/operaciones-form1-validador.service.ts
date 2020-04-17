@@ -2,7 +2,7 @@
 
 import { Injectable } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { IToppingItem, PizzaSizeEnum } from './evento-operaciones.interface';
+import { IDetalleItem, IncidenteAreaEnum } from './evento-operaciones.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,8 @@ export class OperacionesForm1ValidadorService {
     return (control: FormGroup): ValidationErrors | null => {
       const errors: ValidationErrors = {};
 
-      if (!(control.get('pizzas') as FormArray).length) {
-        errors.noPizzas = {
+      if (!(control.get('incidentes') as FormArray).length) {
+        errors.noIncidentes = {
           message: 'Evento no seleccionado'
         };
       }
@@ -25,16 +25,16 @@ export class OperacionesForm1ValidadorService {
     };
   }
 
-  pizzaItemValidator(): ValidatorFn {
+  incidenteItemValidator(): ValidatorFn {
     return (control: FormGroup): ValidationErrors | null => {
       const errors: ValidationErrors = {};
 
-      const pizzaSize: PizzaSizeEnum = control.get('size').value;
-      const pizzaToppings: IToppingItem[] = control.get('toppings').value.filter(i => i.selected);
+      const incidenteArea: IncidenteAreaEnum = control.get('area').value;
+      const incidenteDetalles: IDetalleItem[] = control.get('detalles').value.filter(i => i.selected);
 
-      if (pizzaSize !== PizzaSizeEnum.LARGE && pizzaToppings.length > 4) {
-        errors.toppingPizzaSize = {
-          message: 'ERROR 1 en el ingreso'
+      if (incidenteArea !== IncidenteAreaEnum.AREA1 && incidenteDetalles.length > 4) {
+        errors.detalleIncidenteArea = {
+          message: 'ERROR AREA en el ingreso'
         };
       }
 

@@ -6,11 +6,12 @@
 import { Injectable } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OperacionesForm1ValidadorService } from './operaciones-form1-validador.service';
-import { IEventoFormInterface, IToppingItem, PizzaSizeEnum, PizzaToppingsEnum } from './evento-operaciones.interface';
+// import { IEventoFormInterface, IToppingItem, PizzaSizeEnum, PizzaToppingsEnum } from './evento-operaciones.interface';
+import { IIncidenteFormInterface, IDetalleItem, IncidenteAreaEnum, IncidenteDetallesEnum } from './evento-operaciones.interface';
 
 @Injectable()
 export class OperacionesForm1ServicioService {
-  public availableToppings = [...Object.values(PizzaToppingsEnum)];
+  public availableDetalles = [...Object.values(IncidenteDetallesEnum)];
   public form: FormGroup;
 
   constructor(
@@ -18,9 +19,9 @@ export class OperacionesForm1ServicioService {
     private fb: FormBuilder
   ) {
     this.form = this.fb.group({
-      selectedPizza: null,
-      pizzas: this.fb.array([]),
-      customerDetails: this.fb.group({
+      selectedIncidente: null,
+      incidentes: this.fb.array([]),
+      detalleeventoOperaciones: this.fb.group({
         firstName: [null, Validators.required],
         lastName: [null, Validators.required],
         phoneNumber: [null, Validators.required],
@@ -36,8 +37,8 @@ export class OperacionesForm1ServicioService {
     });
   }
 
-  get pizzasArray(): FormArray {
-    return this.form.get('pizzas') as FormArray;
+  get incidentesArray(): FormArray {
+    return this.form.get('incidentes') as FormArray;
   }
 
   get isValid(): boolean {
@@ -49,30 +50,30 @@ export class OperacionesForm1ServicioService {
     return true;
   }
 
-  selectPizzaForEdit(index: number) {
-    this.form.get('selectedPizza').setValue(index);
+  selectIncidenteForEdit(index: number) {
+    this.form.get('selectedIncidente').setValue(index);
   }
 
-  addPizza(): FormGroup {
-    const pizzaGroup = this.getPizzaFormGroup();
-    this.pizzasArray.push(this.getPizzaFormGroup());
+  addIncidente(): FormGroup {
+    const incidenteGroup = this.getIncidenteFormGroup();
+    this.incidentesArray.push(this.getIncidenteFormGroup());
 
     this.form.markAsDirty();
 
-    return pizzaGroup;
+    return incidenteGroup;
   }
 
-  deletePizza(index: number): void {
-    this.pizzasArray.removeAt(index);
+  deleteIncidente(index: number): void {
+    this.incidentesArray.removeAt(index);
     this.form.markAsDirty();
   }
 
-  getPizzaFormGroup(size: PizzaSizeEnum = PizzaSizeEnum.MEDIUM): FormGroup {
+  getIncidenteFormGroup(area: IncidenteAreaEnum = IncidenteAreaEnum.AREA1): FormGroup {
     return this.fb.group({
-      size: [size],
-      toppings: this.mapToCheckboxArrayGroup(this.availableToppings)
+      area: [area],
+      incidentes: this.mapToCheckboxArrayGroup(this.availableDetalles)
     }, {
-      validator: this.operacionesForm1ValidadorService.pizzaItemValidator()
+      validator: this.operacionesForm1ValidadorService.incidenteItemValidator()
     });
   }
 
@@ -82,29 +83,30 @@ export class OperacionesForm1ServicioService {
    * so for simplicity i used the same interface,
    * usually the return object will be of different type
    */
-  createPizzaOrderDto(data: IEventoFormInterface): IEventoFormInterface {
-    const order = {
-      customerDetails: data.customerDetails,
-      pizzas: data.pizzas
+  createIncidenteOrderDto(data: IIncidenteFormInterface): IIncidenteFormInterface {
+    // const order = {
+    const evento = {
+      detalleeventoOperaciones: data.detalleeventoOperaciones,
+      incidentes: data.incidentes
     };
 
-    for (const pizza of order.pizzas) {
-      pizza.toppings = this.getSelectedToppings(pizza.toppings as IToppingItem[])
+    for (const incidente of evento.incidentes) {
+      incidente.detalles = this.getSelectedDetalles(incidente.detalles as IDetalleItem[])
         .map((i) => {
           return i.name;
         });
     }
 
-    return order;
+    return evento;
   }
 
-  getSelectedToppings(toppings: IToppingItem[]): IToppingItem[] {
-    return toppings.filter(i => i.selected);
+  getSelectedDetalles(detalles: IDetalleItem[]): IDetalleItem[] {
+    return detalles.filter(i => i.selected);
   }
 
   resetForm() {
-    while (this.pizzasArray.length) {
-      this.pizzasArray.removeAt(0);
+    while (this.incidentesArray.length) {
+      this.incidentesArray.removeAt(0);
     }
 
     this.form.reset();

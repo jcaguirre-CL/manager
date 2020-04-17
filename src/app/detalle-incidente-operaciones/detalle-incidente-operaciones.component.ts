@@ -7,13 +7,13 @@ import { AbstractControl, FormArray } from '@angular/forms';
   styleUrls: ['./detalle-incidente-operaciones.component.css']
 })
 export class DetalleIncidenteOperacionesComponent implements OnInit {
-  @Input() selectedPizzaGroup: AbstractControl;
-  @Output() addPizza = new EventEmitter();
+  @Input() selectedIncidenteGroup: AbstractControl;
+  @Output() addIncidente = new EventEmitter();
 
-  get toppingsArray(): FormArray {
-    if (!this.selectedPizzaGroup) return;
+  get detallesArray(): FormArray {
+    if (!this.selectedIncidenteGroup) return;
 
-    return this.selectedPizzaGroup.get('toppings') as FormArray;
+    return this.selectedIncidenteGroup.get('detalles') as FormArray;
   }
 
   constructor() { }

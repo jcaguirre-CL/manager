@@ -1,26 +1,32 @@
-export interface IEventoFormInterface {
-    selectedPizza?: IPizzaItem;
-    pizzas: IPizzaItem[];
-    customerDetails: ICustomerDetails;
+export interface IIncidenteFormInterface {
+    selectedIncidente?: IIncidenteItem;
+    incidentes: IIncidenteItem[];
+    // pizzas: IIncidenteItem[];
+    detalleeventoOperaciones: IDetalleEventoOperaciones;
+    // customerDetails: ICustomerDetails;
   }
   
-  export interface IToppingItem {
-    name: PizzaToppingsEnum;
+  export interface IDetalleItem {
+  // export interface IToppingItem {
+    name: IncidenteDetallesEnum;
+    // name: PizzaToppingsEnum;
     selected: boolean;
   }
   
-  export interface IPizzaItem {
-    size: PizzaSizeEnum;
+  // export interface IPizzaItem {
+    export interface IIncidenteItem {
+    area: IncidenteAreaEnum;
     /**
      * A small hack for imitating a different model returned from server,
      * for the simplicity sake the same interface was used.
      * In real life the server model may vary from the form model.
      * In this case you need to maintain both the server model interface and the client form interface.
      */
-    toppings: IToppingItem[] | PizzaToppingsEnum[];
+    detalles: IDetalleItem[] | IncidenteDetallesEnum[];
+    // detalles: IToppingItem[] | PizzaToppingsEnum[];
   }
   
-  export interface ICustomerDetails {
+  export interface IDetalleEventoOperaciones {
     firstName: string;
     lastName: string;
     phoneNumber: string;
@@ -32,13 +38,13 @@ export interface IEventoFormInterface {
     };
   }
   
-  export enum PizzaSizeEnum {
-    SMALL = 1,
-    MEDIUM = 2,
-    LARGE = 3
+  export enum IncidenteAreaEnum {
+    AREA1 = 1,
+    AREA2 = 2,
+    AREA3 = 3
   }
   
-  export enum PizzaToppingsEnum {
+  export enum IncidenteDetallesEnum {
     OPCION1 = 'Opcion1',
     OPCION2 = 'Opcion2',
     OPCION3 = 'Opcion3',

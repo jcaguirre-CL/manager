@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="PizzaSizePicker">
+        <div class="PizzaSizePicker__item"
+             (click)="changeArea(IncidenteAreaEnum.AREA1)"
+             [ngClass]="{'IncidenteAreaPicker__item--active': incidenteArea === IncidenteAreaEnum.AREA1}">
+          AREA1
+        </div>
+        <div class="PizzaSizePicker__item"
+        (click)="changeArea(IncidenteAreaEnum.AREA2)"
+        [ngClass]="{'IncidenteAreaPicker__item--active': incidenteArea === IncidenteAreaEnum.AREA2}">
+     AREA2
+        </div>
+        <div class="PizzaSizePicker__item"
+        (click)="changeArea(IncidenteAreaEnum.AREA3)"
+        [ngClass]="{'IncidenteAreaPicker__item--active': incidenteArea === IncidenteAreaEnum.AREA3}">
+     AREA3
+        </div>
+      </div>
+    </div>
+  </div>

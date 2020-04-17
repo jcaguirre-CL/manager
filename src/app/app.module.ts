@@ -22,6 +22,7 @@ import { DetalleIncidenteOperacionesComponent } from './detalle-incidente-operac
 import { ListaIncidentesOperacionesComponent } from './lista-incidentes-operaciones/lista-incidentes-operaciones.component';
 
 import { OperacionesForm1ServicioService } from './servicios/operaciones-form1-servicio.service';
+import { IncidenteAreaPickerComponent } from './incidente-area-picker/incidente-area-picker.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { OperacionesForm1ServicioService } from './servicios/operaciones-form1-s
     Opc1OperacionesComponent,
     DetalleEventoOperacionesComponent,
     DetalleIncidenteOperacionesComponent,
-    ListaIncidentesOperacionesComponent
+    ListaIncidentesOperacionesComponent,
+    IncidenteAreaPickerComponent
   ],
   imports: [
     BrowserModule,
