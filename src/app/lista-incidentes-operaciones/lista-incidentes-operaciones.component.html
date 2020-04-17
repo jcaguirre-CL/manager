@@ -7,20 +7,20 @@
             Listado de incidentes:
           </h2>
         </div>
-        <div class="PizzaList__content" formArrayName="pizzas">
-            <div class="PizzaList__item PizzaList__item--add" (click)="addPizza.emit()">
+        <div class="PizzaList__content" formArrayName="incidentes">
+            <div class="PizzaList__item PizzaList__item--add" (click)="addIncidente.emit()">
                 <mat-icon class="PizzaList__item__icon">add_circle</mat-icon>
             </div>
           <div class="PizzaList__item"
-               *ngFor="let pizza of pizzasArray.controls; let i = index;"
-               [ngClass]="getPizzaListItemClassStates(pizza, i)"
-               (click)="pizzaSelected.emit(i)"
-               [formGroup]="pizza">
+               *ngFor="let incidente of incidentesArray.controls; let i = index;"
+               [ngClass]="getIncidenteListItemClassStates(pizza, i)"
+               (click)="incidenteSelected.emit(i)"
+               [formGroup]="incidente">
             <span>
-              {{getPizzaTitle(pizza.value)}}
+              {{getIncidenteTitle(incidente.value)}}
             </span>
   
-            <button mat-icon-button (click)="deletePizza.emit(i); $event.stopPropagation()">
+            <button mat-icon-button (click)="deleteIncidente.emit(i); $event.stopPropagation()">
               <mat-icon class="PizzaList__item__icon">remove_circle</mat-icon>
             </button>
           </div>

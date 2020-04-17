@@ -26,10 +26,10 @@ export class ListaIncidentesOperacionesComponent implements OnInit {
   ngOnInit() {
   }
 
-  getPizzaListItemClassStates(pizza: AbstractControl, index: number) {
+  getIncidenteListItemClassStates(incidente: AbstractControl, index: number) {
     return {
-      'PizzaList__item--active': this.group.get('selectedPizza').value === index,
-      'PizzaList__item--has-error': !pizza.valid && pizza.dirty
+      'IncidenteList__item--active': this.group.get('selectedIncidente').value === index,
+      'IncidenteList__item--has-error': !incidente.valid && incidente.dirty
     };
   }
 
