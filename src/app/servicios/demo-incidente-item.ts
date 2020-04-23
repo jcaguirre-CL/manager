@@ -2,18 +2,19 @@ import { IIncidenteFormInterface, IncidenteAreaEnum, IncidenteDetallesEnum } fro
 
 export const DEMO_INCIDENTE: IIncidenteFormInterface = {
   detalleeventoOperaciones: {
-    address: {
-      floor: 1,
-      street: 'Test street',
-      houseNum: '44',
-      city: 'New York'
+    produccion: {
+      nombreProduccion: 'Test street',
+      encargadoCanal: 'New York'
     },
-    lastName: 'Lover',
-    firstName: 'Pizza',
-    phoneNumber: '100100100',
+    fechaEvento: '10/10/2000',
+    responsableEvento: 'Responsable 1',
+    atencionEvento: 'Canal 13',
+    descripcionEvento: 'XX',
+    areaEvento: 'AREA 1'
   },
   incidentes: [{
     detalles: [IncidenteDetallesEnum.OPCION1, IncidenteDetallesEnum.OPCION2] as any,
     area: IncidenteAreaEnum.AREA1
   }]
 };
+

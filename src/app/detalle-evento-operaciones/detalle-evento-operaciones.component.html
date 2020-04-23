@@ -4,53 +4,66 @@
     <!-- MENCIONA AL RESPONSABLE DE GENERAR EL EVENTO -->
     <!-- FECHA -->
     <mat-form-field class="example-full-width">
-      <input matInput [matDatepicker]="picker" placeholder="Fecha del evento" [formControl]="stateCtrl" formControlName="fechaEvento">
+      <!-- <input matInput [matDatepicker]="picker" placeholder="Fecha del evento" [formControl]="stateCtrl" formControlName="fechaEvento"> -->
+      <input matInput [matDatepicker]="picker" placeholder="Fecha del evento" [formControl]="responsableCtrl" formControlName="fechaEvento">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker touchUi #picker></mat-datepicker>
     </mat-form-field>
 
     <!-- RESPONSABLE -->
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Responsable" aria-label="Responsable" [matAutocomplete]="auto" [formControl]="stateCtrl">
+      <!-- <input matInput placeholder="Responsable" aria-label="Responsable" [matAutocomplete]="auto" [formControl]="stateCtrl"> -->
+      <input matInput placeholder="Responsable" aria-label="Responsable" [matAutocomplete]="auto" [formControl]="responsableCtrl" formControlName="responsableEvento">
       <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+        <!-- <mat-option *ngFor="let state of filteredStates | async" [value]="state.name"> -->
+        <mat-option *ngFor="let responsable of filteredResponsables | async" [value]="responsable.nombre">
           <!-- <img class="example-option-img" aria-hidden [src]="state.flag" height="25"> -->
-          <span>{{state.name}}</span> |
-          <small>Resp: {{state.population}}</small>
+          <span>{{responsable.nombre}}</span> |
+          <small>Resp: {{responsable.empresa}}</small>
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
 
-    <!-- INICIO DETALLE DEL EVENTO --- SON DATOS PARTICULARES DEL EVENTO-->
-    <div [formGroup]="group.get('evento')">
-
       <!-- ATENCION -->
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Atención" [popoverTitle]="popTitle" [ngbPopover]="popContent" [formControl]="stateCtrl">
+        <input matInput placeholder="Atención" [popoverTitle]="popTitle" [ngbPopover]="popContent" [formControl]="responsableCtrl" formControlName="atencionEvento">
       </mat-form-field>
       <ng-template #popTitle>Ayuda</ng-template>
       <ng-template #popContent>Descripcion extendida</ng-template>
 
       <!-- DESCRIPCION -->
       <mat-form-field class="example-full-width">
-        <textarea matInput placeholder="Descripción" [formControl]="stateCtrl"></textarea>
+        <textarea matInput placeholder="Descripción" [formControl]="responsableCtrl" formControlName="descripcionEvento"></textarea>
       </mat-form-field>
 
       <!-- AREA -->
       <mat-form-field class="example-full-width">
-        <mat-select placeholder="Area" [formControl]="stateCtrl">
-          <mat-option value="option">Area 1</mat-option>
+        <!-- <mat-select placeholder="Area" [formControl]="responsableCtrl" formControlName="areaEvento">
+          <mat-option value="">Area 1</mat-option>
+        </mat-select> -->
+        <mat-select placeholder="Area" [formControl]="responsableCtrl" name="areaEvento" >
+          <mat-option *ngFor="let area of areas" [value]="area.value" >
+            {{area.viewValue}}
+          </mat-option>
         </mat-select>
       </mat-form-field>
       <br>
 
+    <!-- INICIO DETALLE DEL EVENTO --- SON DATOS PARTICULARES DEL EVENTO-->
+    <div [formGroup]="group.get('produccion')">
+
+      <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Nombre Produccion" [formControl]="responsableCtrl" formControlName="nombreProduccion"></textarea>
+      </mat-form-field>
+
+    </div>
+
       <!-- DESHABILITAR FORMULARIO -->
       <mat-slide-toggle
-        [checked]="stateCtrl.disabled"
-        (change)="stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()">
+        [checked]="responsableCtrl.disabled"
+        (change)="responsableCtrl.disabled ? responsableCtrl.enable() : responsableCtrl.disable()">
         Bloquear ingreso?
       </mat-slide-toggle>
       <br>
-    </div>
   </div>
 </form>

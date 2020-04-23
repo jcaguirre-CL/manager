@@ -22,15 +22,24 @@ export class OperacionesForm1ServicioService {
       selectedIncidente: null,
       incidentes: this.fb.array([]),
       detalleeventoOperaciones: this.fb.group({
-        firstName: [null, Validators.required],
+        fechaEvento: [null, Validators.required],
+        responsableEvento: [null, Validators.required],
+        atencionEvento: [null, Validators.required],
+        descripcionEvento: [null, Validators.required],
+        areaEvento: [null, Validators.required],
+/*         firstName: [null, Validators.required],
         lastName: [null, Validators.required],
-        phoneNumber: [null, Validators.required],
-        address: this.fb.group({
+        phoneNumber: [null, Validators.required], */
+        produccion: this.fb.group({
+          encargadoCanal: [null, Validators.required],
+          nombreProduccion: [null, Validators.required],
+        })
+/*         address: this.fb.group({
           street: [null, Validators.required],
           houseNum: [null, Validators.required],
           city: [null, Validators.required],
           floor: [null, Validators.required],
-        })
+        }) */
       })
     }, {
       validator: this.operacionesForm1ValidadorService.formValidator()
@@ -83,7 +92,7 @@ export class OperacionesForm1ServicioService {
    * so for simplicity i used the same interface,
    * usually the return object will be of different type
    */
-  createIncidenteOrderDto(data: IIncidenteFormInterface): IIncidenteFormInterface {
+  createIncidenteEventoDto(data: IIncidenteFormInterface): IIncidenteFormInterface {
     // const order = {
     const evento = {
       detalleeventoOperaciones: data.detalleeventoOperaciones,

@@ -13,7 +13,7 @@ export class OperacionesForm1LoaderService {
 
   }
 
-  loadPizzaForEdit(data: IIncidenteFormInterface): void {
+  loadIncidenteForEdit(data: IIncidenteFormInterface): void {
     this.operacionesForm1ServicioService.form.patchValue({
       detalleeventoOperaciones: {
         ...data.detalleeventoOperaciones

@@ -13,10 +13,21 @@ export interface State {
   name: string;
   population: string;
 }
+/* export interface Responsable {
+  flag: string;
+  responsable: string;
+  : string;
+} */
 
 export interface Responsable {
+  flag: string;
   nombre: string;
-  responsabilidad: string;
+  empresa: string;
+}
+
+interface Area {
+  value: string;
+  viewValue: string;
 }
 
 @Component({
@@ -32,45 +43,54 @@ export class DetalleEventoOperacionesComponent implements OnInit {
   @Input() selectedEventGroup: AbstractControl;
   @Input() group: FormGroup;
 
-  @Output() addPizza = new EventEmitter();
+  // @Output() addPizza = new EventEmitter();
 
-  get toppingsArray(): FormArray {
+  /* get toppingsArray(): FormArray {
     if (!this.selectedEventGroup) return;
 
     return this.selectedEventGroup.get('toppings') as FormArray;
-  }
+  } */
 
   stateCtrl = new FormControl();
+  responsableCtrl = new FormControl();
   mostrarResponsable = new FormControl();
-  filteredStates: Observable<State[]>;
+  // filteredStates: Observable<State[]>;
+  filteredResponsables: Observable<Responsable[]>;
   responsable: Responsable;
-  states: State[] = [
+  // states: State[] = [
+
+    areas: Area[] = [
+      {value: 'area1', viewValue: 'AREA1'},
+      {value: 'area2', viewValue: 'AREA2'},
+      {value: 'area3', viewValue: 'AREA3'}
+    ];
+
+  responsables: Responsable[] = [
     {
-      name: 'Responsable 1',
-      population: 'Canal 13',
+      nombre: 'Responsable 1',
+      empresa: 'Canal 13',
       // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
       flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
     },
     {
-      name: 'Responsable 2',
-      population: 'Canal 13',
+      nombre: 'Responsable 2',
+      empresa: 'Canal 13',
       // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
       flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
     },
     {
-      name: 'Responsable 3',
-      population: 'Secuoya',
+      nombre: 'Responsable 3',
+      empresa: 'Secuoya',
       // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
       flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
     },
     {
-      name: 'Responsable 4',
-      population: 'Secuoya',
+      nombre: 'Responsable 4',
+      empresa: 'Secuoya',
       // https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
       flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
     }
   ];
-
 
   constructor(config: NgbPopoverConfig) {
     // customize default values of popovers used by this component tree
@@ -78,14 +98,15 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     config.triggers = 'hover';
     this.responsable = 
       {
+        flag: 'empty',
         nombre: 'Nombre',
-        responsabilidad: 'Canal 13'
+        empresa: 'Canal 13'
     }
     this.mostrarResponsable.disabled;
-    this.filteredStates = this.stateCtrl.valueChanges
+    this.filteredResponsables = this.responsableCtrl.valueChanges
     .pipe(
       startWith(''),
-      map(state => state ? this._filterStates(state) : this.states.slice())
+      map(responsable => responsable ? this._filterResponsables(responsable) : this.responsables.slice())
     );
 
   }
@@ -93,10 +114,10 @@ export class DetalleEventoOperacionesComponent implements OnInit {
   ngOnInit() {
   }
 
-  private _filterStates(value: string): State[] {
+  private _filterResponsables(value: string): Responsable[] {
     const filterValue = value.toLowerCase();
 
-    return this.states.filter(state => state.name.toLowerCase().indexOf(filterValue) === 0);
+    return this.responsables.filter(responsable => responsable.nombre.toLowerCase().indexOf(filterValue) === 0);
   }
 
 }

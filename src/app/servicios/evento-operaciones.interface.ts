@@ -26,18 +26,46 @@ export interface IIncidenteFormInterface {
     // detalles: IToppingItem[] | PizzaToppingsEnum[];
   }
   
+  // Estructura de datos: EVENTO
   export interface IDetalleEventoOperaciones {
+    fechaEvento: string;
+    responsableEvento: string;  
+    atencionEvento: string;
+    descripcionEvento: string;
+    areaEvento: string;
+    produccion: {
+      nombreProduccion: string;
+      encargadoCanal: string;
+    };
+  }
+  
+  // RESPALDO
+  /* export interface IDetalleEventoOperaciones {
     firstName: string;
     lastName: string;
     phoneNumber: string;
+    fechaEvento: string;
+    responsableEvento: string;  
+    atencionEvento: string;
+    descripcionEvento: string;
+    areaEvento: string;
     address: {
       street: string;
       houseNum: string;
       city: string;
       floor: number;
     };
-  }
-  
+    produccion: {
+      nombreProduccion: string;
+      encargadoCanal: string;
+    };
+    evento: {
+      atencionEvento: string;
+      descripcionEvento: string;
+      areaEvento: string;
+    };
+  } */
+
   export enum IncidenteAreaEnum {
     AREA1 = 1,
     AREA2 = 2,
