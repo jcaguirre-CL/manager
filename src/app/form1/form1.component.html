@@ -8,7 +8,6 @@
         <div fxFlex="50">
           <div class="jumbotron">
             <app-detalle-evento-operaciones [group]="form.get('detalleeventoOperaciones')"></app-detalle-evento-operaciones>
-            <!-- <app-detalle-evento-operaciones [group]="form.get('eventoDetails')"></app-detalle-evento-operaciones> -->
           </div>
           <div class="row">
           <!-- <div class="row" *ngIf="!selectedEventGroup" [formGroup]="selectedEventGroup"> -->
@@ -18,24 +17,15 @@
               </div>
             </div> -->
             <div class="col-md-6 offset-md-3">
-              <!-- <app-opc1-operaciones formControlName="size"></app-opc1-operaciones> -->
             </div>
             <div class="col-md-12 mg-top-15">
               <!-- <h5>Descripción del incidente:</h5> -->
               <div class="DetallesSelector" >
-                <!-- <app-detalle-incidente-operaciones (addPizza)="onPizzaAdd()" -->
-                  <!-- [selectedPizzaGroup]="selectedPizzaGroup"> -->
                 <app-detalle-incidente-operaciones (addIncidente)="onIncidenteAdd()"
                                                     [selectedIncidenteGroup]="selectedIncidenteGroup">
                 </app-detalle-incidente-operaciones>
               </div>
-<!--               <div class="ToppingsSelector" >
-                <app-lista-incidentes-operaciones [group]="form"
-                  (pizzaSelected)="onPizzaSelected($event)"
-                  (addPizza)="onPizzaAdd()"
-                  (deletePizza)="onPizzaDelete($event)">
-                </app-lista-incidentes-operaciones>
-              </div> -->
+
             </div>
           </div>
         </div>
@@ -43,23 +33,14 @@
             <mat-card class="example-card">
                 <mat-card-header>
                   <mat-card-title>Listado de Incidentes:</mat-card-title>
-
                   <mat-card-subtitle class="DetalleInforme">
                     Para notificar un incidente presionar +
-<!--                       <mat-form-field>
-                          <input matInput placeholder="Generado por:" [value]="responsable.nombre" [formControl]="mostrarResponsable" readonly />
-                        </mat-form-field>
-                        <mat-form-field>
-                          <input matInput placeholder="Responsabilidad:" [value]="responsable.responsabilidad" formControlName="lastName" readonly/>
-                        </mat-form-field> -->
                   </mat-card-subtitle>
                 </mat-card-header>
                 <mat-divider inset='True'></mat-divider>
 
                 <mat-card-content class="DetalleInforme">
-<!--                   <p>
-                    El presente Informe de Operación registra los siguientes incidentes ocurridos
-                  </p> -->
+
                   <div class="ToppingsSelector" >
                     <app-lista-incidentes-operaciones [group]="form"
                       (incidenteSelected)="onIncidenteSelected($event)"
@@ -67,14 +48,13 @@
                       (deleteIncidente)="onIncidenteDelete($event)">
                     </app-lista-incidentes-operaciones>
                   </div>
-                  <!-- insertar aqui app-incidente-list -->
+
                 </mat-card-content>
                 <mat-card-actions>
                   <button mat-raised-button color="primary" (click)="submit(form.value)">
                   <!-- <button class="pull-right" mat-raised-button color="primary" (click)="submit(form.value)"> -->
                     GUARDAR
                   </button>
-                    <!-- <button mat-button>APROBAR</button> -->
                   <button mat-button>CANCELAR</button>
                 </mat-card-actions>
               </mat-card>
