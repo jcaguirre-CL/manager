@@ -1,4 +1,5 @@
 <div class="row" *ngIf="selectedIncidenteGroup" [formGroup]="selectedIncidenteGroup">
+  <h5>Nivel de severidad:</h5>
   <div class="col-md-6 offset-md-3">
     <app-incidente-area-picker formControlName="area"></app-incidente-area-picker>
   </div>
@@ -7,13 +8,18 @@
   <div class="col-md-12 mg-top-15">
     <h5>Tipo de falla</h5>
 
-  <div class="DetallesSelector" formArrayName="detalles">
-    <div class="DetallesSelector__item" *ngFor="let detalle of detallesArray.controls" [formGroup]="detalle" >
-      <mat-checkbox [formControl]="detalle.get('selected')">
-        {{detalle.get('name').value}}
-      </mat-checkbox>
+    <div class="DetallesSelector" formArrayName="detalles">
+      <div class="DetallesSelector__item" *ngFor="let detalle of detallesArray.controls" [formGroup]="detalle" >
+       <mat-checkbox [formControl]="detalle.get('selected')">
+          {{detalle.get('name').value}}
+        </mat-checkbox>
+      </div>
     </div>
-  </div>
+
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Detalle del incidente"></textarea>
+    </mat-form-field>
+  
 <!--     <mat-form-field class="full-width-input">
       <input matInput placeholder="Motivo" />
     </mat-form-field>

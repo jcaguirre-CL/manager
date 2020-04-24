@@ -1,7 +1,7 @@
 <mat-card class="example-form basic-container">
-  <mat-card-title>INGRESO DE EVENTO</mat-card-title>
+  <mat-card-title>Descripción del evento:</mat-card-title>
   <mat-card-subtitle>
-    Al finalizar el encargado de C13 deberá aprobar mediante código PIN personal
+    El evento quedará pendiente hasta la aprobación por parte de la producción
   </mat-card-subtitle>
   <mat-card-content>
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap fxLayoutAlign="center" fxLayoutGap="25px" [formGroup]="form">
@@ -21,7 +21,7 @@
               <!-- <app-opc1-operaciones formControlName="size"></app-opc1-operaciones> -->
             </div>
             <div class="col-md-12 mg-top-15">
-              <h5>Descripción del incidente:</h5>
+              <!-- <h5>Descripción del incidente:</h5> -->
               <div class="DetallesSelector" >
                 <!-- <app-detalle-incidente-operaciones (addPizza)="onPizzaAdd()" -->
                   <!-- [selectedPizzaGroup]="selectedPizzaGroup"> -->
@@ -42,10 +42,10 @@
         <div fxFlex="50">
             <mat-card class="example-card">
                 <mat-card-header>
-                  <mat-card-title>INFORME DE OPERACION</mat-card-title>
+                  <mat-card-title>Listado de Incidentes:</mat-card-title>
 
                   <mat-card-subtitle class="DetalleInforme">
-                    RESUMEN DE EVENTO
+                    Para notificar un incidente presionar +
 <!--                       <mat-form-field>
                           <input matInput placeholder="Generado por:" [value]="responsable.nombre" [formControl]="mostrarResponsable" readonly />
                         </mat-form-field>
@@ -57,9 +57,9 @@
                 <mat-divider inset='True'></mat-divider>
 
                 <mat-card-content class="DetalleInforme">
-                  <p>
-                    El presente Informe de operacion informa los eventos ocurridos durante
-                  </p>
+<!--                   <p>
+                    El presente Informe de Operación registra los siguientes incidentes ocurridos
+                  </p> -->
                   <div class="ToppingsSelector" >
                     <app-lista-incidentes-operaciones [group]="form"
                       (incidenteSelected)="onIncidenteSelected($event)"
@@ -72,10 +72,10 @@
                 <mat-card-actions>
                   <button mat-raised-button color="primary" (click)="submit(form.value)">
                   <!-- <button class="pull-right" mat-raised-button color="primary" (click)="submit(form.value)"> -->
-                    APROBAR
+                    GUARDAR
                   </button>
                     <!-- <button mat-button>APROBAR</button> -->
-                  <button mat-button>RECHAZAR</button>
+                  <button mat-button>CANCELAR</button>
                 </mat-card-actions>
               </mat-card>
             <!-- <div class="jumbotron">
