@@ -6,7 +6,7 @@ import { OperacionesForm1ServicioService } from '../servicios/operaciones-form1-
 @Component({
   selector: 'app-lista-incidentes-operaciones',
   templateUrl: './lista-incidentes-operaciones.component.html',
-  styleUrls: ['./lista-incidentes-operaciones.component.css']
+  styleUrls: ['./lista-incidentes-operaciones.component.scss']
 })
 export class ListaIncidentesOperacionesComponent implements OnInit {
   @Input() group: FormGroup;

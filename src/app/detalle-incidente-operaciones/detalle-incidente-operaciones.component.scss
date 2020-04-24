@@ -1,0 +1,12 @@
+.DetallesSelector {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+  
+    .DetallesSelector__item {
+      margin-right: 15px;
+    }
+  }
+  

@@ -6,7 +6,7 @@ import { IncidenteAreaEnum } from '../servicios/evento-operaciones.interface';
 @Component({
   selector: 'app-incidente-area-picker',
   templateUrl: './incidente-area-picker.component.html',
-  styleUrls: ['./incidente-area-picker.component.css'],
+  styleUrls: ['./incidente-area-picker.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

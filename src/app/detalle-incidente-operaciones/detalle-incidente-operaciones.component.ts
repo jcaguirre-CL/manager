@@ -4,7 +4,7 @@ import { AbstractControl, FormArray } from '@angular/forms';
 @Component({
   selector: 'app-detalle-incidente-operaciones',
   templateUrl: './detalle-incidente-operaciones.component.html',
-  styleUrls: ['./detalle-incidente-operaciones.component.css']
+  styleUrls: ['./detalle-incidente-operaciones.component.scss']
 })
 export class DetalleIncidenteOperacionesComponent implements OnInit {
   @Input() selectedIncidenteGroup: AbstractControl;

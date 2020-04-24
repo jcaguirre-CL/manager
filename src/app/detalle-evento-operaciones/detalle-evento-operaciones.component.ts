@@ -8,15 +8,10 @@ import { map, startWith } from 'rxjs/operators';
 
 import { AbstractControl, FormArray } from '@angular/forms';
 
-export interface State {
+/* export interface State {
   flag: string;
   name: string;
   population: string;
-}
-/* export interface Responsable {
-  flag: string;
-  responsable: string;
-  : string;
 } */
 
 export interface Responsable {
@@ -51,12 +46,12 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     return this.selectedEventGroup.get('toppings') as FormArray;
   } */
 
-  stateCtrl = new FormControl();
+  // stateCtrl = new FormControl();
   responsableCtrl = new FormControl();
-  mostrarResponsable = new FormControl();
+  // mostrarResponsable = new FormControl();
   // filteredStates: Observable<State[]>;
   filteredResponsables: Observable<Responsable[]>;
-  responsable: Responsable;
+  // responsable: Responsable;
   // states: State[] = [
 
     areas: Area[] = [
@@ -96,13 +91,14 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     // customize default values of popovers used by this component tree
     config.placement = 'top-left';
     config.triggers = 'hover';
-    this.responsable = 
+/*     this.responsable = 
       {
         flag: 'empty',
         nombre: 'Nombre',
         empresa: 'Canal 13'
-    }
-    this.mostrarResponsable.disabled;
+    } */
+    // this.responsableCtrl.disabled;
+    // this.mostrarResponsable.disabled;
     this.filteredResponsables = this.responsableCtrl.valueChanges
     .pipe(
       startWith(''),

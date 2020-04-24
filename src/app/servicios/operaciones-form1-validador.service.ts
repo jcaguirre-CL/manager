@@ -1,12 +1,11 @@
-
-
 import { Injectable } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { IDetalleItem, IncidenteAreaEnum } from './evento-operaciones.interface';
 
-@Injectable({
+/* @Injectable({
   providedIn: 'root'
-})
+}) */
+@Injectable()
 export class OperacionesForm1ValidadorService {
 
   constructor() { }

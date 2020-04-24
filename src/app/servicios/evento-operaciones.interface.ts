@@ -14,7 +14,7 @@ export interface IIncidenteFormInterface {
   }
   
   // export interface IPizzaItem {
-    export interface IIncidenteItem {
+  export interface IIncidenteItem {
     area: IncidenteAreaEnum;
     /**
      * A small hack for imitating a different model returned from server,

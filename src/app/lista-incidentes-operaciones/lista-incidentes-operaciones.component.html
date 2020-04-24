@@ -1,19 +1,17 @@
 <div class="row" [formGroup]="group">
     <div class="col-md-12">
-      <div class="PizzaList">
-        <div class="PizzaList__title">
+      <div class="IncidenteList">
+        <div class="IncidenteList__title">
           <!-- copiar class de tabla para el listado -->
           <h2>
             Listado de incidentes:
           </h2>
         </div>
-        <div class="PizzaList__content" formArrayName="incidentes">
-            <div class="PizzaList__item PizzaList__item--add" (click)="addIncidente.emit()">
-                <mat-icon class="PizzaList__item__icon">add_circle</mat-icon>
-            </div>
-          <div class="PizzaList__item"
+        <div class="IncidenteList__content" formArrayName="incidentes">
+
+          <div class="IncidenteList__item"
                *ngFor="let incidente of incidentesArray.controls; let i = index;"
-               [ngClass]="getIncidenteListItemClassStates(pizza, i)"
+               [ngClass]="getIncidenteListItemClassStates(incidente, i)"
                (click)="incidenteSelected.emit(i)"
                [formGroup]="incidente">
             <span>
@@ -21,10 +19,13 @@
             </span>
   
             <button mat-icon-button (click)="deleteIncidente.emit(i); $event.stopPropagation()">
-              <mat-icon class="PizzaList__item__icon">remove_circle</mat-icon>
+              <mat-icon class="IncidenteList__item__icon">remove_circle</mat-icon>
             </button>
           </div>
   
+          <div class="IncidenteList__item IncidenteList__item--add" (click)="addIncidente.emit()">
+            <mat-icon class="IncidenteList__item__icon">add_circle</mat-icon>
+        </div>
 
         </div>
       </div>

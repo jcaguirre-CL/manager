@@ -5,7 +5,7 @@
     <!-- FECHA -->
     <mat-form-field class="example-full-width">
       <!-- <input matInput [matDatepicker]="picker" placeholder="Fecha del evento" [formControl]="stateCtrl" formControlName="fechaEvento"> -->
-      <input matInput [matDatepicker]="picker" placeholder="Fecha del evento" [formControl]="responsableCtrl" formControlName="fechaEvento">
+      <input matInput [matDatepicker]="picker" placeholder="Fecha del evento" formControlName="fechaEvento">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker touchUi #picker></mat-datepicker>
     </mat-form-field>
@@ -13,7 +13,11 @@
     <!-- RESPONSABLE -->
     <mat-form-field class="example-full-width">
       <!-- <input matInput placeholder="Responsable" aria-label="Responsable" [matAutocomplete]="auto" [formControl]="stateCtrl"> -->
-      <input matInput placeholder="Responsable" aria-label="Responsable" [matAutocomplete]="auto" [formControl]="responsableCtrl" formControlName="responsableEvento">
+      <input matInput placeholder="Responsable" 
+              aria-label="Responsable" 
+              [matAutocomplete]="auto" 
+              [formControl]="responsableCtrl" 
+              formControlName="responsableEvento">
       <mat-autocomplete #auto="matAutocomplete">
         <!-- <mat-option *ngFor="let state of filteredStates | async" [value]="state.name"> -->
         <mat-option *ngFor="let responsable of filteredResponsables | async" [value]="responsable.nombre">

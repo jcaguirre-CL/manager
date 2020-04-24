@@ -1,16 +1,20 @@
-<div class="row" *ngIf="selectedPizzaGroup" [formGroup]="selectedIncidenteGroup">
+<div class="row" *ngIf="selectedIncidenteGroup" [formGroup]="selectedIncidenteGroup">
   <div class="col-md-6 offset-md-3">
     <app-incidente-area-picker formControlName="area"></app-incidente-area-picker>
   </div>
   <!-- <div class="ToppingsSelector" formArrayName="toppings"> -->
   <!-- detalles son las tipos de error -->
-  <div class="ToppingsSelector" formArrayName="detalles">
-    <div class="ToppingsSelector__item" *ngFor="let detalle of detallesArray.controls" [formGroup]="detalle" >
+  <div class="col-md-12 mg-top-15">
+    <h5>Tipo de falla</h5>
+
+  <div class="DetallesSelector" formArrayName="detalles">
+    <div class="DetallesSelector__item" *ngFor="let detalle of detallesArray.controls" [formGroup]="detalle" >
       <mat-checkbox [formControl]="detalle.get('selected')">
         {{detalle.get('name').value}}
       </mat-checkbox>
     </div>
-    <mat-form-field class="full-width-input">
+  </div>
+<!--     <mat-form-field class="full-width-input">
       <input matInput placeholder="Motivo" />
     </mat-form-field>
     <mat-form-field class="full-width-input">
@@ -18,12 +22,12 @@
     </mat-form-field>
     <mat-form-field class="full-width-input">
       <input matInput placeholder="Responsable"  />
-    </mat-form-field>
-    <div>
+    </mat-form-field> -->
+<!--     <div>
       <button mat-button  color="primary" (click)="addIncidente.emit()">
         <mat-icon>add_circle</mat-icon>
         Add one
       </button>
-    </div>
+    </div> -->
   </div>
 </div>

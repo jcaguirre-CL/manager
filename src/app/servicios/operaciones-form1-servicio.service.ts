@@ -80,7 +80,7 @@ export class OperacionesForm1ServicioService {
   getIncidenteFormGroup(area: IncidenteAreaEnum = IncidenteAreaEnum.AREA1): FormGroup {
     return this.fb.group({
       area: [area],
-      incidentes: this.mapToCheckboxArrayGroup(this.availableDetalles)
+      detalles: this.mapToCheckboxArrayGroup(this.availableDetalles)
     }, {
       validator: this.operacionesForm1ValidadorService.incidenteItemValidator()
     });
