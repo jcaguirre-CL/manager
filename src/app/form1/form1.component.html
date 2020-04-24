@@ -6,27 +6,27 @@
   <mat-card-content>
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap fxLayoutAlign="center" fxLayoutGap="25px" [formGroup]="form">
         <div fxFlex="50">
+          <!-- DETALLE DEL EVENTO -->
           <div class="jumbotron">
             <app-detalle-evento-operaciones [group]="form.get('detalleeventoOperaciones')"></app-detalle-evento-operaciones>
           </div>
-          <div class="row">
-          <!-- <div class="row" *ngIf="!selectedEventGroup" [formGroup]="selectedEventGroup"> -->
-            <!-- <div class="col-md-12" *ngIf="selectedEventGroup.errors?.toppingPizzaSize">
-              <div  class="ValidationErrorLabel mg-bottom-15">
-                {{selectedEventGroup.errors?.toppingPizzaSize?.message}}
-              </div>
-            </div> -->
-            <div class="col-md-6 offset-md-3">
-            </div>
-            <div class="col-md-12 mg-top-15">
-              <!-- <h5>Descripción del incidente:</h5> -->
-              <div class="DetallesSelector" >
-                <app-detalle-incidente-operaciones (addIncidente)="onIncidenteAdd()"
-                                                    [selectedIncidenteGroup]="selectedIncidenteGroup">
-                </app-detalle-incidente-operaciones>
-              </div>
-
-            </div>
+          <!-- DETALLE DEL INCIDENTE -->
+          <div>
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>Descripción del Incidente:</mat-card-title>
+                <mat-card-subtitle></mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <div class="DetallesSelector" >
+                  <app-detalle-incidente-operaciones (addIncidente)="onIncidenteAdd()"
+                                                      [selectedIncidenteGroup]="selectedIncidenteGroup">
+                  </app-detalle-incidente-operaciones>
+                </div>  
+              </mat-card-content>
+              <mat-card-actions>
+              </mat-card-actions>
+            </mat-card>
           </div>
         </div>
         <div fxFlex="50">
