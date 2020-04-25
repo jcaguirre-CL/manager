@@ -40,8 +40,8 @@ export class ListaIncidentesOperacionesComponent implements OnInit {
 
     const detallesString = this.getDetallesString(selectedDetalles);
     const areaString = this.getIncidenteAreaTitle(incidente.area);
-
-    return `Tipo Incidencia: ${areaString}  ${detallesString}`;
+    // return `Tipo Falla: ${areaString}  ${detallesString}`;
+    return `Tipo Falla ${detallesString}`;
   }
 
   private getDetallesString(detalles: string[]): string {

@@ -62,9 +62,12 @@ export class OperacionesForm1ServicioService {
     this.form.markAsDirty();
   }
 
-  getIncidenteFormGroup(area: IncidenteAreaEnum = IncidenteAreaEnum.NIVEL1): FormGroup {
+  getIncidenteFormGroup(motivo: string = '', descripcion: string = '', impacto: string = '', area: IncidenteAreaEnum = IncidenteAreaEnum.NIVEL1): FormGroup {
     return this.fb.group({
       area: [area],
+      motivo: [motivo],
+      descripcion: [descripcion],
+      impacto: [impacto],
       detalles: this.mapToCheckboxArrayGroup(this.availableDetalles)
     }, {
       validator: this.operacionesForm1ValidadorService.incidenteItemValidator()

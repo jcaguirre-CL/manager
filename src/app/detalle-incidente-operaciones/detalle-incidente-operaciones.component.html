@@ -7,10 +7,11 @@
   <div class="col-md-12 mg-top-15">
 
     <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Motivo"></textarea>
+      <textarea matInput placeholder="Motivo" formControlName="motivo"></textarea>
     </mat-form-field>
 
     <div class="DetallesSelector" formArrayName="detalles">
+
       <div class="DetallesSelector__item" *ngFor="let detalle of detallesArray.controls" [formGroup]="detalle" >
        <mat-checkbox [formControl]="detalle.get('selected')">
           {{detalle.get('name').value}}
@@ -19,11 +20,11 @@
     </div>
 
     <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Descripción"></textarea>
+      <textarea matInput placeholder="Descripción" formControlName="descripcion"></textarea>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Impacto" [popoverTitle]="popTitle" [ngbPopover]="popContent"></textarea>
+      <textarea matInput placeholder="Impacto" [popoverTitle]="popTitle" [ngbPopover]="popContent" formControlName="impacto"></textarea>
     </mat-form-field>
     <ng-template #popTitle>Ayuda</ng-template>
     <ng-template #popContent>Describir los efectos del incidente</ng-template>

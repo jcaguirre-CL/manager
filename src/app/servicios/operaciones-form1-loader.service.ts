@@ -24,7 +24,10 @@ export class OperacionesForm1LoaderService {
       const group = this.operacionesForm1ServicioService.addIncidente();
       group.patchValue({
         area: incidente.area,
-        detalles: this.prefillDetallesSelection(group.get('detalles').value, incidente.detalles as IncidenteDetallesEnum[])
+        detalles: this.prefillDetallesSelection(group.get('detalles').value, incidente.detalles as IncidenteDetallesEnum[]),
+        motivo: incidente.motivo,
+        descripcion: incidente.descripcion,
+        impacto: incidente.impacto
       });
     }
   }
