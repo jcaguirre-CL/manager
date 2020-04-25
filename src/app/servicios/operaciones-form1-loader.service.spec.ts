@@ -30,16 +30,28 @@ describe('IncidenteLoaderService', () => {
   it('should change selected state of selected items', inject([OperacionesForm1LoaderService], (service: OperacionesForm1LoaderService) => {
     const DETALLES_DATA = [{
       selected: false,
-      name: IncidenteDetallesEnum.OPCION1
+      name: IncidenteDetallesEnum.TIPOFALLA1
     }, {
       selected: false,
-      name: IncidenteDetallesEnum.OPCION2
+      name: IncidenteDetallesEnum.TIPOFALLA2
     }, {
       selected: false,
-      name: IncidenteDetallesEnum.OPCION3
+      name: IncidenteDetallesEnum.TIPOFALLA3
+    }, {
+      selected: false,
+      name: IncidenteDetallesEnum.TIPOFALLA4
+    }, {
+      selected: false,
+      name: IncidenteDetallesEnum.TIPOFALLA5
+    }, {
+      selected: false,
+      name: IncidenteDetallesEnum.TIPOFALLA6
+    }, {
+      selected: false,
+      name: IncidenteDetallesEnum.TIPOFALLA7
     }];
 
-    const result = service.prefillDetallesSelection(DETALLES_DATA, [IncidenteDetallesEnum.OPCION1, IncidenteDetallesEnum.OPCION1]);
+    const result = service.prefillDetallesSelection(DETALLES_DATA, [IncidenteDetallesEnum.TIPOFALLA1, IncidenteDetallesEnum.TIPOFALLA1]);
     expect(result[0].selected).toBe(false);
     expect(result[2].selected).toBe(true);
   }));

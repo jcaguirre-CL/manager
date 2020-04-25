@@ -25,7 +25,7 @@ export class OperacionesForm1ServicioService {
         fechaEvento: [null, Validators.required],
         responsableEvento: [null, Validators.required],
         atencionEvento: [null, Validators.required],
-        descripcionEvento: [null, Validators.required],
+        obsEvento: [null, Validators.required],
         areaEvento: [null, Validators.required],
 /*         firstName: [null, Validators.required],
         lastName: [null, Validators.required],
@@ -77,7 +77,7 @@ export class OperacionesForm1ServicioService {
     this.form.markAsDirty();
   }
 
-  getIncidenteFormGroup(area: IncidenteAreaEnum = IncidenteAreaEnum.AREA1): FormGroup {
+  getIncidenteFormGroup(area: IncidenteAreaEnum = IncidenteAreaEnum.NIVEL1): FormGroup {
     return this.fb.group({
       area: [area],
       detalles: this.mapToCheckboxArrayGroup(this.availableDetalles)

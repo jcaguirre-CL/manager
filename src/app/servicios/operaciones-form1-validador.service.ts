@@ -31,9 +31,9 @@ export class OperacionesForm1ValidadorService {
       const incidenteArea: IncidenteAreaEnum = control.get('area').value;
       const incidenteDetalles: IDetalleItem[] = control.get('detalles').value.filter(i => i.selected);
 
-      if (incidenteArea !== IncidenteAreaEnum.AREA1 && incidenteDetalles.length > 4) {
+      if (incidenteArea !== IncidenteAreaEnum.NIVEL1 && incidenteDetalles.length > 4) {
         errors.detalleIncidenteArea = {
-          message: 'ERROR AREA en el ingreso'
+          message: 'ERROR NIVEL en el ingreso'
         };
       }
 

@@ -1,11 +1,14 @@
 <div class="row" *ngIf="selectedIncidenteGroup" [formGroup]="selectedIncidenteGroup">
-  <h5>Nivel de severidad:</h5>
-  <div class="col-md-6 offset-md-3">
+  <!-- <h5>Nivel de severidad:</h5> -->
+<!--   <div class="col-md-6 offset-md-3">
     <app-incidente-area-picker formControlName="area"></app-incidente-area-picker>
-  </div>
+  </div> -->
     <!-- detalles son las tipos de error -->
   <div class="col-md-12 mg-top-15">
-    <h5>Tipo de falla</h5>
+
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Motivo"></textarea>
+    </mat-form-field>
 
     <div class="DetallesSelector" formArrayName="detalles">
       <div class="DetallesSelector__item" *ngFor="let detalle of detallesArray.controls" [formGroup]="detalle" >
@@ -16,8 +19,14 @@
     </div>
 
     <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Detalle del incidente"></textarea>
+      <textarea matInput placeholder="Detalle"></textarea>
     </mat-form-field>
-  
+
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Impacto" [popoverTitle]="popTitle" [ngbPopover]="popContent"></textarea>
+    </mat-form-field>
+    <ng-template #popTitle>Ayuda</ng-template>
+    <ng-template #popContent>Describir los efectos del incidente</ng-template>
+
   </div>
 </div>

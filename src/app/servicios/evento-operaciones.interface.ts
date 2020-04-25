@@ -1,7 +1,6 @@
 export interface IIncidenteFormInterface {
     selectedIncidente?: IIncidenteItem;
     incidentes: IIncidenteItem[];
-    // pizzas: IIncidenteItem[];
     detalleeventoOperaciones: IDetalleEventoOperaciones;
     // customerDetails: ICustomerDetails;
   }
@@ -31,7 +30,7 @@ export interface IIncidenteFormInterface {
     fechaEvento: string;
     responsableEvento: string;  
     atencionEvento: string;
-    descripcionEvento: string;
+    obsEvento: string;
     areaEvento: string;
     produccion: {
       nombreProduccion: string;
@@ -39,51 +38,19 @@ export interface IIncidenteFormInterface {
     };
   }
   
-  // RESPALDO
-  /* export interface IDetalleEventoOperaciones {
-    firstName: string;
-    lastName: string;
-    phoneNumber: string;
-    fechaEvento: string;
-    responsableEvento: string;  
-    atencionEvento: string;
-    descripcionEvento: string;
-    areaEvento: string;
-    address: {
-      street: string;
-      houseNum: string;
-      city: string;
-      floor: number;
-    };
-    produccion: {
-      nombreProduccion: string;
-      encargadoCanal: string;
-    };
-    evento: {
-      atencionEvento: string;
-      descripcionEvento: string;
-      areaEvento: string;
-    };
-  } */
-
   export enum IncidenteAreaEnum {
-    AREA1 = 1,
-    AREA2 = 2,
-    AREA3 = 3
+    NIVEL1 = 1,
+    NIVEL2 = 2,
+    NIVEL3 = 3
   }
   
   export enum IncidenteDetallesEnum {
-    OPCION1 = 'Opcion1',
-    OPCION2 = 'Opcion2',
-    OPCION3 = 'Opcion3',
-    OPCION4 = 'Opcion4'
-    // SAUSAGE = 'Sausage',
-    // PEPPERONI = 'Pepperoni',
-    // HAM = 'Ham',
-    // OLIVES = 'Olives',
-    // BACON = 'Bacon',
-    // CORN = 'Corn',
-    // PINEAPPLE = 'Pineapple',
-    // MUSHROOMS = 'Mushrooms'
+    TIPOFALLA1 = 'Audio',
+    TIPOFALLA2 = 'Cámara',
+    TIPOFALLA3 = 'Iluminación',
+    TIPOFALLA4 = 'Ingesta',
+    TIPOFALLA5 = 'Edición',
+    TIPOFALLA6 = 'Supervisión',
+    TIPOFALLA7 = 'Utilería'
   }
   

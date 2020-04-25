@@ -90,15 +90,27 @@ describe('OperacionesForm1ServicioService', () => {
           incidentes: [{
             detalles: [{
               selected: false,
-              name: IncidenteDetallesEnum.OPCION1
+              name: IncidenteDetallesEnum.TIPOFALLA1
             }, {
               selected: true,
-              name: IncidenteDetallesEnum.OPCION2
+              name: IncidenteDetallesEnum.TIPOFALLA2
             }, {
               selected: true,
-              name: IncidenteDetallesEnum.OPCION3
+              name: IncidenteDetallesEnum.TIPOFALLA3
+            }, {
+              selected: true,
+              name: IncidenteDetallesEnum.TIPOFALLA4
+            }, {
+              selected: true,
+              name: IncidenteDetallesEnum.TIPOFALLA5
+            }, {
+              selected: true,
+              name: IncidenteDetallesEnum.TIPOFALLA6
+            }, {
+              selected: true,
+              name: IncidenteDetallesEnum.TIPOFALLA7
             }],
-            area: IncidenteAreaEnum.AREA1
+            area: IncidenteAreaEnum.NIVEL1
           }],
           detalleeventoOperaciones: {
             responsableEvento: 'Responsable 1'
@@ -119,24 +131,24 @@ describe('OperacionesForm1ServicioService', () => {
 
       it('should convert detalle data structure to enum array', function () {
         const constructedData = operacionesForm1ServicioService.createIncidenteEventoDto(demoData);
-        expect(constructedData.incidentes[0].detalles[0]).toEqual(IncidenteDetallesEnum.OPCION1);
+        expect(constructedData.incidentes[0].detalles[0]).toEqual(IncidenteDetallesEnum.TIPOFALLA1);
       });
     });
 
     it('should return only selected detalles', function () {
       const selectedDetalles = operacionesForm1ServicioService.getSelectedDetalles([{
-        name: IncidenteDetallesEnum.OPCION1,
+        name: IncidenteDetallesEnum.TIPOFALLA1,
         selected: false
       }, {
-        name: IncidenteDetallesEnum.OPCION2,
+        name: IncidenteDetallesEnum.TIPOFALLA2,
         selected: true
       }, {
-        name: IncidenteDetallesEnum.OPCION3,
+        name: IncidenteDetallesEnum.TIPOFALLA3,
         selected: false
       }]);
 
       expect(selectedDetalles.length).toEqual(1);
-      expect(selectedDetalles[0].name).toEqual(IncidenteDetallesEnum.OPCION2);
+      expect(selectedDetalles[0].name).toEqual(IncidenteDetallesEnum.TIPOFALLA2);
     });
   });
 });

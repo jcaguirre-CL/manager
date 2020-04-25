@@ -9,12 +9,12 @@ export const DEMO_INCIDENTE: IIncidenteFormInterface = {
     fechaEvento: '10/10/2000',
     responsableEvento: 'Responsable 1',
     atencionEvento: 'Canal 13',
-    descripcionEvento: 'XX',
-    areaEvento: 'AREA 1'
+    obsEvento: 'XX',
+    areaEvento: 'BIENVENIDOS'
   },
   incidentes: [{
-    detalles: [IncidenteDetallesEnum.OPCION1, IncidenteDetallesEnum.OPCION2] as any,
-    area: IncidenteAreaEnum.AREA1
+    detalles: [IncidenteDetallesEnum.TIPOFALLA1, IncidenteDetallesEnum.TIPOFALLA2] as any,
+    area: IncidenteAreaEnum.NIVEL1
   }]
 };
 

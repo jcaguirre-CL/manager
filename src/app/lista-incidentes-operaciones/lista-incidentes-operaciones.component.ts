@@ -53,14 +53,14 @@ export class ListaIncidentesOperacionesComponent implements OnInit {
   private getIncidenteAreaTitle(area: IncidenteAreaEnum): string {
     let incidenteArea;
     switch (area) {
-      case IncidenteAreaEnum.AREA1:
-        incidenteArea = 'AREA 1';
+      case IncidenteAreaEnum.NIVEL1:
+        incidenteArea = 'Menor';
         break;
-      case IncidenteAreaEnum.AREA2:
-        incidenteArea = 'AREA 2';
+      case IncidenteAreaEnum.NIVEL2:
+        incidenteArea = 'Grave';
         break;
-      case IncidenteAreaEnum.AREA3:
-        incidenteArea = 'AREA 3';
+      case IncidenteAreaEnum.NIVEL3:
+        incidenteArea = 'Crítica';
         break;
     }
 

@@ -55,9 +55,9 @@ export class DetalleEventoOperacionesComponent implements OnInit {
   // states: State[] = [
 
     areas: Area[] = [
-      {value: 'area1', viewValue: 'AREA1'},
-      {value: 'area2', viewValue: 'AREA2'},
-      {value: 'area3', viewValue: 'AREA3'}
+      {value: 'area1', viewValue: 'BIENVENIDOS'},
+      {value: 'area2', viewValue: 'DOCU REALIDAD'},
+      {value: 'area3', viewValue: 'ENTRETENCION'}
     ];
 
   responsables: Responsable[] = [
