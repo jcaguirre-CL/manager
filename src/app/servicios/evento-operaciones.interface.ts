@@ -1,3 +1,4 @@
+// RESUMEN ESTRUCURA DE DATO:= IIncidenteFormInterface
 export interface IIncidenteFormInterface {
     selectedIncidente?: IIncidenteItem;
     incidentes: IIncidenteItem[];
@@ -14,6 +15,7 @@ export interface IIncidenteFormInterface {
   
   // export interface IPizzaItem {
   export interface IIncidenteItem {
+    // NIVEL INCIDENCIA:= AREA
     area: IncidenteAreaEnum;
     /**
      * A small hack for imitating a different model returned from server,
@@ -21,8 +23,15 @@ export interface IIncidenteFormInterface {
      * In real life the server model may vary from the form model.
      * In this case you need to maintain both the server model interface and the client form interface.
      */
+    // TIPO INCIDENCIA:= DETALLES
     detalles: IDetalleItem[] | IncidenteDetallesEnum[];
     // detalles: IToppingItem[] | PizzaToppingsEnum[];
+    //DESCRIPCION C13
+    descripcion: string;
+    //OBS EXTERNA
+    observacion: string;
+    impacto: string; 
+    motivo: string;
   }
   
   // Estructura de datos: EVENTO

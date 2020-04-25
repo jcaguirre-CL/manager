@@ -14,7 +14,11 @@ export const DEMO_INCIDENTE: IIncidenteFormInterface = {
   },
   incidentes: [{
     detalles: [IncidenteDetallesEnum.TIPOFALLA1, IncidenteDetallesEnum.TIPOFALLA2] as any,
-    area: IncidenteAreaEnum.NIVEL1
+    area: IncidenteAreaEnum.NIVEL1,
+    descripcion: '',
+    observacion:'',
+    impacto:'',
+    motivo:''
   }]
 };
 
