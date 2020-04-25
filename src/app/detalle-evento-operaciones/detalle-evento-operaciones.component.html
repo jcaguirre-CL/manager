@@ -40,24 +40,25 @@
         <textarea matInput placeholder="Observación" [formControl]="responsableCtrl" formControlName="obsEvento"></textarea>
       </mat-form-field>
 
-      <!-- AREA -->
+      <br>
+
+    <!-- INICIO DETALLE DEL EVENTO --- SON DATOS PARTICULARES DEL EVENTO-->
+    <div [formGroup]="group.get('produccion')">
+      
+      <!-- AREA PRODUCCION-->
       <mat-form-field class="example-full-width">
-        <!-- <mat-select placeholder="Area" [formControl]="responsableCtrl" formControlName="areaEvento">
+        <!-- <mat-select placeholder="Area" [formControl]="responsableCtrl" formControlName="areaProduccion">
           <mat-option value="">Area 1</mat-option>
         </mat-select> -->
-        <mat-select placeholder="Area Producción" [formControl]="responsableCtrl" name="areaEvento" >
+        <mat-select placeholder="Area Producción" [formControl]="responsableCtrl" name="areaProduccion" >
           <mat-option *ngFor="let area of areas" [value]="area.value" >
             {{area.viewValue}}
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <br>
-
-    <!-- INICIO DETALLE DEL EVENTO --- SON DATOS PARTICULARES DEL EVENTO-->
-    <div [formGroup]="group.get('produccion')">
 
       <mat-form-field class="example-full-width">
-        <textarea matInput placeholder="Nombre Programa" [formControl]="responsableCtrl" formControlName="nombreProduccion"></textarea>
+        <textarea matInput placeholder="Nombre Programa" [formControl]="responsableCtrl" formControlName="pgmProduccion"></textarea>
       </mat-form-field>
 
     </div>

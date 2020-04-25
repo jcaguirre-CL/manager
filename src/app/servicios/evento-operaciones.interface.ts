@@ -31,10 +31,10 @@ export interface IIncidenteFormInterface {
     responsableEvento: string;  
     atencionEvento: string;
     obsEvento: string;
-    areaEvento: string;
     produccion: {
-      nombreProduccion: string;
-      encargadoCanal: string;
+      areaProduccion: string;
+      pgmProduccion: string;
+      responsableProduccion: string;
     };
   }
   

@@ -1,12 +1,6 @@
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-
 import { Injectable } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OperacionesForm1ValidadorService } from './operaciones-form1-validador.service';
-// import { IEventoFormInterface, IToppingItem, PizzaSizeEnum, PizzaToppingsEnum } from './evento-operaciones.interface';
 import { IIncidenteFormInterface, IDetalleItem, IncidenteAreaEnum, IncidenteDetallesEnum } from './evento-operaciones.interface';
 
 @Injectable()
@@ -26,20 +20,11 @@ export class OperacionesForm1ServicioService {
         responsableEvento: [null, Validators.required],
         atencionEvento: [null, Validators.required],
         obsEvento: [null, Validators.required],
-        areaEvento: [null, Validators.required],
-/*         firstName: [null, Validators.required],
-        lastName: [null, Validators.required],
-        phoneNumber: [null, Validators.required], */
         produccion: this.fb.group({
-          encargadoCanal: [null, Validators.required],
-          nombreProduccion: [null, Validators.required],
+          areaProduccion: [null, Validators.required],
+          responsableProduccion: [null, Validators.required],
+          pgmProduccion: [null, Validators.required],
         })
-/*         address: this.fb.group({
-          street: [null, Validators.required],
-          houseNum: [null, Validators.required],
-          city: [null, Validators.required],
-          floor: [null, Validators.required],
-        }) */
       })
     }, {
       validator: this.operacionesForm1ValidadorService.formValidator()
