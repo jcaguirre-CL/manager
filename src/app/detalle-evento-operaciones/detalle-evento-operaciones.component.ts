@@ -8,6 +8,11 @@ import { map, startWith } from 'rxjs/operators';
 
 import { AbstractControl, FormArray } from '@angular/forms';
 
+//EVALUAR PARA RESCATAR RESPPRODUCCION
+import { AuthenticationService } from '../login-containers/_services';
+import { User } from '../login-containers/_models';
+
+
 /* export interface State {
   flag: string;
   name: string;
@@ -37,6 +42,9 @@ export class DetalleEventoOperacionesComponent implements OnInit {
 
   @Input() selectedEventGroup: AbstractControl;
   @Input() group: FormGroup;
+
+  // GRAB USR AUTH RESPPROD
+  public mycurrentUser: User;
 
   // @Output() addPizza = new EventEmitter();
 
@@ -87,10 +95,18 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     }
   ];
 
-  constructor(config: NgbPopoverConfig) {
+  // AUTH PARA GRAB RESPPROD
+  constructor(config: NgbPopoverConfig,
+    private authenticationService: AuthenticationService)
+     {
+    this.authenticationService.currentUser.subscribe(x => this.mycurrentUser = x);
+/*     this.group.controls['produccion'].setValue({
+      areaProduccion: this.currentUser
+    }); */
     // customize default values of popovers used by this component tree
     config.placement = 'top-left';
     config.triggers = 'hover';
+    console.log('COMPONENT DETALLE: ' + JSON.stringify(this.mycurrentUser));
 /*     this.responsable = 
       {
         flag: 'empty',

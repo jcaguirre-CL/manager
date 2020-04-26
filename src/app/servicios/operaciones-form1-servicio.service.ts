@@ -3,15 +3,21 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OperacionesForm1ValidadorService } from './operaciones-form1-validador.service';
 import { IIncidenteFormInterface, IDetalleItem, IncidenteAreaEnum, IncidenteDetallesEnum } from './evento-operaciones.interface';
 
+import { AuthenticationService } from '../login-containers/_services';
+import { User } from '../login-containers/_models';
+
 @Injectable()
 export class OperacionesForm1ServicioService {
   public availableDetalles = [...Object.values(IncidenteDetallesEnum)];
   public form: FormGroup;
+  public mycurrentUser: User;
 
   constructor(
     private operacionesForm1ValidadorService: OperacionesForm1ValidadorService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private authenticationService: AuthenticationService
   ) {
+    this.authenticationService.currentUser.subscribe(x => this.mycurrentUser = x);
     this.form = this.fb.group({
       selectedIncidente: null,
       incidentes: this.fb.array([]),
@@ -36,6 +42,26 @@ export class OperacionesForm1ServicioService {
   }
 
   get isValid(): boolean {
+    console.log(this.form);
+    this.form.setValue({
+      selectedIncidente: this.form.value.selectedIncidente,
+      incidentes: this.form.value.incidentes,
+      // detalleeventoOperaciones: this.form.value.detalleeventoOperaciones,
+      detalleeventoOperaciones: {
+        fechaEvento: this.form.value.detalleeventoOperaciones.fechaEvento,
+        responsableEvento: this.form.value.detalleeventoOperaciones.responsableEvento,
+        atencionEvento: this.form.value.detalleeventoOperaciones.atencionEvento,
+        obsEvento: this.form.value.detalleeventoOperaciones.obsEvento,
+        produccion: { 
+          areaProduccion: this.form.value.detalleeventoOperaciones.produccion.areaProduccion,
+          responsableProduccion: this.mycurrentUser.nombre + ' ' + this.mycurrentUser.apellido,
+          pgmProduccion: this.form.value.detalleeventoOperaciones.produccion.pgmProduccion
+        }
+      } 
+      // responsableProduccion: 'test'
+      /* produccion:{
+        responsableProduccion: 'test nombre' */
+    });
     if (!this.form.valid) {
       this.operacionesForm1ValidadorService.validateAllFormFields(this.form);
       return false;

@@ -4,21 +4,11 @@ import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { AbstractControl, FormArray, FormGroup } from '@angular/forms';
-// ****
 import { OperacionesForm1ValidadorService } from '../servicios/operaciones-form1-validador.service';
 import { IIncidenteFormInterface } from '../servicios/evento-operaciones.interface';
 import { OperacionesForm1ServicioService } from '../servicios/operaciones-form1-servicio.service';
 import { OperacionesForm1LoaderService } from '../servicios/operaciones-form1-loader.service';
-// ******
-
-// import { DEMO_PIZZA } from './services/demo-pizza-item';
 import { DEMO_INCIDENTE } from '../servicios/demo-incidente-item';
-// import { IPizzaFormInterface } from './services/pizza-form.interface';
-/* 
-import { PizzaFormValidatorsService } from './services/pizza-form-validators.service';
-import { PizzaFormService } from './services/pizza-form.service';
-import { PizzaLoaderService } from './services/pizza-loader.service';
- */
 
 export interface State {
   flag: string;
@@ -44,46 +34,6 @@ export interface Responsable {
 })
 export class Form1Component implements OnInit {
 
-/*   @Input() selectedEventGroup: AbstractControl;
-  @Output() addPizza = new EventEmitter(); */
-
-/*   get toppingsArray(): FormArray {
-    if (!this.selectedEventGroup) return;
-
-    return this.selectedEventGroup.get('toppings') as FormArray;
-  } */
-
-/*   stateCtrl = new FormControl();
-  mostrarResponsable = new FormControl();
-  filteredStates: Observable<State[]>;
-  responsable: Responsable; */
-/*   states: State[] = [
-    {
-      name: 'Responsable 1',
-      population: 'Canal 13',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
-    },
-    {
-      name: 'Responsable 2',
-      population: 'Canal 13',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
-    },
-    {
-      name: 'Responsable 3',
-      population: 'Secuoya',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
-    },
-    {
-      name: 'Responsable 4',
-      population: 'Secuoya',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
-    }
-  ]; */
-
   editMode = false;
   get form(): FormGroup {
     return this.operacionesForm1ServicioService.form;
@@ -108,7 +58,10 @@ export class Form1Component implements OnInit {
   }
 
   async submit(data: IIncidenteFormInterface) {
+    console.log('form1: ' + JSON.stringify(data));
+
     if (!this.operacionesForm1ServicioService.isValid) {
+      console.log('Formulario no valido')
       return;
     }
 
