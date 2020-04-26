@@ -6,14 +6,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MiMaterialModule } from './material-module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { LoginComponent } from './login/login.component';
 import { Form1Component } from './form1/form1.component';
 import { Config1Component } from './config1/config1.component';
 import { Historial1Component } from './historial1/historial1.component';
+import { AlertComponent } from './login-containers/_components';
+
+import { JwtInterceptor, ErrorInterceptor } from './login-containers/_helpers';
+
 
 import { CommonModule } from '@angular/common';
 import { Opc1OperacionesComponent } from './opc1-operaciones/opc1-operaciones.component';
@@ -27,6 +32,7 @@ import { IncidenteAreaPickerComponent } from './incidente-area-picker/incidente-
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     Form1Component,
     InicioComponent,
     Config1Component,
@@ -35,7 +41,8 @@ import { IncidenteAreaPickerComponent } from './incidente-area-picker/incidente-
     DetalleEventoOperacionesComponent,
     DetalleIncidenteOperacionesComponent,
     ListaIncidentesOperacionesComponent,
-    IncidenteAreaPickerComponent
+    IncidenteAreaPickerComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +56,10 @@ import { IncidenteAreaPickerComponent } from './incidente-area-picker/incidente-
     ReactiveFormsModule,
     CommonModule
   ],
-  providers: [OperacionesForm1ServicioService],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    OperacionesForm1ServicioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
