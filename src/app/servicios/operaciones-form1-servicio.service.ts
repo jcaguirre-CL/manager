@@ -42,11 +42,9 @@ export class OperacionesForm1ServicioService {
   }
 
   get isValid(): boolean {
-    console.log(this.form);
     this.form.setValue({
       selectedIncidente: this.form.value.selectedIncidente,
       incidentes: this.form.value.incidentes,
-      // detalleeventoOperaciones: this.form.value.detalleeventoOperaciones,
       detalleeventoOperaciones: {
         fechaEvento: this.form.value.detalleeventoOperaciones.fechaEvento,
         responsableEvento: this.form.value.detalleeventoOperaciones.responsableEvento,
@@ -58,9 +56,6 @@ export class OperacionesForm1ServicioService {
           pgmProduccion: this.form.value.detalleeventoOperaciones.produccion.pgmProduccion
         }
       } 
-      // responsableProduccion: 'test'
-      /* produccion:{
-        responsableProduccion: 'test nombre' */
     });
     if (!this.form.valid) {
       this.operacionesForm1ValidadorService.validateAllFormFields(this.form);
@@ -109,8 +104,22 @@ export class OperacionesForm1ServicioService {
   createIncidenteEventoDto(data: IIncidenteFormInterface): IIncidenteFormInterface {
     // const order = {
     const evento = {
-      detalleeventoOperaciones: data.detalleeventoOperaciones,
-      incidentes: data.incidentes
+      /* detalleeventoOperaciones: data.detalleeventoOperaciones,
+      incidentes: data.incidentes */
+
+      // selectedIncidente: this.form.value.selectedIncidente,
+      incidentes: data.incidentes,
+      detalleeventoOperaciones: {
+        fechaEvento: data.detalleeventoOperaciones.fechaEvento,
+        responsableEvento: data.detalleeventoOperaciones.responsableEvento,
+        atencionEvento: data.detalleeventoOperaciones.atencionEvento,
+        obsEvento: data.detalleeventoOperaciones.obsEvento,
+        produccion: { 
+          areaProduccion: data.detalleeventoOperaciones.produccion.areaProduccion,
+          responsableProduccion: this.mycurrentUser.nombre + ' ' + this.mycurrentUser.apellido,
+          pgmProduccion: data.detalleeventoOperaciones.produccion.pgmProduccion
+        }
+      } 
     };
 
     for (const incidente of evento.incidentes) {
@@ -119,6 +128,8 @@ export class OperacionesForm1ServicioService {
           return i.name;
         });
     }
+
+    console.log('Servicio create: ' + JSON.stringify(evento));
 
     return evento;
   }

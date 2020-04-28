@@ -67,7 +67,7 @@ export class Form1Component implements OnInit {
 
     const evento: IIncidenteFormInterface = this.operacionesForm1ServicioService.createIncidenteEventoDto(data);
 
-    alert(`Thanks ${evento.detalleeventoOperaciones.responsableEvento}, evento creado`);
+    alert(`Estimado ${evento.detalleeventoOperaciones.responsableEvento}, evento creado`);
 
     if (this.editMode) {
       // update api endpoint call
