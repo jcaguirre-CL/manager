@@ -5,17 +5,41 @@ import { IIncidenteFormInterface, IDetalleItem, IncidenteAreaEnum, IncidenteDeta
 
 import { AuthenticationService } from '../login-containers/_services';
 import { User } from '../login-containers/_models';
+import { Observable, of } from 'rxjs';
+
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+import { catchError, delay } from 'rxjs/operators';
+import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
+
+import { UserService } from '../login-containers/_services/user.service';
+
+/* const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json',
+   'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZWE4ZWI4OTdlYmQ5ZTI4ZTZlMTc4ZGIiLCJpYXQiOjE1ODgxMzgyMTQsImV4cCI6MTU4ODE0MDAxNH0.eHV5N9t29IKhmpsWvABupK0n1UaL2nh__PcYf1BHULY`})
+}; */
+
+/* setHeaders: { 
+  Authorization: `Bearer ${currentUser.hash}`
+} */
 
 @Injectable()
 export class OperacionesForm1ServicioService {
   public availableDetalles = [...Object.values(IncidenteDetallesEnum)];
   public form: FormGroup;
   public mycurrentUser: User;
+  private handleError: HandleError;
+
+  private config = {
+    apiUrl: 'http://localhost:4000'
+  };
 
   constructor(
     private operacionesForm1ValidadorService: OperacionesForm1ValidadorService,
     private fb: FormBuilder,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private http: HttpClient,
+    private userService: UserService
   ) {
     this.authenticationService.currentUser.subscribe(x => this.mycurrentUser = x);
     this.form = this.fb.group({
@@ -129,7 +153,19 @@ export class OperacionesForm1ServicioService {
         });
     }
 
-    console.log('Servicio create: ' + JSON.stringify(evento));
+/*     this.userService.recordForm(evento)
+    .subscribe(evento => {
+      console.log('creando: ' + JSON.stringify(evento));
+    }); */
+
+    this.recordForm(evento, this.mycurrentUser)
+    .subscribe(evento => {
+      console.log('creando: ' + JSON.stringify(evento));
+      this.resetForm();
+    });
+
+    
+    // console.log('Servicio create: ' + JSON.stringify(this.recordForm(evento)));
 
     return evento;
   }
@@ -145,6 +181,30 @@ export class OperacionesForm1ServicioService {
 
     this.form.reset();
   }
+
+  recordForm (data: IIncidenteFormInterface, user: User): Observable<IIncidenteFormInterface> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json',
+       'Authorization': `Bearer ${user['token']}`})
+    };
+    console.log('COMPONENT DETALLE: ' + JSON.stringify(user))
+    return this.http.post<IIncidenteFormInterface>(`${this.config.apiUrl}/formdataOperaciones/crearEventoOperaciones`, data, httpOptions)
+      .pipe(
+        // catchError(this.handleError('recordForm error: ', data))
+        catchError(err => this.handleError(err))
+
+
+      );
+  }
+
+/*   recordForm(data: IIncidenteFormInterface) {
+    console.log(data);
+
+    return this.http.post<any>(`${this.config.apiUrl}/formdataOperaciones/crearEventoOperaciones`, { data })
+        .subscribe(data => {
+          console.log(data);
+      })
+  } */
 
   /**
    * Create a mapping of a string based dataset
