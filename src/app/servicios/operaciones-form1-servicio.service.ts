@@ -29,6 +29,7 @@ export class OperacionesForm1ServicioService {
   public form: FormGroup;
   public mycurrentUser: User;
   private handleError: HandleError;
+  // private iincidenteFormInterface: IIncidenteFormInterface;
 
   private config = {
     apiUrl: 'http://localhost:4000'
@@ -61,7 +62,30 @@ export class OperacionesForm1ServicioService {
     });
   }
 
-  get incidentesArray(): FormArray {
+  // getRegistros(data: IIncidenteFormInterface): IIncidenteFormInterface {
+
+  getRegistros(): any {
+    console.log('getRegistros: ' + JSON.stringify(this.mycurrentUser));
+    return this.getRegistrosInternos()
+    .subscribe(data => {
+      console.log('recuperando: ' + JSON.stringify(data));
+    });
+
+  }
+
+  getRegistrosInternos (): Observable<IIncidenteFormInterface[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json',
+       'Authorization': `Bearer ${this.mycurrentUser['token']}`})
+    };
+    console.log('AAA');
+    return this.http.get<IIncidenteFormInterface[]>(this.config.apiUrl + '/formdataOperaciones/recuperarRegistrosAll', httpOptions)
+/*       .pipe(
+        catchError(this.handleError('getRegistros', []))
+      ); */
+  }
+
+    get incidentesArray(): FormArray {
     return this.form.get('incidentes') as FormArray;
   }
 
@@ -153,20 +177,11 @@ export class OperacionesForm1ServicioService {
         });
     }
 
-/*     this.userService.recordForm(evento)
-    .subscribe(evento => {
-      console.log('creando: ' + JSON.stringify(evento));
-    }); */
-
     this.recordForm(evento, this.mycurrentUser)
     .subscribe(evento => {
       console.log('creando: ' + JSON.stringify(evento));
       this.resetForm();
     });
-
-    
-    // console.log('Servicio create: ' + JSON.stringify(this.recordForm(evento)));
-
     return evento;
   }
 
@@ -192,26 +207,9 @@ export class OperacionesForm1ServicioService {
       .pipe(
         // catchError(this.handleError('recordForm error: ', data))
         catchError(err => this.handleError(err))
-
-
       );
   }
 
-/*   recordForm(data: IIncidenteFormInterface) {
-    console.log(data);
-
-    return this.http.post<any>(`${this.config.apiUrl}/formdataOperaciones/crearEventoOperaciones`, { data })
-        .subscribe(data => {
-          console.log(data);
-      })
-  } */
-
-  /**
-   * Create a mapping of a string based dataset
-   * to a form array suitable for a multi checkbox array selection.
-   * this provides a more concise solution
-   * as oppose to working with [true, false, false, true]
-   */
   private mapToCheckboxArrayGroup(data: string[]): FormArray {
     return this.fb.array(data.map((i) => {
       return this.fb.group({

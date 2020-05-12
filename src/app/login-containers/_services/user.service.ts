@@ -35,13 +35,13 @@ export class UserService {
         return this.http.delete(`${this.config.apiUrl}/users/${id}`);
     }
 
-    recordForm (data: IIncidenteFormInterface): Observable<IIncidenteFormInterface> {
+/*     recordForm (data: IIncidenteFormInterface): Observable<IIncidenteFormInterface> {
         console.log(data)
         return this.http.post<IIncidenteFormInterface>(`${this.config.apiUrl}/formdataOperaciones/crearEventoOperaciones`, data, httpOptions)
           .pipe(
             // catchError(this.handleError('recordForm error: ', data))
             // catchError(err => this.handleError(err))
           );
-      }
+      } */
 
 }
