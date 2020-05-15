@@ -50,7 +50,7 @@ export class OperacionesForm1ServicioService {
         fechaEvento: [null, Validators.required],
         responsableEvento: [null, Validators.required],
         atencionEvento: [null, Validators.required],
-        obsEvento: [null, Validators.required],
+        obsEvento: [null,],
         produccion: this.fb.group({
           areaProduccion: [null, Validators.required],
           responsableProduccion: [null, Validators.required],

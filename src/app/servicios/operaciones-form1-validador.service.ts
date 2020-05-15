@@ -14,11 +14,11 @@ export class OperacionesForm1ValidadorService {
     return (control: FormGroup): ValidationErrors | null => {
       const errors: ValidationErrors = {};
 
-      if (!(control.get('incidentes') as FormArray).length) {
+/*       if (!(control.get('incidentes') as FormArray).length) {
         errors.noIncidentes = {
           message: 'Evento no seleccionado'
         };
-      }
+      } */
 
       return Object.keys(errors).length ? errors : null;
     };

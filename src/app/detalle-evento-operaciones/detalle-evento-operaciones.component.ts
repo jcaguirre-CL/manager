@@ -63,9 +63,14 @@ export class DetalleEventoOperacionesComponent implements OnInit {
   // states: State[] = [
 
     areas: Area[] = [
-      {value: 'area1', viewValue: 'BIENVENIDOS'},
-      {value: 'area2', viewValue: 'DOCU REALIDAD'},
-      {value: 'area3', viewValue: 'ENTRETENCION'}
+      {value: 'PRENSA', viewValue: 'PRENSA'},
+      {value: 'BIENVENIDOS', viewValue: 'BIENVENIDOS'},
+      {value: 'ENTRETENCION', viewValue: 'ENTRETENCION'},
+      {value: 'DOCU_REALIDAD', viewValue: 'DOCU REALIDAD'},
+      {value: 'FICCION', viewValue: 'FICCION'},
+      {value: 'COMERCIAL', viewValue: 'COMERCIAL'},
+      {value: 'SENALES', viewValue: 'SENALES'},
+      {value: 'MEDIOS_DIGITALES', viewValue: 'MEDIOS DIGITALES'}
     ];
 
   responsables: Responsable[] = [
