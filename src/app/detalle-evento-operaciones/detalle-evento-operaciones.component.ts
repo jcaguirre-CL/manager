@@ -68,6 +68,8 @@ export class DetalleEventoOperacionesComponent implements OnInit {
       {value: 'ENTRETENCION', viewValue: 'ENTRETENCION'},
       {value: 'DOCU_REALIDAD', viewValue: 'DOCU REALIDAD'},
       {value: 'FICCION', viewValue: 'FICCION'},
+      {value: 'CULTURA_REPORTAJES', viewValue: 'CULTURA Y REPORTAJES'},
+      {value: 'DEPORTES', viewValue: 'DEPORTES'},
       {value: 'COMERCIAL', viewValue: 'COMERCIAL'},
       {value: 'SENALES', viewValue: 'SENALES'},
       {value: 'MEDIOS_DIGITALES', viewValue: 'MEDIOS DIGITALES'}
