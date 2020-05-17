@@ -8,6 +8,7 @@
       <input matInput [matDatepicker]="picker" placeholder="Fecha del evento" formControlName="fechaEvento">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker touchUi #picker></mat-datepicker>
+      <mat-hint>*Obligatorio</mat-hint>
     </mat-form-field>
 
     <!-- RESPONSABLE -->
@@ -30,12 +31,14 @@
           <small>Resp: {{responsable.empresa}}</small>
         </mat-option>
       </mat-autocomplete>
+      <mat-hint>*Obligatorio</mat-hint>
     </mat-form-field>
 
       <!-- ATENCION -->
       <mat-form-field class="example-full-width">
         <!-- <input matInput placeholder="Empresa/Atención" [popoverTitle]="popTitle" [ngbPopover]="popContent" [formControl]="responsableCtrl" formControlName="atencionEvento"> -->
         <input matInput placeholder="Empresa/Atención" [popoverTitle]="popTitle" [ngbPopover]="popContent" formControlName="atencionEvento">
+        <mat-hint>*Obligatorio</mat-hint>
       </mat-form-field>
       <ng-template #popTitle>Ayuda</ng-template>
       <ng-template #popContent>Quien presta el servicio</ng-template>
@@ -62,11 +65,13 @@
             {{area.viewValue}}
           </mat-option>
         </mat-select>
+        <mat-hint>*Obligatorio</mat-hint>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
         <!-- <textarea matInput placeholder="Nombre Programa" [formControl]="responsableCtrl" formControlName="pgmProduccion"></textarea> -->
         <textarea matInput placeholder="Nombre Programa" formControlName="pgmProduccion"></textarea>
+        <mat-hint>*Obligatorio</mat-hint>
       </mat-form-field>
 
     </div>

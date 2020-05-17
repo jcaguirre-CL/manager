@@ -8,8 +8,11 @@
       src="../assets/logo.png"
     />
     <div class="spacer"></div>
-    <a aria-label="Angular on twitter" target="_blank" rel="noopener" title="LogOut" (click)="logout()" *ngIf="currentUser">
+<!--     <a aria-label="Config de usuario" target="_blank" rel="noopener" title="LogOut" (click)="logout()" *ngIf="currentUser">
       <img id="twitter-logo" class="filter-blank" height="24" data-name="Logo — FIXED" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" src="assets/account_circle-24px.svg">
+    </a> -->
+    <a aria-label="LogOut" target="_blank" rel="noopener" title="LogOut" (click)="logout()" *ngIf="currentUser">
+      <i data-name="Logo — FIXED" viewBox="0 0 400 400" class="material-icons md-36">exit_to_app</i>
     </a>
   </mat-toolbar>
 

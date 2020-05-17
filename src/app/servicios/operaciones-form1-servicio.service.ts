@@ -202,7 +202,7 @@ export class OperacionesForm1ServicioService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json',
        'Authorization': `Bearer ${user['token']}`})
     };
-    console.log('COMPONENT DETALLE: ' + JSON.stringify(user))
+    // console.log('COMPONENT DETALLE: ' + JSON.stringify(user))
     return this.http.post<IIncidenteFormInterface>(`${this.config.apiUrl}/formdataOperaciones/crearEventoOperaciones`, data, httpOptions)
       .pipe(
         // catchError(this.handleError('recordForm error: ', data))

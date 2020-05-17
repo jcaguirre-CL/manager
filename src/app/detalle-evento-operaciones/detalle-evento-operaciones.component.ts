@@ -72,7 +72,8 @@ export class DetalleEventoOperacionesComponent implements OnInit {
       {value: 'DEPORTES', viewValue: 'DEPORTES'},
       {value: 'COMERCIAL', viewValue: 'COMERCIAL'},
       {value: 'SENALES', viewValue: 'SENALES'},
-      {value: 'MEDIOS_DIGITALES', viewValue: 'MEDIOS DIGITALES'}
+      {value: 'MEDIOS_DIGITALES', viewValue: 'MEDIOS DIGITALES'},
+      {value: 'INGENIERIA', viewValue: 'INGENIERIA'}
     ];
 
   responsables: Responsable[] = [
