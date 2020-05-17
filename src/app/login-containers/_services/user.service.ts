@@ -1,6 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { IIncidenteFormInterface, IDetalleItem, IncidenteAreaEnum, IncidenteDetallesEnum } from '../../servicios/evento-operaciones.interface';
 
@@ -27,6 +28,18 @@ export class UserService {
         return this.http.get<User[]>(`${this.config.apiUrl}/users`);
     }
 
+    getOne(usuario: String, token: String) {
+      const httpOptions = {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json',
+         'Authorization': `Bearer ${token}`})
+      };
+      return this.http.get<User[]>(`${this.config.apiUrl}/users/one/${usuario}`, httpOptions)
+      .pipe(map(user => {
+        console.log(user);
+        return user;
+    }));
+  }
+
     register(user: User) {
         return this.http.post(`${this.config.apiUrl}/users/register`, user);
     }
@@ -34,14 +47,4 @@ export class UserService {
     delete(id: number) {
         return this.http.delete(`${this.config.apiUrl}/users/${id}`);
     }
-
-/*     recordForm (data: IIncidenteFormInterface): Observable<IIncidenteFormInterface> {
-        console.log(data)
-        return this.http.post<IIncidenteFormInterface>(`${this.config.apiUrl}/formdataOperaciones/crearEventoOperaciones`, data, httpOptions)
-          .pipe(
-            // catchError(this.handleError('recordForm error: ', data))
-            // catchError(err => this.handleError(err))
-          );
-      } */
-
 }
