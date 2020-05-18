@@ -12,24 +12,16 @@ import { HttpHeaders } from '@angular/common/http';
 import { catchError, delay } from 'rxjs/operators';
 import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
 
+import { HttpErrorResponse } from '@angular/common/http';
+import { throwError } from 'rxjs';
+
 import { UserService } from '../login-containers/_services/user.service';
-
-/* const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json',
-   'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZWE4ZWI4OTdlYmQ5ZTI4ZTZlMTc4ZGIiLCJpYXQiOjE1ODgxMzgyMTQsImV4cCI6MTU4ODE0MDAxNH0.eHV5N9t29IKhmpsWvABupK0n1UaL2nh__PcYf1BHULY`})
-}; */
-
-/* setHeaders: { 
-  Authorization: `Bearer ${currentUser.hash}`
-} */
 
 @Injectable()
 export class OperacionesForm1ServicioService {
   public availableDetalles = [...Object.values(IncidenteDetallesEnum)];
   public form: FormGroup;
   public mycurrentUser: User;
-  private handleError: HandleError;
-  // private iincidenteFormInterface: IIncidenteFormInterface;
 
   private config = {
     apiUrl: 'http://localhost:4000'
@@ -62,15 +54,10 @@ export class OperacionesForm1ServicioService {
     });
   }
 
-  // getRegistros(data: IIncidenteFormInterface): IIncidenteFormInterface {
-
   getRegistros(): any {
-    console.log('getRegistros: ' + JSON.stringify(this.mycurrentUser));
     return this.getRegistrosInternos()
     .subscribe(data => {
-      console.log('recuperando: ' + JSON.stringify(data));
     });
-
   }
 
   getRegistrosInternos (): Observable<IIncidenteFormInterface[]> {
@@ -78,11 +65,7 @@ export class OperacionesForm1ServicioService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json',
        'Authorization': `Bearer ${this.mycurrentUser['token']}`})
     };
-    console.log('AAA');
     return this.http.get<IIncidenteFormInterface[]>(this.config.apiUrl + '/formdataOperaciones/recuperarRegistrosAll', httpOptions)
-/*       .pipe(
-        catchError(this.handleError('getRegistros', []))
-      ); */
   }
 
     get incidentesArray(): FormArray {
@@ -143,12 +126,6 @@ export class OperacionesForm1ServicioService {
     });
   }
 
-  /**
-   * Creates a pizza DTO Object using the server pizza interface
-   * In this example it is the same except the toppings array,
-   * so for simplicity i used the same interface,
-   * usually the return object will be of different type
-   */
   createIncidenteEventoDto(data: IIncidenteFormInterface): IIncidenteFormInterface {
     // const order = {
     const evento = {
@@ -178,9 +155,16 @@ export class OperacionesForm1ServicioService {
     }
 
     this.recordForm(evento, this.mycurrentUser)
-    .subscribe(evento => {
-      console.log('creando: ' + JSON.stringify(evento));
+    .subscribe(
+    evento => {
+      // console.log('creando: ' + JSON.stringify(evento));
       this.resetForm();
+    },
+    err => {
+      alert(`Por favor complete los campos obligatorios del Incidente`);
+    },
+    () =>{
+      alert(`Estimado ${this.mycurrentUser.nombre}, evento creado OK`);
     });
     return evento;
   }
@@ -218,4 +202,8 @@ export class OperacionesForm1ServicioService {
       });
     }));
   }
+  handleError(error: HttpErrorResponse){
+    return throwError(error);
+    }
+
 }

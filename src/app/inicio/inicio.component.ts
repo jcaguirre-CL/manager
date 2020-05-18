@@ -24,12 +24,10 @@ export class InicioComponent implements OnInit {
         this.authenticationService.currentUser.subscribe(x => this.mycurrentUser = x);
       }
   ngOnInit() {
-    console.log(this.mycurrentUser['token']);
     this.userService.getOne(this.mycurrentUser.usuario, this.mycurrentUser['token'])
     .pipe(first())
     .subscribe(
         data => {
-          console.log(data);
         });
   }
 

@@ -35,7 +35,6 @@ export class UserService {
       };
       return this.http.get<User[]>(`${this.config.apiUrl}/users/one/${usuario}`, httpOptions)
       .pipe(map(user => {
-        console.log(user);
         return user;
     }));
   }

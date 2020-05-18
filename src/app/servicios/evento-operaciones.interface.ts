@@ -17,12 +17,6 @@ export interface IIncidenteFormInterface {
   export interface IIncidenteItem {
     // NIVEL INCIDENCIA:= AREA
     area: IncidenteAreaEnum;
-    /**
-     * A small hack for imitating a different model returned from server,
-     * for the simplicity sake the same interface was used.
-     * In real life the server model may vary from the form model.
-     * In this case you need to maintain both the server model interface and the client form interface.
-     */
     // TIPO INCIDENCIA:= DETALLES
     detalles: IDetalleItem[] | IncidenteDetallesEnum[];
     // detalles: IToppingItem[] | PizzaToppingsEnum[];

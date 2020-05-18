@@ -114,13 +114,7 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     // customize default values of popovers used by this component tree
     config.placement = 'top-left';
     config.triggers = 'hover';
-    console.log('COMPONENT DETALLE: ' + JSON.stringify(this.mycurrentUser));
-/*     this.responsable = 
-      {
-        flag: 'empty',
-        nombre: 'Nombre',
-        empresa: 'Canal 13'
-    } */
+
     // this.responsableCtrl.disabled;
     // this.mostrarResponsable.disabled;
     this.filteredResponsables = this.responsableCtrl.valueChanges

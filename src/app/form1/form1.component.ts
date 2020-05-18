@@ -3,12 +3,15 @@ import { NgbPopoverConfig } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { first } from 'rxjs/operators';
 import { AbstractControl, FormArray, FormGroup } from '@angular/forms';
 import { OperacionesForm1ValidadorService } from '../servicios/operaciones-form1-validador.service';
 import { IIncidenteFormInterface } from '../servicios/evento-operaciones.interface';
 import { OperacionesForm1ServicioService } from '../servicios/operaciones-form1-servicio.service';
 import { OperacionesForm1LoaderService } from '../servicios/operaciones-form1-loader.service';
 import { DEMO_INCIDENTE } from '../servicios/demo-incidente-item';
+import { AlertService } from '../login-containers/_services/alert.service';
+import { isInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 
 export interface State {
   flag: string;
@@ -33,7 +36,7 @@ export interface Responsable {
   ]
 })
 export class Form1Component implements OnInit {
-
+  loading = false;
   editMode = false;
   get form(): FormGroup {
     return this.operacionesForm1ServicioService.form;
@@ -48,7 +51,8 @@ export class Form1Component implements OnInit {
   constructor(
     config: NgbPopoverConfig,
     private operacionesForm1LoaderService: OperacionesForm1LoaderService,
-    private operacionesForm1ServicioService: OperacionesForm1ServicioService
+    private operacionesForm1ServicioService: OperacionesForm1ServicioService,
+    private alertService: AlertService
     ) { }
   
   ngOnInit() {
@@ -58,22 +62,21 @@ export class Form1Component implements OnInit {
   }
 
   async submit(data: IIncidenteFormInterface) {
-    console.log('form1: ' + JSON.stringify(data));
+    // console.log('form1: ' + JSON.stringify(data));
+    this.alertService.clear();
 
     if (!this.operacionesForm1ServicioService.isValid) {
-      console.log('Formulario no valido')
+      // console.log('Formulario no valido');
+      this.alertService.error('Formulario no valido, por favor completar los campos obligatorios');
       return;
     }
 
     const evento: IIncidenteFormInterface = this.operacionesForm1ServicioService.createIncidenteEventoDto(data);
-
-    alert(`Estimado ${evento.detalleeventoOperaciones.responsableEvento}, evento creado`);
-
-    if (this.editMode) {
-      // update api endpoint call
+/*     if(Number(evento.incidentes[0].detalles.length)==0) {
+      this.alertService.error('!!! Por favor indicar tipo de falla y descripcion del incidente');
     } else {
-      // create api endpoint call
-    }
+      alert(`Estimado ${evento.detalleeventoOperaciones.produccion.responsableProduccion}, evento creado`);
+    } */
   }
 
   reset() {
@@ -94,29 +97,4 @@ export class Form1Component implements OnInit {
   }
 
 }
-
-    // customize default values of popovers used by this component tree
-/*     config.placement = 'top-left';
-    config.triggers = 'hover';
- *//*     this.responsable = 
-      {
-        nombre: 'Nombre',
-        responsabilidad: 'Canal 13'
-    }
-    this.mostrarResponsable.disabled; */
-/*     this.filteredStates = this.stateCtrl.valueChanges
-    .pipe(
-      startWith(''),
-      map(state => state ? this._filterStates(state) : this.states.slice())
-    ); */
-
-
-  // "top", "top-left", "top-right", "bottom", "bottom-left", "bottom-right", "left", "left-top", "left-bottom","right", "right-top", "right-bottom"
-
-
-/*   private _filterStates(value: string): State[] {
-    const filterValue = value.toLowerCase();
-
-    return this.states.filter(state => state.name.toLowerCase().indexOf(filterValue) === 0);
-  } */
 
