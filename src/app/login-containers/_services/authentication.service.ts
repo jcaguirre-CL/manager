@@ -11,7 +11,7 @@ export class AuthenticationService {
     public currentUser: Observable<User>;
 
     private config = {
-        apiUrl: 'http://localhost:4000'
+        apiUrl: 'http://registro.ingenieriac13.cl:4000'
       };
       
     constructor(private http: HttpClient) {

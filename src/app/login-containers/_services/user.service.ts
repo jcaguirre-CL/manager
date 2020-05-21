@@ -18,7 +18,7 @@ const httpOptions = {
 export class UserService {
 
     private config = {
-        apiUrl: 'http://localhost:4000'
+        apiUrl: 'http://registro.ingenieriac13.cl:4000'
       };
     private handleError: HandleError;
 
