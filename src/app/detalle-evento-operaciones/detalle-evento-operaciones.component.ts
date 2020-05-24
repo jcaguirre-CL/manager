@@ -12,6 +12,11 @@ import { AbstractControl, FormArray } from '@angular/forms';
 import { AuthenticationService } from '../login-containers/_services';
 import { User } from '../login-containers/_models';
 
+export interface TablaElement {
+  categoria: string;
+  aplica: string;
+  evaluacion: string;
+}
 
 /* export interface State {
   flag: string;
@@ -30,6 +35,19 @@ interface Area {
   viewValue: string;
 }
 
+const CAMARA_DATA: TablaElement[] = [
+  {categoria: 'Camaras', aplica: 'SI', evaluacion: 'Bien'},
+  {categoria: 'Plumas', aplica: 'NO', evaluacion: 'Bien'},
+  {categoria: 'Steady', aplica: 'SI', evaluacion: 'Bien'},
+  {categoria: 'Personas', aplica: 'SI', evaluacion: 'Bien'}
+];
+const VIDEO_DATA: TablaElement[] = [
+  {categoria: 'Comunicaciones', aplica: 'SI', evaluacion: 'Bien'},
+  {categoria: 'Pantallas', aplica: 'NO', evaluacion: 'Bien'},
+  {categoria: 'Switch', aplica: 'NO', evaluacion: 'Bien'},
+  {categoria: 'Personas', aplica: 'SI', evaluacion: 'Bien'}
+];
+
 @Component({
   selector: 'app-detalle-evento-operaciones',
   templateUrl: './detalle-evento-operaciones.component.html',
@@ -42,6 +60,10 @@ export class DetalleEventoOperacionesComponent implements OnInit {
 
   @Input() selectedEventGroup: AbstractControl;
   @Input() group: FormGroup;
+
+  displayedColumns: string[] = ['categoria', 'aplica', 'evaluacion'];
+  dataSourceCamara = CAMARA_DATA;
+  dataSourceVideo = VIDEO_DATA;
 
   // GRAB USR AUTH RESPPROD
   public mycurrentUser: User;
@@ -78,25 +100,31 @@ export class DetalleEventoOperacionesComponent implements OnInit {
 
   responsables: Responsable[] = [
     {
-      nombre: 'Responsable 1',
+      nombre: 'Ruben Mauna',
       empresa: 'Canal 13',
       // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
       flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
     },
     {
-      nombre: 'Responsable 2',
+      nombre: 'Juan Carlos Aguirre',
       empresa: 'Canal 13',
       // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
       flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
     },
     {
-      nombre: 'Responsable 3',
+      nombre: 'Julio Antonio Muga',
+      empresa: 'Canal 13',
+      // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
+    },
+    {
+      nombre: 'Ignacio Carreño',
       empresa: 'Secuoya',
       // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
       flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
     },
     {
-      nombre: 'Responsable 4',
+      nombre: 'Silvia Bergon',
       empresa: 'Secuoya',
       // https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
       flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'

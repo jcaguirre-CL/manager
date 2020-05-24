@@ -34,6 +34,7 @@ export interface IIncidenteFormInterface {
     responsableEvento: string;  
     atencionEvento: string;
     obsEvento: string;
+    camaraCamara: string;
     produccion: {
       areaProduccion: string;
       pgmProduccion: string;

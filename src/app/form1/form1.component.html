@@ -5,14 +5,23 @@
     El evento quedará pendiente hasta la aprobación por parte de la producción
   </mat-card-subtitle>
   <mat-card-content>
+
+    <!-- PRIMERA FILA -->
+
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap fxLayoutAlign="center" fxLayoutGap="25px" [formGroup]="form">
-        <div fxFlex="50" fxFlex.xs="100%" fxFlex.sm="100%">
+        <div fxFlex="90" fxFlex.xs="50%" fxFlex.sm="50%">
           <!-- DETALLE DEL EVENTO -->
           <div class="jumbotron">
             <app-detalle-evento-operaciones [group]="form.get('detalleeventoOperaciones')"></app-detalle-evento-operaciones>
           </div>
+        </div>
+      </div>
+
+      <!-- SEGUNDA FILA -->
+
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap fxLayoutAlign="center" fxLayoutGap="25px" [formGroup]="form">
+        <div fxFlex="50" fxFlex.xs="100%" fxFlex.sm="100%">
           <!-- DETALLE DEL INCIDENTE -->
-          <div>
             <mat-card>
               <mat-card-header>
                 <mat-card-title>Descripción del Incidente:</mat-card-title>
@@ -28,21 +37,24 @@
               <mat-card-actions>
               </mat-card-actions>
             </mat-card>
-          </div>
         </div>
         <div fxFlex="50" fxFlex.xs="100%" fxFlex.sm="100%">
-            <mat-card class="example-card">
+            <!-- <mat-card class="example-card"> -->
+            <mat-card>
                 <mat-card-header>
                   <mat-card-title>Listado de Incidentes:</mat-card-title>
-                  <mat-card-subtitle class="DetalleInforme">
+                  <!-- <mat-card-subtitle class="DetalleInforme"> -->
+                  <mat-card-subtitle>
                     Para notificar un incidente presionar +
                   </mat-card-subtitle>
                 </mat-card-header>
                 <mat-divider inset='True'></mat-divider>
 
-                <mat-card-content class="DetalleInforme">
+                <!-- <mat-card-content class="DetalleInforme"> -->
+                <mat-card-content>
 
-                  <div class="ToppingsSelector" >
+                  <!-- <div class="ToppingsSelector" > -->
+                  <div>
                     <app-lista-incidentes-operaciones [group]="form"
                       (incidenteSelected)="onIncidenteSelected($event)"
                       (addIncidente)="onIncidenteAdd()"
@@ -61,12 +73,13 @@
               </mat-card>
         </div>
       </div>
+
   </mat-card-content>
 
-  <div fxShow fxHide.xs="true" fxHide.sm="true">
-    <mat-card-footer style="width:95%">
+<!--   <div fxShow fxHide.xs="true" fxHide.sm="true">
+    <mat-card-footer style="width:95%; height: 10px">
     </mat-card-footer>
-  </div>
+  </div> -->
 
 </mat-card>
 

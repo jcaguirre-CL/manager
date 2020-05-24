@@ -10,7 +10,8 @@ export const DEMO_INCIDENTE: IIncidenteFormInterface = {
     fechaEvento: '10/10/2000',
     responsableEvento: 'Responsable 1',
     atencionEvento: 'Canal 13',
-    obsEvento: 'NO OBS'
+    obsEvento: 'NO OBS',
+    camaraCamara: 'SI'
   },
   incidentes: [{
     detalles: [IncidenteDetallesEnum.TIPOFALLA1, IncidenteDetallesEnum.TIPOFALLA2] as any,
