@@ -18,12 +18,6 @@ export interface TablaElement {
   evaluacion: string;
 }
 
-/* export interface State {
-  flag: string;
-  name: string;
-  population: string;
-} */
-
 export interface Responsable {
   flag: string;
   nombre: string;
@@ -35,12 +29,6 @@ interface Area {
   viewValue: string;
 }
 
-const CAMARA_DATA: TablaElement[] = [
-  {categoria: 'Camaras', aplica: 'SI', evaluacion: 'Bien'},
-  {categoria: 'Plumas', aplica: 'NO', evaluacion: 'Bien'},
-  {categoria: 'Steady', aplica: 'SI', evaluacion: 'Bien'},
-  {categoria: 'Personas', aplica: 'SI', evaluacion: 'Bien'}
-];
 const VIDEO_DATA: TablaElement[] = [
   {categoria: 'Comunicaciones', aplica: 'SI', evaluacion: 'Bien'},
   {categoria: 'Pantallas', aplica: 'NO', evaluacion: 'Bien'},
@@ -62,27 +50,15 @@ export class DetalleEventoOperacionesComponent implements OnInit {
   @Input() group: FormGroup;
 
   displayedColumns: string[] = ['categoria', 'aplica', 'evaluacion'];
-  dataSourceCamara = CAMARA_DATA;
   dataSourceVideo = VIDEO_DATA;
+  panelOpenState = false;
 
   // GRAB USR AUTH RESPPROD
   public mycurrentUser: User;
 
-  // @Output() addPizza = new EventEmitter();
-
-  /* get toppingsArray(): FormArray {
-    if (!this.selectedEventGroup) return;
-
-    return this.selectedEventGroup.get('toppings') as FormArray;
-  } */
-
-  // stateCtrl = new FormControl();
   responsableCtrl = new FormControl();
-  // mostrarResponsable = new FormControl();
   // filteredStates: Observable<State[]>;
   filteredResponsables: Observable<Responsable[]>;
-  // responsable: Responsable;
-  // states: State[] = [
 
     areas: Area[] = [
       {value: 'PRENSA', viewValue: 'PRENSA'},
@@ -152,7 +128,6 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     );
 
   }
-  // "top", "top-left", "top-right", "bottom", "bottom-left", "bottom-right", "left", "left-top", "left-bottom","right", "right-top", "right-bottom"
   ngOnInit() {
   }
 
