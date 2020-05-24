@@ -38,6 +38,7 @@ export interface Responsable {
 export class Form1Component implements OnInit {
   loading = false;
   editMode = false;
+  error: string;
   get form(): FormGroup {
     return this.operacionesForm1ServicioService.form;
   }

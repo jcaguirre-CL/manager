@@ -1,19 +1,19 @@
 <div class="row">
     <div class="col-md-12">
-      <div class="PizzaSizePicker">
-        <div class="PizzaSizePicker__item"
-             (click)="changeSize(PizzaSizeEnum.SMALL)"
-             [ngClass]="{'PizzaSizePicker__item--active': pizzaSize === PizzaSizeEnum.SMALL}">
+      <div class="IncidenteAreaPicker">
+        <div class="IncidenteAreaPicker__item"
+             (click)="changeArea(IncidenteAreaEnum.NIVEL1)"
+             [ngClass]="{'IncidenteAreaPicker__item--active': incidenteArea === IncidenteAreaEnum.NIVEL1}">
           OPCION1
         </div>
-        <div class="PizzaSizePicker__item"
-             (click)="changeSize(PizzaSizeEnum.MEDIUM)"
-             [ngClass]="{'PizzaSizePicker__item--active': pizzaSize === PizzaSizeEnum.MEDIUM}">
+        <div class="IncidenteAreaPicker__item"
+             (click)="changeArea(IncidenteAreaEnum.NIVEL2)"
+             [ngClass]="{'PizzaSizePicker__item--active': incidenteArea === IncidenteAreaEnum.NIVEL2}">
           OPCION2
         </div>
-        <div class="PizzaSizePicker__item"
-             (click)="changeSize(PizzaSizeEnum.LARGE)"
-             [ngClass]="{'PizzaSizePicker__item--active': pizzaSize === PizzaSizeEnum.LARGE}">
+        <div class="IncidenteAreaPicker__item"
+             (click)="changeArea(IncidenteAreaEnum.NIVEL3)"
+             [ngClass]="{'IncidenteAreaPicker__item--active': incidenteArea === IncidenteAreaEnum.NIVEL3}">
           OPCION3
         </div>
       </div>

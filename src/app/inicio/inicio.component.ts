@@ -15,7 +15,7 @@ import { first } from 'rxjs/operators';
   ]
 })
 export class InicioComponent implements OnInit {
-  private mycurrentUser: User;
+  public mycurrentUser: User;
 
   constructor(
     private authenticationService: AuthenticationService,

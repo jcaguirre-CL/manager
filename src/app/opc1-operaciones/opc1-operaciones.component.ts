@@ -23,7 +23,7 @@ export class Opc1OperacionesComponent implements ControlValueAccessor {
   ngOnInit() {
   }
 
-  changeSize(area: IncidenteAreaEnum) {
+  changeArea(area: IncidenteAreaEnum) {
     this.incidenteArea = area;
     this.propagateChange(area);
   }
