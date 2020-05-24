@@ -6,7 +6,7 @@
   </mat-card-subtitle>
   <mat-card-content>
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap fxLayoutAlign="center" fxLayoutGap="25px" [formGroup]="form">
-        <div fxFlex="50">
+        <div fxFlex="50" fxFlex.xs="100%" fxFlex.sm="100%">
           <!-- DETALLE DEL EVENTO -->
           <div class="jumbotron">
             <app-detalle-evento-operaciones [group]="form.get('detalleeventoOperaciones')"></app-detalle-evento-operaciones>
@@ -30,7 +30,7 @@
             </mat-card>
           </div>
         </div>
-        <div fxFlex="50">
+        <div fxFlex="50" fxFlex.xs="100%" fxFlex.sm="100%">
             <mat-card class="example-card">
                 <mat-card-header>
                   <mat-card-title>Listado de Incidentes:</mat-card-title>
@@ -59,44 +59,17 @@
                   <button mat-button>CANCELAR</button>
                 </mat-card-actions>
               </mat-card>
-            <!-- <div class="jumbotron">
-                <mat-list>
-                  <mat-list-item>Item 1</mat-list-item>
-                  <mat-divider inset='True'></mat-divider>
-                  <mat-list-item>
-                      <div class="col-md-12">
-                          <h4>
-                            Detalle del supervisor
-                          </h4>
-                        </div>
-                      <input matInput placeholder="Nombre" [value]="responsable.nombre" [formControl]="mostrarResponsable" />
-                      <input matInput placeholder="Responsabilidad" [value]="responsable.responsabilidad" formControlName="lastName" />
-                  </mat-list-item>
-                  <mat-divider inset='True'></mat-divider>
-                    <div class="row">
-                    
-                      <div class="col-md-12">
-                          <h4>
-                            Detalle del supervisor
-                          </h4>
-                        </div>
-                      <mat-form-field>
-                            <input matInput placeholder="Nombre" [value]="responsable.nombre" [formControl]="mostrarResponsable" />
-                          </mat-form-field>
-                          <mat-form-field>
-                            <input matInput placeholder="Responsabilidad" [value]="responsable.responsabilidad" formControlName="lastName" />
-                          </mat-form-field>
-                    </div>
-                </mat-list>
-            </div> -->
         </div>
       </div>
   </mat-card-content>
-  <mat-card-footer style="width:95%">
-  </mat-card-footer>
+
+  <div fxShow fxHide.xs="true" fxHide.sm="true">
+    <mat-card-footer style="width:95%">
+    </mat-card-footer>
+  </div>
+
 </mat-card>
 
+<!-- <div class="example-container">
 
-<div class="example-container">
-
-  </div>
+  </div> -->
