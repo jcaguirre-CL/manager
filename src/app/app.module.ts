@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { Form1Component } from './form1/form1.component';
 import { Config1Component } from './config1/config1.component';
@@ -35,6 +36,7 @@ import { IncidenteAreaPickerComponent } from './incidente-area-picker/incidente-
     LoginComponent,
     Form1Component,
     InicioComponent,
+    RegisterComponent,
     Config1Component,
     Historial1Component,
     Opc1OperacionesComponent,
