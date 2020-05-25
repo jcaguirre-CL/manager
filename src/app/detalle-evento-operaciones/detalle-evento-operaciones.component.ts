@@ -39,6 +39,8 @@ export class DetalleEventoOperacionesComponent implements OnInit {
   @Input() group: FormGroup;
 
   color: ThemePalette = 'accent';
+  checked = false;
+  disabled = true;
   checkedCamaraCamara = false;
   disabledCamaraCamara = true;
   checkedCamaraPluma = false;
