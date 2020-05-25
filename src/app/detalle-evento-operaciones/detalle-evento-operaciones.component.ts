@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {ThemePalette} from '@angular/material/core';
 
 import { NgbPopoverConfig } from '@ng-bootstrap/ng-bootstrap';
 
@@ -12,11 +13,7 @@ import { AbstractControl, FormArray } from '@angular/forms';
 import { AuthenticationService } from '../login-containers/_services';
 import { User } from '../login-containers/_models';
 
-export interface TablaElement {
-  categoria: string;
-  aplica: string;
-  evaluacion: string;
-}
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 export interface Responsable {
   flag: string;
@@ -29,19 +26,11 @@ interface Area {
   viewValue: string;
 }
 
-const VIDEO_DATA: TablaElement[] = [
-  {categoria: 'Comunicaciones', aplica: 'SI', evaluacion: 'Bien'},
-  {categoria: 'Pantallas', aplica: 'NO', evaluacion: 'Bien'},
-  {categoria: 'Switch', aplica: 'NO', evaluacion: 'Bien'},
-  {categoria: 'Personas', aplica: 'SI', evaluacion: 'Bien'}
-];
-
 @Component({
   selector: 'app-detalle-evento-operaciones',
   templateUrl: './detalle-evento-operaciones.component.html',
   styleUrls: ['./detalle-evento-operaciones.component.css'],
   providers: [NgbPopoverConfig]
-
 })
 
 export class DetalleEventoOperacionesComponent implements OnInit {
@@ -49,15 +38,22 @@ export class DetalleEventoOperacionesComponent implements OnInit {
   @Input() selectedEventGroup: AbstractControl;
   @Input() group: FormGroup;
 
-  displayedColumns: string[] = ['categoria', 'aplica', 'evaluacion'];
-  dataSourceVideo = VIDEO_DATA;
+  color: ThemePalette = 'accent';
+  checkedCamaraCamara = false;
+  disabledCamaraCamara = true;
+  checkedCamaraPluma = false;
+  disabledCamaraPluma = true;
+  checkedCamaraSteady = false;
+  disabledCamaraSteady = true;
+  checkedCamaraPersonal = false;
+  disabledCamaraPersonal = true;
+
   panelOpenState = false;
 
   // GRAB USR AUTH RESPPROD
   public mycurrentUser: User;
 
   responsableCtrl = new FormControl();
-  // filteredStates: Observable<State[]>;
   filteredResponsables: Observable<Responsable[]>;
 
     areas: Area[] = [
@@ -112,15 +108,10 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     private authenticationService: AuthenticationService)
      {
     this.authenticationService.currentUser.subscribe(x => this.mycurrentUser = x);
-/*     this.group.controls['produccion'].setValue({
-      areaProduccion: this.currentUser
-    }); */
-    // customize default values of popovers used by this component tree
+
     config.placement = 'top-left';
     config.triggers = 'hover';
 
-    // this.responsableCtrl.disabled;
-    // this.mostrarResponsable.disabled;
     this.filteredResponsables = this.responsableCtrl.valueChanges
     .pipe(
       startWith(''),
@@ -128,9 +119,111 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     );
 
   }
+
   ngOnInit() {
+    this.group.controls['camaraCamara'].setValue('NA')
   }
 
+  onChange(ob: MatCheckboxChange) {
+    if(ob.checked){
+      this.disabledCamaraCamara = false;
+      if(this.checkedCamaraCamara){
+        this.group.controls['camaraCamara'].setValue('MAL')
+      }
+      else{
+        this.group.controls['camaraCamara'].setValue('BIEN')
+      }
+    }
+    else
+    {
+      this.disabledCamaraCamara = true;
+      this.group.controls['camaraCamara'].setValue('NA')
+    }
+  }
+  onToggleChange() {
+    this.checkedCamaraCamara = !this.checkedCamaraCamara;
+    if(this.checkedCamaraCamara){
+      this.group.controls['camaraCamara'].setValue('MAL')
+    }
+    else{
+      this.group.controls['camaraCamara'].setValue('BIEN')
+    }
+  } 
+  onChangeCamaraPluma(ob: MatCheckboxChange) {
+    if(ob.checked){
+      this.disabledCamaraPluma = false;
+      if(this.checkedCamaraPluma){
+        this.group.controls['camaraCamara'].setValue('MAL')
+      }
+      else{
+        this.group.controls['camaraCamara'].setValue('BIEN')
+      }
+    }
+    else
+    {
+      this.disabledCamaraPluma = true;
+      this.group.controls['camaraCamara'].setValue('NA')
+    }
+  }
+  onToggleChangeCamaraPluma() {
+    this.checkedCamaraPluma = !this.checkedCamaraPluma;
+    if(this.checkedCamaraPluma){
+      this.group.controls['camaraCamara'].setValue('MAL')
+    }
+    else{
+      this.group.controls['camaraCamara'].setValue('BIEN')
+    }
+  } 
+  onChangeCamaraSteady(ob: MatCheckboxChange) {
+    if(ob.checked){
+      this.disabledCamaraSteady = false;
+      if(this.checkedCamaraSteady){
+        this.group.controls['camaraCamara'].setValue('MAL')
+      }
+      else{
+        this.group.controls['camaraCamara'].setValue('BIEN')
+      }
+    }
+    else
+    {
+      this.disabledCamaraSteady = true;
+      this.group.controls['camaraCamara'].setValue('NA')
+    }
+  }
+  onToggleChangeCamaraSteady() {
+    this.checkedCamaraSteady = !this.checkedCamaraSteady;
+    if(this.checkedCamaraSteady){
+      this.group.controls['camaraCamara'].setValue('MAL')
+    }
+    else{
+      this.group.controls['camaraCamara'].setValue('BIEN')
+    }
+  } 
+  onChangeCamaraPersonal(ob: MatCheckboxChange) {
+    if(ob.checked){
+      this.disabledCamaraPersonal = false;
+      if(this.checkedCamaraPersonal){
+        this.group.controls['camaraCamara'].setValue('MAL')
+      }
+      else{
+        this.group.controls['camaraCamara'].setValue('BIEN')
+      }
+    }
+    else
+    {
+      this.disabledCamaraPersonal = true;
+      this.group.controls['camaraCamara'].setValue('NA')
+    }
+  }
+  onToggleChangeCamaraPersonal() {
+    this.checkedCamaraPersonal = !this.checkedCamaraPersonal;
+    if(this.checkedCamaraPersonal){
+      this.group.controls['camaraCamara'].setValue('MAL')
+    }
+    else{
+      this.group.controls['camaraCamara'].setValue('BIEN')
+    }
+  } 
   private _filterResponsables(value: string): Responsable[] {
     const filterValue = value.toLowerCase();
 

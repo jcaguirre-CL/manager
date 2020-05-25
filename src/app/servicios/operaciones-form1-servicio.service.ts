@@ -130,10 +130,17 @@ export class OperacionesForm1ServicioService {
 
   createIncidenteEventoDto(data: IIncidenteFormInterface): IIncidenteFormInterface {
     // const order = {
+/*       if(data.detalleeventoOperaciones.camaraCamara!='NA'){
+        if(data.detalleeventoOperaciones.camaraCamara){
+          data.detalleeventoOperaciones.camaraCamara = 'Mal';
+        }
+        else{
+          data.detalleeventoOperaciones.camaraCamara = 'Bien';
+        }
+      } */
     const evento = {
       /* detalleeventoOperaciones: data.detalleeventoOperaciones,
       incidentes: data.incidentes */
-
       // selectedIncidente: this.form.value.selectedIncidente,
       incidentes: data.incidentes,
       detalleeventoOperaciones: {
@@ -180,7 +187,6 @@ export class OperacionesForm1ServicioService {
     while (this.incidentesArray.length) {
       this.incidentesArray.removeAt(0);
     }
-
     this.form.reset();
   }
 
