@@ -92,6 +92,18 @@ export class DetalleEventoOperacionesComponent implements OnInit {
       flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
     },
     {
+      nombre: 'Jorge Hayden Manríquez',
+      empresa: 'Canal 13',
+      // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
+    },
+    {
+      nombre: 'Cristobal Catalan',
+      empresa: 'Canal 13',
+      // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
+    },
+    {
       nombre: 'Ignacio Carreño',
       empresa: 'Secuoya',
       // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
