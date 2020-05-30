@@ -26,6 +26,21 @@ interface Area {
   viewValue: string;
 }
 
+interface TipoPrograma {
+  value: string;
+  viewValue: string;
+}
+
+interface AtrasoIn {
+  value: string;
+  viewValue: string;
+}
+
+interface AtrasoOut {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-detalle-evento-operaciones',
   templateUrl: './detalle-evento-operaciones.component.html',
@@ -37,6 +52,30 @@ export class DetalleEventoOperacionesComponent implements OnInit {
 
   @Input() selectedEventGroup: AbstractControl;
   @Input() group: FormGroup;
+
+  tipoprogramas: TipoPrograma[] = [
+    {value: 'Prensa', viewValue: 'Prensa'},
+    {value: 'Matinal', viewValue: 'Matinal'},
+    {value: 'Franjeado', viewValue: 'Franjeado'},
+    {value: 'Estelar', viewValue: 'Estelar'},
+    {value: 'Reportaje', viewValue: 'Reportaje'},
+    {value: 'Entretención', viewValue: 'Entretención'},
+    {value: 'Otro', viewValue: 'Otro'}
+  ];
+
+  atrasoins: AtrasoIn[] = [
+    {value: 'No', viewValue: 'No'},
+    {value: 'Produccion', viewValue: 'Produccion'},
+    {value: 'Operaciones', viewValue: 'Operaciones'},
+    {value: 'Ambos', viewValue: 'Ambos'}
+  ];
+
+  atrasoouts: AtrasoOut[] = [
+    {value: 'No', viewValue: 'No'},
+    {value: 'Produccion', viewValue: 'Produccion'},
+    {value: 'Operaciones', viewValue: 'Operaciones'},
+    {value: 'Ambos', viewValue: 'Ambos'}
+  ];
 
   color: ThemePalette = 'accent';
   checked = false;

@@ -20,7 +20,6 @@ import { AlertComponent } from './login-containers/_components';
 
 import { JwtInterceptor, ErrorInterceptor } from './login-containers/_helpers';
 
-
 import { CommonModule } from '@angular/common';
 import { Opc1OperacionesComponent } from './opc1-operaciones/opc1-operaciones.component';
 import { DetalleEventoOperacionesComponent } from './detalle-evento-operaciones/detalle-evento-operaciones.component';

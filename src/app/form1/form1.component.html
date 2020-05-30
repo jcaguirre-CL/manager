@@ -21,10 +21,47 @@
 
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap fxLayoutAlign="center" fxLayoutGap="25px" [formGroup]="form">
         <div fxFlex="50" fxFlex.xs="100%" fxFlex.sm="100%">
+          <!-- <mat-card class="example-card"> -->
+          <mat-card>
+              <mat-card-header>
+                <mat-card-title>Listado de Observaciones:</mat-card-title>
+                <!-- <mat-card-subtitle class="DetalleInforme"> -->
+                <mat-card-subtitle>
+                  Para realizar una observación presionar +
+                </mat-card-subtitle>
+              </mat-card-header>
+              <mat-divider inset='True'></mat-divider>
+
+              <!-- <mat-card-content class="DetalleInforme"> -->
+              <mat-card-content>
+
+                <!-- <div class="ToppingsSelector" > -->
+                <div>
+                  <app-lista-incidentes-operaciones [group]="form"
+                    (incidenteSelected)="onIncidenteSelected($event)"
+                    (addIncidente)="onIncidenteAdd()"
+                    (deleteIncidente)="onIncidenteDelete($event)">
+                  </app-lista-incidentes-operaciones>
+                </div>
+
+              </mat-card-content>
+              <mat-card-actions class="mymat">
+                <button mat-raised-button color="primary" (click)="submit(form.value)">
+                <!-- <button class="pull-right" mat-raised-button color="primary" (click)="submit(form.value)"> -->
+                  GUARDAR
+                </button>
+                <button mat-button>
+                  CANCELAR
+                </button>
+              </mat-card-actions>
+            </mat-card>
+      </div>
+
+        <div fxFlex="50" fxFlex.xs="100%" fxFlex.sm="100%">
           <!-- DETALLE DEL INCIDENTE -->
             <mat-card>
               <mat-card-header>
-                <mat-card-title>Descripción del Incidente:</mat-card-title>
+                <mat-card-title>Observación de Evaluación:</mat-card-title>
                 <mat-card-subtitle></mat-card-subtitle>
               </mat-card-header>
               <mat-card-content>
@@ -38,40 +75,7 @@
               </mat-card-actions>
             </mat-card>
         </div>
-        <div fxFlex="50" fxFlex.xs="100%" fxFlex.sm="100%">
-            <!-- <mat-card class="example-card"> -->
-            <mat-card>
-                <mat-card-header>
-                  <mat-card-title>Listado de Incidentes:</mat-card-title>
-                  <!-- <mat-card-subtitle class="DetalleInforme"> -->
-                  <mat-card-subtitle>
-                    Para notificar un incidente presionar +
-                  </mat-card-subtitle>
-                </mat-card-header>
-                <mat-divider inset='True'></mat-divider>
 
-                <!-- <mat-card-content class="DetalleInforme"> -->
-                <mat-card-content>
-
-                  <!-- <div class="ToppingsSelector" > -->
-                  <div>
-                    <app-lista-incidentes-operaciones [group]="form"
-                      (incidenteSelected)="onIncidenteSelected($event)"
-                      (addIncidente)="onIncidenteAdd()"
-                      (deleteIncidente)="onIncidenteDelete($event)">
-                    </app-lista-incidentes-operaciones>
-                  </div>
-
-                </mat-card-content>
-                <mat-card-actions>
-                  <button mat-raised-button color="primary" (click)="submit(form.value)">
-                  <!-- <button class="pull-right" mat-raised-button color="primary" (click)="submit(form.value)"> -->
-                    GUARDAR
-                  </button>
-                  <button mat-button>CANCELAR</button>
-                </mat-card-actions>
-              </mat-card>
-        </div>
       </div>
 
   </mat-card-content>

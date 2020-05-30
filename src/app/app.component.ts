@@ -41,7 +41,7 @@ export class AppComponent implements OnDestroy {
             link: 'inicio',
             index: 1
         }, {
-            label: 'REGISTRO',
+            label: 'REGISTRO VIVO/GX',
             link: 'form1',
             index: 2
         }, {
