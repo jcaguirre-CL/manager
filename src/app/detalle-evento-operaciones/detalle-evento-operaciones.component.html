@@ -2,6 +2,7 @@
   <div [formGroup]="group">
     <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap fxLayoutAlign="center" fxLayoutGap="25px">
       <div fxFlex="90" fxFlex.xs="50%" fxFlex.sm="50%">
+        <mat-card>
         <mat-list>
           <mat-list-item>Descripción del Evento de Operación:</mat-list-item>
           <mat-divider inset="true"></mat-divider>
@@ -138,8 +139,10 @@
             </mat-form-field>
 
           </div>
+        </mat-card>
     </div>
     <div fxFlex="90" fxFlex.xs="50%" fxFlex.sm="50%">
+      <mat-card>
       <mat-list>
         <mat-list-item>Evaluación por Área:</mat-list-item>
         <mat-divider inset="true"></mat-divider>
@@ -769,7 +772,7 @@
 
         <!-- FIN CATEGORIAS -->
       </mat-accordion>
-
+    </mat-card>
     </div>
   </div>
 </div>
