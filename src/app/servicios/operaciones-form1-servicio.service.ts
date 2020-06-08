@@ -44,10 +44,24 @@ export class OperacionesForm1ServicioService {
         atencionEvento: [null, Validators.required],
         obsEvento: [null,],
         camaraCamara: [null,],
+        camaraPluma: [null,],
+        camaraSteady: [null,],
+        camaraPersonal: [null,],
+        videoComunicaciones: [null,],
+        videoPantallas: [null,],
+        videoSwitch: [null,],
+        videoPersonal: [null,],
+        graficaRecurso: [null,],
+        graficaPersonal: [null,],
+        audioRecurso: [null,],
+        audioPersonal: [null,],
+        iluminacionRecurso: [null,],
+        iluminacionPersonal: [null,],
         produccion: this.fb.group({
           areaProduccion: [null, Validators.required],
           responsableProduccion: [null, Validators.required],
           pgmProduccion: [null, Validators.required],
+          tipopgmProduccion: [null, Validators.required],
         })
       })
     }, {
@@ -83,10 +97,24 @@ export class OperacionesForm1ServicioService {
         atencionEvento: this.form.value.detalleeventoOperaciones.atencionEvento,
         obsEvento: this.form.value.detalleeventoOperaciones.obsEvento,
         camaraCamara: this.form.value.detalleeventoOperaciones.camaraCamara,
+        camaraPluma: this.form.value.detalleeventoOperaciones.camaraPluma,
+        camaraSteady: this.form.value.detalleeventoOperaciones.camaraSteady,
+        camaraPersonal: this.form.value.detalleeventoOperaciones.camaraPersonal,
+        videoComunicaciones: this.form.value.detalleeventoOperaciones.videoComunicaciones,
+        videoPantallas: this.form.value.detalleeventoOperaciones.videoPantallas,
+        videoSwitch: this.form.value.detalleeventoOperaciones.videoSwitch,
+        videoPersonal: this.form.value.detalleeventoOperaciones.videoPersonal,
+        graficaRecurso: this.form.value.detalleeventoOperaciones.graficaRecurso,
+        graficaPersonal: this.form.value.detalleeventoOperaciones.graficaPersonal,
+        audioRecurso: this.form.value.detalleeventoOperaciones.audioRecurso,
+        audioPersonal: this.form.value.detalleeventoOperaciones.audioPersonal,
+        iluminacionRecurso: this.form.value.detalleeventoOperaciones.iluminacionRecurso,
+        iluminacionPersonal: this.form.value.detalleeventoOperaciones.iluminacionPersonal,
         produccion: { 
           areaProduccion: this.form.value.detalleeventoOperaciones.produccion.areaProduccion,
           responsableProduccion: this.mycurrentUser.nombre + ' ' + this.mycurrentUser.apellido,
-          pgmProduccion: this.form.value.detalleeventoOperaciones.produccion.pgmProduccion
+          pgmProduccion: this.form.value.detalleeventoOperaciones.produccion.pgmProduccion,
+          tipopgmProduccion: this.form.value.detalleeventoOperaciones.produccion.tipopgmProduccion
         }
       } 
     });
@@ -149,10 +177,24 @@ export class OperacionesForm1ServicioService {
         atencionEvento: data.detalleeventoOperaciones.atencionEvento,
         obsEvento: data.detalleeventoOperaciones.obsEvento,
         camaraCamara: data.detalleeventoOperaciones.camaraCamara,
+        camaraPluma: data.detalleeventoOperaciones.camaraPluma,
+        camaraSteady: data.detalleeventoOperaciones.camaraSteady,
+        camaraPersonal: data.detalleeventoOperaciones.camaraPersonal,
+        videoComunicaciones: data.detalleeventoOperaciones.videoComunicaciones,
+        videoPantallas: data.detalleeventoOperaciones.videoPantallas,
+        videoSwitch: data.detalleeventoOperaciones.videoSwitch,
+        videoPersonal: data.detalleeventoOperaciones.videoPersonal,
+        graficaRecurso: data.detalleeventoOperaciones.graficaRecurso,
+        graficaPersonal: data.detalleeventoOperaciones.graficaPersonal,
+        audioRecurso: data.detalleeventoOperaciones.audioRecurso,
+        audioPersonal: data.detalleeventoOperaciones.audioPersonal,
+        iluminacionRecurso: data.detalleeventoOperaciones.iluminacionRecurso,
+        iluminacionPersonal: data.detalleeventoOperaciones.iluminacionPersonal,
         produccion: { 
           areaProduccion: data.detalleeventoOperaciones.produccion.areaProduccion,
           responsableProduccion: this.mycurrentUser.nombre + ' ' + this.mycurrentUser.apellido,
-          pgmProduccion: data.detalleeventoOperaciones.produccion.pgmProduccion
+          pgmProduccion: data.detalleeventoOperaciones.produccion.pgmProduccion,
+          tipopgmProduccion: data.detalleeventoOperaciones.produccion.tipopgmProduccion
         }
       } 
     };

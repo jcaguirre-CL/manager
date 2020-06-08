@@ -5,13 +5,27 @@ export const DEMO_INCIDENTE: IIncidenteFormInterface = {
     produccion: {
       areaProduccion: 'AREA PROD',
       pgmProduccion: 'PGM PROD',
+      tipopgmProduccion: 'TIPO PGM PROD',
       responsableProduccion: 'RESP PROD'
     },
     fechaEvento: '10/10/2000',
     responsableEvento: 'Responsable 1',
     atencionEvento: 'Canal 13',
     obsEvento: 'NO OBS',
-    camaraCamara: 'SI'
+    camaraCamara: 'SI',
+    camaraPluma: 'SI',
+    camaraSteady: 'SI',
+    camaraPersonal: 'SI',
+    videoComunicaciones: 'SI',
+    videoPantallas: 'SI',
+    videoSwitch: 'SI',
+    videoPersonal: 'SI',
+    graficaRecurso: 'SI',
+    graficaPersonal: 'SI',
+    audioRecurso: 'SI',
+    audioPersonal: 'SI',
+    iluminacionRecurso: 'SI',
+    iluminacionPersonal: 'SI'
   },
   incidentes: [{
     detalles: [IncidenteDetallesEnum.TIPOFALLA1, IncidenteDetallesEnum.TIPOFALLA2] as any,

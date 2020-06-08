@@ -44,14 +44,22 @@ export class AppComponent implements OnDestroy {
             label: 'REGISTRO VIVO/GX',
             link: 'form1',
             index: 2
-        }, {
-            label: 'HISTORIAL',
-            link: 'historial1',
-            index: 3
+        },{
+          label: 'REGISTRO PORTATIL',
+          link: 'formportatil',
+          index: 3
+        },{
+          label: 'REGISTRO EDICION',
+          link: 'formedicion',
+          index: 4
+        },{
+          label: 'HISTORIAL',
+          link: 'historial1',
+          index: 5
         }, {
           label: 'CONFIGURACION',
           link: 'config1',
-          index: 4
+          index: 6
       } 
     ];
   }

@@ -35,9 +35,23 @@ export interface IIncidenteFormInterface {
     atencionEvento: string;
     obsEvento: string;
     camaraCamara: string;
+    camaraPluma: string;
+    camaraSteady: string;
+    camaraPersonal: string;
+    videoComunicaciones: string;
+    videoPantallas: string;
+    videoSwitch: string;
+    videoPersonal: string;
+    graficaRecurso: string;
+    graficaPersonal: string;
+    audioRecurso: string;
+    audioPersonal: string;
+    iluminacionRecurso: string;
+    iluminacionPersonal: string;
     produccion: {
       areaProduccion: string;
       pgmProduccion: string;
+      tipopgmProduccion: string;
       responsableProduccion: string;
     };
   }
