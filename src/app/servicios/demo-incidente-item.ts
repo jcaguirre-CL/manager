@@ -8,6 +8,8 @@ export const DEMO_INCIDENTE: IIncidenteFormInterface = {
       tipopgmProduccion: 'TIPO PGM PROD',
       responsableProduccion: 'RESP PROD'
     },
+    tipoOperacion: 'TEST',
+    tipoLocacion: 'TEST',
     fechaEvento: '10/10/2000',
     responsableEvento: 'Responsable 1',
     atencionEvento: 'Canal 13',
@@ -15,6 +17,8 @@ export const DEMO_INCIDENTE: IIncidenteFormInterface = {
     camaraCamara: 'SI',
     camaraPluma: 'SI',
     camaraSteady: 'SI',
+    camaraRiel: 'SI',
+    camaraDron: 'SI',
     camaraPersonal: 'SI',
     videoComunicaciones: 'SI',
     videoPantallas: 'SI',

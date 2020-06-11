@@ -47,18 +47,30 @@
                 </mat-option>
               </mat-select>
             </mat-form-field>
+          </div>
 
             <!-- VIVO/GX -->
-            <mat-radio-group aria-label="Tipo">
+            <div class="Row">
+
+            <mat-radio-group formControlName="tipoOperacion">
               <mat-radio-button value="VIVO" checked>Vivo</mat-radio-button>
               <mat-radio-button value="GX">Grabación</mat-radio-button>
             </mat-radio-group>
+          </div>
+
+            <!-- ESTUDIO/EXTERIOR -->
+            <div class="Row">
+
+            <mat-radio-group formControlName="tipoLocacion">
+              <mat-radio-button value="ESTUDIO" checked>Estudio</mat-radio-button>
+              <mat-radio-button value="EXTERIOR">Exterior</mat-radio-button>
+            </mat-radio-group>
+          </div>
 
             <!-- LOCACION -->
             <mat-form-field class="example-full-width">
               <textarea matInput placeholder="Locación"></textarea>
             </mat-form-field>
-          </div>
 
         <!-- FECHA -->
         <mat-form-field class="example-full-width example-h2">
@@ -239,6 +251,50 @@
                     (toggleChange)="onToggleChangeCamaraSteady()"
                     [checked]="checkedCamaraSteady"
                     [disabled]="disabledCamaraSteady">
+                  </mat-slide-toggle>
+                  Mal
+                </div>
+              </div>
+            </mat-list-item>
+
+            <mat-divider inset="true"></mat-divider>
+
+            <mat-list-item role="listitem">
+              <div class="Row">
+                <div class="Column">Riel:</div>
+                <div class="Column">
+                  <mat-checkbox class="example-margin" (change)="onChangeCamaraRiel($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+                </div>
+                <div class="Column">
+                  Bien
+                  <mat-slide-toggle
+                    class="example-margin"
+                    [color]="color"
+                    (toggleChange)="onToggleChangeCamaraRiel()"
+                    [checked]="checkedCamaraRiel"
+                    [disabled]="disabledCamaraRiel">
+                  </mat-slide-toggle>
+                  Mal
+                </div>
+              </div>
+            </mat-list-item>
+
+            <mat-divider inset="true"></mat-divider>
+
+            <mat-list-item role="listitem">
+              <div class="Row">
+                <div class="Column">Dron:</div>
+                <div class="Column">
+                  <mat-checkbox class="example-margin" (change)="onChangeCamaraDron($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+                </div>
+                <div class="Column">
+                  Bien
+                  <mat-slide-toggle
+                    class="example-margin"
+                    [color]="color"
+                    (toggleChange)="onToggleChangeCamaraDron()"
+                    [checked]="checkedCamaraDron"
+                    [disabled]="disabledCamaraDron">
                   </mat-slide-toggle>
                   Mal
                 </div>

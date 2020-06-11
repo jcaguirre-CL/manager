@@ -30,6 +30,8 @@ export interface IIncidenteFormInterface {
   
   // Estructura de datos: EVENTO
   export interface IDetalleEventoOperaciones {
+    tipoOperacion: string;
+    tipoLocacion: string;
     fechaEvento: string;
     responsableEvento: string;  
     atencionEvento: string;
@@ -37,6 +39,8 @@ export interface IIncidenteFormInterface {
     camaraCamara: string;
     camaraPluma: string;
     camaraSteady: string;
+    camaraRiel: string;
+    camaraDron: string;
     camaraPersonal: string;
     videoComunicaciones: string;
     videoPantallas: string;

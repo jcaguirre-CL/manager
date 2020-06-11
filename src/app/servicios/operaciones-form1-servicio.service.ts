@@ -42,10 +42,14 @@ export class OperacionesForm1ServicioService {
         fechaEvento: [null, Validators.required],
         responsableEvento: [null, Validators.required],
         atencionEvento: [null, Validators.required],
+        tipoOperacion: [null, Validators.required],
+        tipoLocacion: [null, Validators.required],
         obsEvento: [null,],
         camaraCamara: [null,],
         camaraPluma: [null,],
         camaraSteady: [null,],
+        camaraRiel: [null,],
+        camaraDron: [null,],
         camaraPersonal: [null,],
         videoComunicaciones: [null,],
         videoPantallas: [null,],
@@ -95,10 +99,14 @@ export class OperacionesForm1ServicioService {
         fechaEvento: this.form.value.detalleeventoOperaciones.fechaEvento,
         responsableEvento: this.form.value.detalleeventoOperaciones.responsableEvento,
         atencionEvento: this.form.value.detalleeventoOperaciones.atencionEvento,
+        tipoOperacion: this.form.value.detalleeventoOperaciones.tipoOperacion,
+        tipoLocacion: this.form.value.detalleeventoOperaciones.tipoLocacion,
         obsEvento: this.form.value.detalleeventoOperaciones.obsEvento,
         camaraCamara: this.form.value.detalleeventoOperaciones.camaraCamara,
         camaraPluma: this.form.value.detalleeventoOperaciones.camaraPluma,
         camaraSteady: this.form.value.detalleeventoOperaciones.camaraSteady,
+        camaraRiel: this.form.value.detalleeventoOperaciones.camaraRiel,
+        camaraDron: this.form.value.detalleeventoOperaciones.camaraDron,
         camaraPersonal: this.form.value.detalleeventoOperaciones.camaraPersonal,
         videoComunicaciones: this.form.value.detalleeventoOperaciones.videoComunicaciones,
         videoPantallas: this.form.value.detalleeventoOperaciones.videoPantallas,
@@ -157,28 +165,20 @@ export class OperacionesForm1ServicioService {
   }
 
   createIncidenteEventoDto(data: IIncidenteFormInterface): IIncidenteFormInterface {
-    // const order = {
-/*       if(data.detalleeventoOperaciones.camaraCamara!='NA'){
-        if(data.detalleeventoOperaciones.camaraCamara){
-          data.detalleeventoOperaciones.camaraCamara = 'Mal';
-        }
-        else{
-          data.detalleeventoOperaciones.camaraCamara = 'Bien';
-        }
-      } */
     const evento = {
-      /* detalleeventoOperaciones: data.detalleeventoOperaciones,
-      incidentes: data.incidentes */
-      // selectedIncidente: this.form.value.selectedIncidente,
       incidentes: data.incidentes,
       detalleeventoOperaciones: {
         fechaEvento: data.detalleeventoOperaciones.fechaEvento,
+        tipoOperacion: data.detalleeventoOperaciones.tipoOperacion,
+        tipoLocacion: data.detalleeventoOperaciones.tipoLocacion,
         responsableEvento: data.detalleeventoOperaciones.responsableEvento,
         atencionEvento: data.detalleeventoOperaciones.atencionEvento,
         obsEvento: data.detalleeventoOperaciones.obsEvento,
         camaraCamara: data.detalleeventoOperaciones.camaraCamara,
         camaraPluma: data.detalleeventoOperaciones.camaraPluma,
         camaraSteady: data.detalleeventoOperaciones.camaraSteady,
+        camaraRiel: data.detalleeventoOperaciones.camaraRiel,
+        camaraDron: data.detalleeventoOperaciones.camaraDron,
         camaraPersonal: data.detalleeventoOperaciones.camaraPersonal,
         videoComunicaciones: data.detalleeventoOperaciones.videoComunicaciones,
         videoPantallas: data.detalleeventoOperaciones.videoPantallas,

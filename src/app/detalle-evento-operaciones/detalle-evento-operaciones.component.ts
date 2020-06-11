@@ -62,16 +62,9 @@ interface AtrasoOut {
   selector: 'app-detalle-evento-operaciones',
   templateUrl: './detalle-evento-operaciones.component.html',
   styleUrls: ['./detalle-evento-operaciones.component.css'],
-  // providers: [NgbPopoverConfig, {provide: MAT_DATE_LOCALE, useValue: 'ja-JP'},]
 
   providers: [NgbPopoverConfig,
-    // The locale would typically be provided on the root module of your application. We do it at
-    // the component level here, due to limitations of our example generation script.
     {provide: MAT_DATE_LOCALE, useValue: 'es'},
-
-    // `MomentDateAdapter` and `MAT_MOMENT_DATE_FORMATS` can be automatically provided by importing
-    // `MatMomentDateModule` in your applications root module. We provide it at the component level
-    // here, due to limitations of our example generation script.
     {
       provide: DateAdapter,
       useClass: MomentDateAdapter,
@@ -135,6 +128,10 @@ export class DetalleEventoOperacionesComponent implements OnInit {
   disabledCamaraPluma = false;
   checkedCamaraSteady = false;
   disabledCamaraSteady = false;
+  checkedCamaraRiel = false;
+  disabledCamaraRiel = false;
+  checkedCamaraDron = false;
+  disabledCamaraDron = false;
   checkedCamaraPersonal = false;
   disabledCamaraPersonal = false;
 
@@ -171,7 +168,6 @@ export class DetalleEventoOperacionesComponent implements OnInit {
 
   panelOpenState = false;
 
-  // GRAB USR AUTH RESPPROD
   public mycurrentUser: User;
 
   responsableCtrl = new FormControl();
@@ -254,6 +250,10 @@ export class DetalleEventoOperacionesComponent implements OnInit {
   }
 
   ngOnInit() {
+    // DEFAULT VALUE
+    this.group.controls['tipoLocacion'].setValue('ESTUDIO');
+    this.group.controls['tipoOperacion'].setValue('VIVO');
+
     // CHECK CAMARA 
     this.disabledCamaraCamara = false;
     this.group.controls['camaraCamara'].setValue('BIEN');
@@ -261,6 +261,10 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     this.group.controls['camaraPluma'].setValue('BIEN');
     this.disabledCamaraSteady = false;
     this.group.controls['camaraSteady'].setValue('BIEN');
+    this.disabledCamaraRiel = false;
+    this.group.controls['camaraRiel'].setValue('BIEN');
+    this.disabledCamaraDron = false;
+    this.group.controls['camaraDron'].setValue('BIEN');
     this.disabledCamaraPersonal = false;
     this.group.controls['camaraPersonal'].setValue('BIEN');
 
@@ -395,6 +399,59 @@ export class DetalleEventoOperacionesComponent implements OnInit {
       this.group.controls['camaraSteady'].setValue('BIEN')
     }
   } 
+
+  onChangeCamaraRiel(ob: MatCheckboxChange) {
+    if(ob.checked){
+      this.disabledCamaraRiel = false;
+      if(this.checkedCamaraRiel){
+        this.group.controls['camaraRiel'].setValue('MAL')
+      }
+      else{
+        this.group.controls['camaraRiel'].setValue('BIEN')
+      }
+    }
+    else
+    {
+      this.disabledCamaraRiel = true;
+      this.group.controls['camaraRiel'].setValue('NA')
+    }
+  }
+  onToggleChangeCamaraRiel() {
+    this.checkedCamaraRiel = !this.checkedCamaraRiel;
+    if(this.checkedCamaraRiel){
+      this.group.controls['camaraRiel'].setValue('MAL')
+    }
+    else{
+      this.group.controls['camaraRiel'].setValue('BIEN')
+    }
+  } 
+
+  onChangeCamaraDron(ob: MatCheckboxChange) {
+    if(ob.checked){
+      this.disabledCamaraDron = false;
+      if(this.checkedCamaraDron){
+        this.group.controls['camaraDron'].setValue('MAL')
+      }
+      else{
+        this.group.controls['camaraDron'].setValue('BIEN')
+      }
+    }
+    else
+    {
+      this.disabledCamaraDron = true;
+      this.group.controls['camaraDron'].setValue('NA')
+    }
+  }
+  onToggleChangeCamaraDron() {
+    this.checkedCamaraDron = !this.checkedCamaraDron;
+    if(this.checkedCamaraDron){
+      this.group.controls['camaraDron'].setValue('MAL')
+    }
+    else{
+      this.group.controls['camaraDron'].setValue('BIEN')
+    }
+  } 
+
   onChangeCamaraPersonal(ob: MatCheckboxChange) {
     if(ob.checked){
       this.disabledCamaraPersonal = false;
