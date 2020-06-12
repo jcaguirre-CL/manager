@@ -168,6 +168,27 @@ export class DetalleEventoOperacionesComponent implements OnInit {
   checkedIluminacionPersonal = false;
   disabledIluminacionPersonal = true;
 
+  checkedTransporteEnlaceServicio = false;
+  disabledTransporteEnlaceServicio = true;
+
+  checkedEnergiaServicio = false;
+  disabledEnergiaServicio = false;
+
+  checkedACServicio = false;
+  disabledACServicio = false;
+
+  checkedMaquillajeServicio = false;
+  disabledMaquillajeServicio = true;
+
+  checkedUtileriaServicio = false;
+  disabledUtileriaServicio = true;
+
+  checkedTramoyaServicio = false;
+  disabledTramoyaServicio = true;
+
+  checkedSupervisorServicio = false;
+  disabledSupervisorServicio = false;
+
   panelOpenState = false;
 
   public mycurrentUser: User;
@@ -307,6 +328,16 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     this.group.controls['graficaContenido'].setValue('BIEN');
     this.disabledGraficaPersonal = false;
     this.group.controls['graficaPersonal'].setValue('BIEN');
+
+    this.disabledACServicio = false;
+    this.group.controls['acServicio'].setValue('BIEN');
+
+    this.disabledEnergiaServicio = false;
+    this.group.controls['energiaServicio'].setValue('BIEN');
+
+    // SUPERVISOR
+    this.disabledSupervisorServicio = false;
+    this.group.controls['supervisorServicio'].setValue('BIEN');
 
     this.group.controls['atencionEvento'].setValue('Secuoya');
   }
@@ -869,6 +900,188 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     }
     else{
       this.group.controls['iluminacionPersonal'].setValue('BIEN')
+    }
+  }
+
+  onChangeTransporteEnlaceServicio(ob: MatCheckboxChange) {
+    if(ob.checked){
+      this.disabledTransporteEnlaceServicio = false;
+      if(this.checkedTransporteEnlaceServicio){
+        this.group.controls['transporteEnlaceServicio'].setValue('MAL')
+      }
+      else{
+        this.group.controls['transporteEnlaceServicio'].setValue('BIEN')
+      }
+    }
+    else
+    {
+      this.disabled = true;
+      this.group.controls['transporteEnlaceServicio'].setValue('NA')
+    }
+  }
+  onToggleChangeTransporteEnlaceServicio() {
+    this.checkedTransporteEnlaceServicio = !this.checkedTransporteEnlaceServicio;
+    if(this.checkedTransporteEnlaceServicio){
+      this.group.controls['transporteEnlaceServicio'].setValue('MAL')
+    }
+    else{
+      this.group.controls['transporteEnlaceServicio'].setValue('BIEN')
+    }
+  }
+
+  onChangeEnergiaServicio(ob: MatCheckboxChange) {
+    if(ob.checked){
+      this.disabledEnergiaServicio = false;
+      if(this.checkedEnergiaServicio){
+        this.group.controls['energiaServicio'].setValue('MAL')
+      }
+      else{
+        this.group.controls['energiaServicio'].setValue('BIEN')
+      }
+    }
+    else
+    {
+      this.disabledEnergiaServicio = true;
+      this.group.controls['energiaServicio'].setValue('NA')
+    }
+  }
+  onToggleChangeEnergiaServicio() {
+    this.checkedEnergiaServicio = !this.checkedEnergiaServicio;
+    if(this.checkedEnergiaServicio){
+      this.group.controls['energiaServicio'].setValue('MAL')
+    }
+    else{
+      this.group.controls['energiaServicio'].setValue('BIEN')
+    }
+  }
+
+  onChangeACServicio(ob: MatCheckboxChange) {
+    if(ob.checked){
+      this.disabledACServicio = false;
+      if(this.checkedACServicio){
+        this.group.controls['acServicio'].setValue('MAL')
+      }
+      else{
+        this.group.controls['acServicio'].setValue('BIEN')
+      }
+    }
+    else
+    {
+      this.disabledACServicio = true;
+      this.group.controls['acServicio'].setValue('NA')
+    }
+  }
+  onToggleChangeACServicio() {
+    this.checkedACServicio = !this.checkedACServicio;
+    if(this.checkedACServicio){
+      this.group.controls['acServicio'].setValue('MAL')
+    }
+    else{
+      this.group.controls['acServicio'].setValue('BIEN')
+    }
+  }
+
+  onChangeMaquillajeServicio(ob: MatCheckboxChange) {
+    if(ob.checked){
+      this.disabledMaquillajeServicio = false;
+      if(this.checkedMaquillajeServicio){
+        this.group.controls['maquillajeServicio'].setValue('MAL')
+      }
+      else{
+        this.group.controls['maquillajeServicio'].setValue('BIEN')
+      }
+    }
+    else
+    {
+      this.disabledMaquillajeServicio = true;
+      this.group.controls['maquillajeServicio'].setValue('NA')
+    }
+  }
+  onToggleChangeMaquillajeServicio() {
+    this.checkedMaquillajeServicio = !this.checkedMaquillajeServicio;
+    if(this.checkedMaquillajeServicio){
+      this.group.controls['maquillajeServicio'].setValue('MAL')
+    }
+    else{
+      this.group.controls['maquillajeServicio'].setValue('BIEN')
+    }
+  }
+
+  onChangeUtileriaServicio(ob: MatCheckboxChange) {
+    if(ob.checked){
+      this.disabledUtileriaServicio = false;
+      if(this.checkedUtileriaServicio){
+        this.group.controls['utileriaServicio'].setValue('MAL')
+      }
+      else{
+        this.group.controls['utileriaServicio'].setValue('BIEN')
+      }
+    }
+    else
+    {
+      this.disabledUtileriaServicio = true;
+      this.group.controls['utileriaServicio'].setValue('NA')
+    }
+  }
+  onToggleChangeUtileriaServicio() {
+    this.checkedUtileriaServicio = !this.checkedUtileriaServicio;
+    if(this.checkedUtileriaServicio){
+      this.group.controls['utileriaServicio'].setValue('MAL')
+    }
+    else{
+      this.group.controls['utileriaServicio'].setValue('BIEN')
+    }
+  }
+
+  onChangeTramoyaServicio(ob: MatCheckboxChange) {
+    if(ob.checked){
+      this.disabledTramoyaServicio = false;
+      if(this.checkedTramoyaServicio){
+        this.group.controls['tramoyaServicio'].setValue('MAL')
+      }
+      else{
+        this.group.controls['tramoyaServicio'].setValue('BIEN')
+      }
+    }
+    else
+    {
+      this.disabledTramoyaServicio = true;
+      this.group.controls['tramoyaServicio'].setValue('NA')
+    }
+  }
+  onToggleChangeTramoyaServicio() {
+    this.checkedTramoyaServicio = !this.checkedTramoyaServicio;
+    if(this.checkedTramoyaServicio){
+      this.group.controls['tramoyaServicio'].setValue('MAL')
+    }
+    else{
+      this.group.controls['tramoyaServicio'].setValue('BIEN')
+    }
+  }
+
+  onChangeSupervisorServicio(ob: MatCheckboxChange) {
+    if(ob.checked){
+      this.disabledSupervisorServicio = false;
+      if(this.checkedSupervisorServicio){
+        this.group.controls['supervisorServicio'].setValue('MAL')
+      }
+      else{
+        this.group.controls['supervisorServicio'].setValue('BIEN')
+      }
+    }
+    else
+    {
+      this.disabledSupervisorServicio = true;
+      this.group.controls['supervisorServicio'].setValue('NA')
+    }
+  }
+  onToggleChangeSupervisorServicio() {
+    this.checkedSupervisorServicio = !this.checkedSupervisorServicio;
+    if(this.checkedSupervisorServicio){
+      this.group.controls['supervisorServicio'].setValue('MAL')
+    }
+    else{
+      this.group.controls['supervisorServicio'].setValue('BIEN')
     }
   }
 

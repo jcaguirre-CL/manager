@@ -56,6 +56,13 @@ export interface IIncidenteFormInterface {
     audioPersonal: string;
     iluminacionRecurso: string;
     iluminacionPersonal: string;
+    transporteEnlaceServicio: string;
+    energiaServicio: string;
+    acServicio: string;
+    maquillajeServicio: string;
+    utileriaServicio: string;
+    tramoyaServicio: string;
+    supervisorServicio: string;
     produccion: {
       areaProduccion: string;
       pgmProduccion: string;

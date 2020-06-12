@@ -706,15 +706,16 @@
               <div class="Row">
                 <div class="Column">Servicio:</div>
                 <div class="Column">
-                <mat-checkbox class="example-margin">Evaluar</mat-checkbox>
+              <mat-checkbox class="example-margin" (change)="onChangeTransporteEnlaceServicio($event)">Evaluar</mat-checkbox>
                 </div>
                 <div class="Column">
                 Bien
                 <mat-slide-toggle
                 class="example-margin"
                 [color]="color"
-                [checked]="checked"
-                [disabled]="disabled">
+                (toggleChange)="onToggleChangeTransporteEnlaceServicio()"
+                [checked]="checkedTransporteEnlaceServicio"
+                [disabled]="disabledTransporteEnlaceServicio">
                 </mat-slide-toggle>
                 Mal
                 </div>
@@ -738,15 +739,16 @@
               <div class="Row">
                 <div class="Column">Servicio:</div>
                 <div class="Column">
-                <mat-checkbox class="example-margin" [checked]="defaultchecked">Evaluar</mat-checkbox>
-                </div>
+                <mat-checkbox class="example-margin" (change)="onChangeEnergiaServicio($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+              </div>
                 <div class="Column">
                 Bien
                 <mat-slide-toggle
                 class="example-margin"
                 [color]="color"
-                [checked]="checked"
-                [disabled]="disabled">
+                (toggleChange)="onToggleChangeEnergiaServicio()"
+                [checked]="checkedEnergiaServicio"
+                [disabled]="disabledEnergiaServicio">
                 </mat-slide-toggle>
                 Mal
                 </div>
@@ -770,15 +772,16 @@
               <div class="Row">
                 <div class="Column">Servicio:</div>
                 <div class="Column">
-                <mat-checkbox class="example-margin" [checked]="defaultchecked">Evaluar</mat-checkbox>
-                </div>
+                <mat-checkbox class="example-margin" (change)="onChangeACServicio($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+              </div>
                 <div class="Column">
                 Bien
                 <mat-slide-toggle
                 class="example-margin"
                 [color]="color"
-                [checked]="checked"
-                [disabled]="disabled">
+                (toggleChange)="onToggleChangeACServicio()"
+                [checked]="checkedACServicio"
+                [disabled]="disabledACServicio">
                 </mat-slide-toggle>
                 Mal
                 </div>
@@ -802,15 +805,16 @@
               <div class="Row">
                 <div class="Column">Servicio:</div>
                 <div class="Column">
-                <mat-checkbox class="example-margin">Evaluar</mat-checkbox>
-                </div>
+                <mat-checkbox class="example-margin" (change)="onChangeMaquillajeServicio($event)">Evaluar</mat-checkbox>
+              </div>
                 <div class="Column">
                 Bien
                 <mat-slide-toggle
                 class="example-margin"
                 [color]="color"
-                [checked]="checked"
-                [disabled]="disabled">
+                (toggleChange)="onToggleChangeMaquillajeServicio()"
+                [checked]="checkedMaquillajeServicio"
+                [disabled]="disabledMaquillajeServicio">
                 </mat-slide-toggle>
                 Mal
                 </div>
@@ -834,15 +838,16 @@
               <div class="Row">
                 <div class="Column">Servicio:</div>
                 <div class="Column">
-                <mat-checkbox class="example-margin">Evaluar</mat-checkbox>
-                </div>
+                <mat-checkbox class="example-margin" (change)="onChangeUtileriaServicio($event)">Evaluar</mat-checkbox>
+              </div>
                 <div class="Column">
                 Bien
                 <mat-slide-toggle
                 class="example-margin"
                 [color]="color"
-                [checked]="checked"
-                [disabled]="disabled">
+                (toggleChange)="onToggleChangeUtileriaServicio()"
+                [checked]="checkedUtileriaServicio"
+                [disabled]="disabledUtileriaServicio">
                 </mat-slide-toggle>
                 Mal
                 </div>
@@ -866,15 +871,16 @@
               <div class="Row">
                 <div class="Column">Servicio:</div>
                 <div class="Column">
-                <mat-checkbox class="example-margin">Evaluar</mat-checkbox>
-                </div>
+                <mat-checkbox class="example-margin" (change)="onChangeTramoyaServicio($event)">Evaluar</mat-checkbox>
+              </div>
                 <div class="Column">
                 Bien
                 <mat-slide-toggle
                 class="example-margin"
                 [color]="color"
-                [checked]="checked"
-                [disabled]="disabled">
+                (toggleChange)="onToggleChangeTramoyaServicio()"
+                [checked]="checkedTramoyaServicio"
+                [disabled]="disabledTramoyaServicio">
                 </mat-slide-toggle>
                 Mal
                 </div>
@@ -898,15 +904,16 @@
               <div class="Row">
                 <div class="Column">Servicio:</div>
                 <div class="Column">
-                <mat-checkbox class="example-margin" [checked]="defaultchecked">Evaluar</mat-checkbox>
-                </div>
+                <mat-checkbox class="example-margin" (change)="onChangeSupervisorServicio($event)"  [checked]="defaultchecked">Evaluar</mat-checkbox>
+              </div>
                 <div class="Column">
                 Bien
                 <mat-slide-toggle
                 class="example-margin"
                 [color]="color"
-                [checked]="checked"
-                [disabled]="disabled">
+                (toggleChange)="onToggleChangeSupervisorServicio()"
+                [checked]="checkedSupervisorServicio"
+                [disabled]="disabledSupervisorServicio">
                 </mat-slide-toggle>
                 Mal
                 </div>
