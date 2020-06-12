@@ -46,7 +46,11 @@ export interface IIncidenteFormInterface {
     videoPantallas: string;
     videoSwitch: string;
     videoPersonal: string;
+    playRecurso: string;
+    playContenido: string;
+    playPersonal: string;
     graficaRecurso: string;
+    graficaContenido: string;
     graficaPersonal: string;
     audioRecurso: string;
     audioPersonal: string;

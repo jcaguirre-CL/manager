@@ -127,11 +127,11 @@ export class DetalleEventoOperacionesComponent implements OnInit {
   checkedCamaraPluma = false;
   disabledCamaraPluma = false;
   checkedCamaraSteady = false;
-  disabledCamaraSteady = false;
+  disabledCamaraSteady = true;
   checkedCamaraRiel = false;
-  disabledCamaraRiel = false;
+  disabledCamaraRiel = true;
   checkedCamaraDron = false;
-  disabledCamaraDron = false;
+  disabledCamaraDron = true;
   checkedCamaraPersonal = false;
   disabledCamaraPersonal = false;
 
@@ -153,6 +153,8 @@ export class DetalleEventoOperacionesComponent implements OnInit {
 
   checkedGraficaRecurso = false;
   disabledGraficaRecurso = true;
+  checkedGraficaContenido = false;
+  disabledGraficaContenido = true;
   checkedGraficaPersonal = false;
   disabledGraficaPersonal = true;
 
@@ -219,6 +221,18 @@ export class DetalleEventoOperacionesComponent implements OnInit {
       flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
     },
     {
+      nombre: 'Oscar Ibañez',
+      empresa: 'Secuoya',
+      // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
+    },
+    {
+      nombre: 'Felipe Salazar',
+      empresa: 'Secuoya',
+      // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
+    },
+    {
       nombre: 'Ignacio Carreño',
       empresa: 'Secuoya',
       // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
@@ -259,12 +273,12 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     this.group.controls['camaraCamara'].setValue('BIEN');
     this.disabledCamaraPluma = false;
     this.group.controls['camaraPluma'].setValue('BIEN');
-    this.disabledCamaraSteady = false;
+/*     this.disabledCamaraSteady = false;
     this.group.controls['camaraSteady'].setValue('BIEN');
     this.disabledCamaraRiel = false;
     this.group.controls['camaraRiel'].setValue('BIEN');
     this.disabledCamaraDron = false;
-    this.group.controls['camaraDron'].setValue('BIEN');
+    this.group.controls['camaraDron'].setValue('BIEN'); */
     this.disabledCamaraPersonal = false;
     this.group.controls['camaraPersonal'].setValue('BIEN');
 
@@ -277,6 +291,22 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     this.group.controls['videoSwitch'].setValue('BIEN');
     this.disabledVideoPersonal = false;
     this.group.controls['videoPersonal'].setValue('BIEN');
+
+    // CHECK PLAY
+    this.disabledPlayRecurso = false;
+    this.group.controls['playRecurso'].setValue('BIEN');
+    this.disabledPlayContenido = false;
+    this.group.controls['playContenido'].setValue('BIEN');
+    this.disabledPlayPersonal = false;
+    this.group.controls['playPersonal'].setValue('BIEN');
+
+    // CHECK GRAFICA
+    this.disabledGraficaRecurso = false;
+    this.group.controls['graficaRecurso'].setValue('BIEN');
+    this.disabledGraficaContenido = false;
+    this.group.controls['graficaContenido'].setValue('BIEN');
+    this.disabledGraficaPersonal = false;
+    this.group.controls['graficaPersonal'].setValue('BIEN');
 
     this.group.controls['atencionEvento'].setValue('Secuoya');
   }
@@ -683,6 +713,32 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     }
     else{
       this.group.controls['graficaRecurso'].setValue('BIEN')
+    }
+  } 
+
+  onChangeGraficaContenido(ob: MatCheckboxChange) {
+    if(ob.checked){
+      this.disabledGraficaContenido = false;
+      if(this.checkedGraficaContenido){
+        this.group.controls['graficaContenido'].setValue('MAL')
+      }
+      else{
+        this.group.controls['graficaContenido'].setValue('BIEN')
+      }
+    }
+    else
+    {
+      this.disabledGraficaContenido = true;
+      this.group.controls['graficaContenido'].setValue('NA')
+    }
+  }
+  onToggleChangeGraficaContenido() {
+    this.checkedGraficaContenido = !this.checkedGraficaContenido;
+    if(this.checkedGraficaContenido){
+      this.group.controls['graficaContenido'].setValue('MAL')
+    }
+    else{
+      this.group.controls['graficaContenido'].setValue('BIEN')
     }
   } 
 
