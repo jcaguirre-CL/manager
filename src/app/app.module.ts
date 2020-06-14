@@ -23,6 +23,7 @@ import { JwtInterceptor, ErrorInterceptor } from './login-containers/_helpers';
 import { CommonModule } from '@angular/common';
 import { Opc1OperacionesComponent } from './opc1-operaciones/opc1-operaciones.component';
 import { DetalleEventoOperacionesComponent } from './detalle-evento-operaciones/detalle-evento-operaciones.component';
+import { DialogOverviewExampleDialog } from './detalle-evento-operaciones/detalle-evento-operaciones.component';
 import { DetalleIncidenteOperacionesComponent } from './detalle-incidente-operaciones/detalle-incidente-operaciones.component';
 import { ListaIncidentesOperacionesComponent } from './lista-incidentes-operaciones/lista-incidentes-operaciones.component';
 
@@ -30,6 +31,8 @@ import { OperacionesForm1ServicioService } from './servicios/operaciones-form1-s
 import { IncidenteAreaPickerComponent } from './incidente-area-picker/incidente-area-picker.component';
 import { FormportatilComponent } from './formportatil/formportatil.component';
 import { FormedicionComponent } from './formedicion/formedicion.component';
+
+import {MatDialogModule} from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -42,6 +45,7 @@ import { FormedicionComponent } from './formedicion/formedicion.component';
     Historial1Component,
     Opc1OperacionesComponent,
     DetalleEventoOperacionesComponent,
+    DialogOverviewExampleDialog,
     DetalleIncidenteOperacionesComponent,
     ListaIncidentesOperacionesComponent,
     IncidenteAreaPickerComponent,
@@ -59,12 +63,14 @@ import { FormedicionComponent } from './formedicion/formedicion.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    MatDialogModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     OperacionesForm1ServicioService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogOverviewExampleDialog]
 })
 export class AppModule { }

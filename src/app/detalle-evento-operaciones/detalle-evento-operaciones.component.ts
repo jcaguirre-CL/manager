@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, Inject } from '@angular/core';
 import {ThemePalette} from '@angular/material/core';
 
 import { NgbPopoverConfig } from '@ng-bootstrap/ng-bootstrap';
@@ -23,6 +23,13 @@ import {
 } from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+
+export interface DialogData {
+  animal: string;
+  name: string;
+}
+
 export interface Responsable {
   flag: string;
   nombre: string;
@@ -30,6 +37,11 @@ export interface Responsable {
 }
 
 interface Area {
+  value: string;
+  viewValue: string;
+}
+
+interface ResponsableProduccion {
   value: string;
   viewValue: string;
 }
@@ -78,6 +90,8 @@ export class DetalleEventoOperacionesComponent implements OnInit {
 
   @Input() selectedEventGroup: AbstractControl;
   @Input() group: FormGroup;
+
+  name_dialog: string;
 
   tipoprogramas: TipoPrograma[] = [
     {value: 'Noticia', viewValue: 'Noticia'},
@@ -269,7 +283,8 @@ export class DetalleEventoOperacionesComponent implements OnInit {
 
   // AUTH PARA GRAB RESPPROD
   constructor(config: NgbPopoverConfig,
-    private authenticationService: AuthenticationService)
+    private authenticationService: AuthenticationService,
+    public dialog: MatDialog)
      {
     this.authenticationService.currentUser.subscribe(x => this.mycurrentUser = x);
 
@@ -282,6 +297,18 @@ export class DetalleEventoOperacionesComponent implements OnInit {
       map(responsable => responsable ? this._filterResponsables(responsable) : this.responsables.slice())
     );
 
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '250px',
+      data: {name: this.name_dialog}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.name_dialog = result;
+    });
   }
 
   ngOnInit() {
@@ -1089,6 +1116,26 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.responsables.filter(responsable => responsable.nombre.toLowerCase().indexOf(filterValue) === 0);
+  }
+
+}
+@Component({
+  selector: 'dialog-overview',
+  templateUrl: 'dialog-overview.html',
+  styleUrls: ['./detalle-evento-operaciones.component.css'],
+})
+export class DialogOverviewExampleDialog {
+  responsables: ResponsableProduccion[] = [
+    {value: 'Franjeado', viewValue: 'Alvaro Vásquez Yung'},
+    {value: 'Matinal', viewValue: 'Lilian Pérez Rojas'},
+    {value: 'Noticia', viewValue: 'Camila Cáceres'}
+  ];
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

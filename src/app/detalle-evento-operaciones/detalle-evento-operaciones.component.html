@@ -11,11 +11,6 @@
           <div [formGroup]="group.get('produccion')">
 
             <!-- NOMBRE PROGRAMA -->
-<!--             <mat-form-field class="example-full-width">
-              <textarea matInput placeholder="Nombre Programa" formControlName="pgmProduccion"></textarea>
-              <mat-hint>*Obligatorio</mat-hint>
-            </mat-form-field> -->
-
             <mat-form-field class="example-full-width">
               <mat-hint>*Obligatorio</mat-hint>
               <mat-label>Nombre de Programa</mat-label>
@@ -174,758 +169,769 @@
             <br>
 
         </mat-card>
-    </div>
-    <div fxFlex="90" fxFlex.xs="50%" fxFlex.sm="50%">
-      <mat-card>
-      <mat-list>
-        <mat-list-item>Registro por Área:</mat-list-item>
-        <mat-divider inset="true"></mat-divider>
-      </mat-list>
-      <mat-accordion>
-        <!-- CAMARA -->
-        <mat-expansion-panel (opened)="panelOpenState = false"
-                              (closed)="panelOpenState = true">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              CAMARA
-            </mat-panel-title>
-            <mat-panel-description>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <mat-list role="list">
-            <mat-list-item role="listitem">
-              <div class="Row">
-                <div class="Column">Camara:</div>
-                <div class="Column">
-                  <mat-checkbox class="example-margin" (change)="onChange($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+      </div>
+      <div fxFlex="90" fxFlex.xs="50%" fxFlex.sm="50%">
+        <mat-card>
+        <mat-list>
+          <mat-list-item>Registro por Área:</mat-list-item>
+          <mat-divider inset="true"></mat-divider>
+        </mat-list>
+        <mat-accordion>
+          <!-- CAMARA -->
+          <mat-expansion-panel (opened)="panelOpenState = false"
+                                (closed)="panelOpenState = true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                CAMARA
+              </mat-panel-title>
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-list role="list">
+              <mat-list-item role="listitem">
+                <div class="Row">
+                  <div class="Column">Camara:</div>
+                  <div class="Column">
+                    <mat-checkbox class="example-margin" (change)="onChange($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+                  </div>
+                  <div class="Column">
+                    Bien
+                    <mat-slide-toggle
+                      class="example-margin"
+                      [color]="color"
+                      (toggleChange)="onToggleChange()"
+                      [checked]="checkedCamaraCamara"
+                      [disabled]="disabledCamaraCamara">
+                    </mat-slide-toggle>
+                    Mal
+                  </div>
                 </div>
-                <div class="Column">
-                  Bien
-                  <mat-slide-toggle
-                    class="example-margin"
-                    [color]="color"
-                    (toggleChange)="onToggleChange()"
-                    [checked]="checkedCamaraCamara"
-                    [disabled]="disabledCamaraCamara">
-                  </mat-slide-toggle>
-                  Mal
+              </mat-list-item>
+
+              <mat-divider inset="true"></mat-divider>
+
+              <mat-list-item role="listitem">
+                <div class="Row">
+                  <div class="Column">Pluma:</div>
+                  <div class="Column">
+                    <mat-checkbox class="example-margin" (change)="onChangeCamaraPluma($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+                  </div>
+                  <div class="Column">
+                    Bien
+                    <mat-slide-toggle
+                      class="example-margin"
+                      [color]="color"
+                      (toggleChange)="onToggleChangeCamaraPluma()"
+                      [checked]="checkedCamaraPluma"
+                      [disabled]="disabledCamaraPluma">
+                    </mat-slide-toggle>
+                    Mal
+                  </div>
                 </div>
-              </div>
-            </mat-list-item>
+              </mat-list-item>
 
-            <mat-divider inset="true"></mat-divider>
+              <mat-divider inset="true"></mat-divider>
 
-            <mat-list-item role="listitem">
-              <div class="Row">
-                <div class="Column">Pluma:</div>
-                <div class="Column">
-                  <mat-checkbox class="example-margin" (change)="onChangeCamaraPluma($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+              <mat-list-item role="listitem">
+                <div class="Row">
+                  <div class="Column">Steady:</div>
+                  <div class="Column">
+                    <mat-checkbox class="example-margin" (change)="onChangeCamaraSteady($event)">Evaluar</mat-checkbox>
+                  </div>
+                  <div class="Column">
+                    Bien
+                    <mat-slide-toggle
+                      class="example-margin"
+                      [color]="color"
+                      (toggleChange)="onToggleChangeCamaraSteady()"
+                      [checked]="checkedCamaraSteady"
+                      [disabled]="disabledCamaraSteady">
+                    </mat-slide-toggle>
+                    Mal
+                  </div>
                 </div>
-                <div class="Column">
-                  Bien
-                  <mat-slide-toggle
-                    class="example-margin"
-                    [color]="color"
-                    (toggleChange)="onToggleChangeCamaraPluma()"
-                    [checked]="checkedCamaraPluma"
-                    [disabled]="disabledCamaraPluma">
-                  </mat-slide-toggle>
-                  Mal
+              </mat-list-item>
+
+              <mat-divider inset="true"></mat-divider>
+
+              <mat-list-item role="listitem">
+                <div class="Row">
+                  <div class="Column">Riel:</div>
+                  <div class="Column">
+                    <mat-checkbox class="example-margin" (change)="onChangeCamaraRiel($event)">Evaluar</mat-checkbox>
+                  </div>
+                  <div class="Column">
+                    Bien
+                    <mat-slide-toggle
+                      class="example-margin"
+                      [color]="color"
+                      (toggleChange)="onToggleChangeCamaraRiel()"
+                      [checked]="checkedCamaraRiel"
+                      [disabled]="disabledCamaraRiel">
+                    </mat-slide-toggle>
+                    Mal
+                  </div>
                 </div>
-              </div>
-            </mat-list-item>
+              </mat-list-item>
 
-            <mat-divider inset="true"></mat-divider>
+              <mat-divider inset="true"></mat-divider>
 
-            <mat-list-item role="listitem">
-              <div class="Row">
-                <div class="Column">Steady:</div>
-                <div class="Column">
-                  <mat-checkbox class="example-margin" (change)="onChangeCamaraSteady($event)">Evaluar</mat-checkbox>
+              <mat-list-item role="listitem">
+                <div class="Row">
+                  <div class="Column">Dron:</div>
+                  <div class="Column">
+                    <mat-checkbox class="example-margin" (change)="onChangeCamaraDron($event)">Evaluar</mat-checkbox>
+                  </div>
+                  <div class="Column">
+                    Bien
+                    <mat-slide-toggle
+                      class="example-margin"
+                      [color]="color"
+                      (toggleChange)="onToggleChangeCamaraDron()"
+                      [checked]="checkedCamaraDron"
+                      [disabled]="disabledCamaraDron">
+                    </mat-slide-toggle>
+                    Mal
+                  </div>
                 </div>
-                <div class="Column">
-                  Bien
-                  <mat-slide-toggle
-                    class="example-margin"
-                    [color]="color"
-                    (toggleChange)="onToggleChangeCamaraSteady()"
-                    [checked]="checkedCamaraSteady"
-                    [disabled]="disabledCamaraSteady">
-                  </mat-slide-toggle>
-                  Mal
+              </mat-list-item>
+
+              <mat-divider inset="true"></mat-divider>
+
+              <mat-list-item role="listitem">
+                <div class="Row">
+                  <div class="Column">Personal:</div>
+                  <div class="Column">
+                    <mat-checkbox class="example-margin" (change)="onChangeCamaraPersonal($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+                  </div>
+                  <div class="Column">
+                    Bien
+                    <mat-slide-toggle
+                      class="example-margin"
+                      [color]="color"
+                      (toggleChange)="onToggleChangeCamaraPersonal()"
+                      [checked]="checkedCamaraPersonal"
+                      [disabled]="disabledCamaraPersonal">
+                    </mat-slide-toggle>
+                    Mal
+                  </div>
                 </div>
-              </div>
-            </mat-list-item>
+              </mat-list-item>
 
-            <mat-divider inset="true"></mat-divider>
+            </mat-list>
+        
+          </mat-expansion-panel>
 
-            <mat-list-item role="listitem">
-              <div class="Row">
-                <div class="Column">Riel:</div>
-                <div class="Column">
-                  <mat-checkbox class="example-margin" (change)="onChangeCamaraRiel($event)">Evaluar</mat-checkbox>
+          <!-- VIDEO -->
+          <mat-expansion-panel (opened)="panelOpenState = false"
+                                (closed)="panelOpenState = true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                VIDEO
+              </mat-panel-title>
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-list role="list">
+              <mat-list-item role="listitem">
+                <div class="Row">
+                  <div class="Column">Comunicaciones:</div>
+                  <div class="Column">
+                    <mat-checkbox class="example-margin" (change)="onChangeVideoComunicaciones($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+                  </div>
+                  <div class="Column">
+                    Bien
+                    <mat-slide-toggle
+                      class="example-margin"
+                      [color]="color"
+                      (toggleChange)="onToggleChangeVideoComunicaciones()"
+                      [checked]="checkedVideoComunicaciones"
+                      [disabled]="disabledVideoComunicaciones">
+                    </mat-slide-toggle>
+                    Mal
+                  </div>
                 </div>
-                <div class="Column">
-                  Bien
-                  <mat-slide-toggle
-                    class="example-margin"
-                    [color]="color"
-                    (toggleChange)="onToggleChangeCamaraRiel()"
-                    [checked]="checkedCamaraRiel"
-                    [disabled]="disabledCamaraRiel">
-                  </mat-slide-toggle>
-                  Mal
+              </mat-list-item>
+
+              <mat-divider inset="true"></mat-divider>
+
+              <mat-list-item role="listitem">
+                <div class="Row">
+                  <div class="Column">Pantallas:</div>
+                  <div class="Column">
+                    <mat-checkbox class="example-margin" (change)="onChangeVideoPantallas($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+                  </div>
+                  <div class="Column">
+                    Bien
+                    <mat-slide-toggle
+                      class="example-margin"
+                      [color]="color"
+                      (toggleChange)="onToggleChangeVideoPantallas()"
+                      [checked]="checkedVideoPantallas"
+                      [disabled]="disabledVideoPantallas">
+                    </mat-slide-toggle>
+                    Mal
+                  </div>
                 </div>
-              </div>
-            </mat-list-item>
+              </mat-list-item>
 
-            <mat-divider inset="true"></mat-divider>
+              <mat-divider inset="true"></mat-divider>
 
-            <mat-list-item role="listitem">
-              <div class="Row">
-                <div class="Column">Dron:</div>
-                <div class="Column">
-                  <mat-checkbox class="example-margin" (change)="onChangeCamaraDron($event)">Evaluar</mat-checkbox>
+              <mat-list-item role="listitem">
+                <div class="Row">
+                  <div class="Column">Switch:</div>
+                  <div class="Column">
+                    <mat-checkbox class="example-margin" (change)="onChangeVideoSwitch($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+                  </div>
+                  <div class="Column">
+                    Bien
+                    <mat-slide-toggle
+                      class="example-margin"
+                      [color]="color"
+                      (toggleChange)="onToggleChangeVideoSwitch()"
+                      [checked]="checkedVideoSwitch"
+                      [disabled]="disabledVideoSwitch">
+                    </mat-slide-toggle>
+                    Mal
+                  </div>
                 </div>
-                <div class="Column">
-                  Bien
-                  <mat-slide-toggle
-                    class="example-margin"
-                    [color]="color"
-                    (toggleChange)="onToggleChangeCamaraDron()"
-                    [checked]="checkedCamaraDron"
-                    [disabled]="disabledCamaraDron">
-                  </mat-slide-toggle>
-                  Mal
+              </mat-list-item>
+
+              <mat-divider inset="true"></mat-divider>
+
+              <mat-list-item role="listitem">
+                <div class="Row">
+                  <div class="Column">Personal:</div>
+                  <div class="Column">
+                    <mat-checkbox class="example-margin" (change)="onChangeVideoPersonal($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+                  </div>
+                  <div class="Column">
+                    Bien
+                    <mat-slide-toggle
+                      class="example-margin"
+                      [color]="color"
+                      (toggleChange)="onToggleChangeVideoPersonal()"
+                      [checked]="checkedVideoPersonal"
+                      [disabled]="disabledVideoPersonal">
+                    </mat-slide-toggle>
+                    Mal
+                  </div>
                 </div>
-              </div>
-            </mat-list-item>
+              </mat-list-item>
 
-            <mat-divider inset="true"></mat-divider>
-
-            <mat-list-item role="listitem">
-              <div class="Row">
-                <div class="Column">Personal:</div>
-                <div class="Column">
-                  <mat-checkbox class="example-margin" (change)="onChangeCamaraPersonal($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
-                </div>
-                <div class="Column">
-                  Bien
-                  <mat-slide-toggle
-                    class="example-margin"
-                    [color]="color"
-                    (toggleChange)="onToggleChangeCamaraPersonal()"
-                    [checked]="checkedCamaraPersonal"
-                    [disabled]="disabledCamaraPersonal">
-                  </mat-slide-toggle>
-                  Mal
-                </div>
-              </div>
-            </mat-list-item>
-
-          </mat-list>
-      
-        </mat-expansion-panel>
-
-        <!-- VIDEO -->
-        <mat-expansion-panel (opened)="panelOpenState = false"
-                              (closed)="panelOpenState = true">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              VIDEO
-            </mat-panel-title>
-            <mat-panel-description>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <mat-list role="list">
-            <mat-list-item role="listitem">
-              <div class="Row">
-                <div class="Column">Comunicaciones:</div>
-                <div class="Column">
-                  <mat-checkbox class="example-margin" (change)="onChangeVideoComunicaciones($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
-                </div>
-                <div class="Column">
-                  Bien
-                  <mat-slide-toggle
-                    class="example-margin"
-                    [color]="color"
-                    (toggleChange)="onToggleChangeVideoComunicaciones()"
-                    [checked]="checkedVideoComunicaciones"
-                    [disabled]="disabledVideoComunicaciones">
-                  </mat-slide-toggle>
-                  Mal
-                </div>
-              </div>
-            </mat-list-item>
-
-            <mat-divider inset="true"></mat-divider>
-
-            <mat-list-item role="listitem">
-              <div class="Row">
-                <div class="Column">Pantallas:</div>
-                <div class="Column">
-                  <mat-checkbox class="example-margin" (change)="onChangeVideoPantallas($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
-                </div>
-                <div class="Column">
-                  Bien
-                  <mat-slide-toggle
-                    class="example-margin"
-                    [color]="color"
-                    (toggleChange)="onToggleChangeVideoPantallas()"
-                    [checked]="checkedVideoPantallas"
-                    [disabled]="disabledVideoPantallas">
-                  </mat-slide-toggle>
-                  Mal
-                </div>
-              </div>
-            </mat-list-item>
-
-            <mat-divider inset="true"></mat-divider>
-
-            <mat-list-item role="listitem">
-              <div class="Row">
-                <div class="Column">Switch:</div>
-                <div class="Column">
-                  <mat-checkbox class="example-margin" (change)="onChangeVideoSwitch($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
-                </div>
-                <div class="Column">
-                  Bien
-                  <mat-slide-toggle
-                    class="example-margin"
-                    [color]="color"
-                    (toggleChange)="onToggleChangeVideoSwitch()"
-                    [checked]="checkedVideoSwitch"
-                    [disabled]="disabledVideoSwitch">
-                  </mat-slide-toggle>
-                  Mal
-                </div>
-              </div>
-            </mat-list-item>
-
-            <mat-divider inset="true"></mat-divider>
-
-            <mat-list-item role="listitem">
-              <div class="Row">
-                <div class="Column">Personal:</div>
-                <div class="Column">
-                  <mat-checkbox class="example-margin" (change)="onChangeVideoPersonal($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
-                </div>
-                <div class="Column">
-                  Bien
-                  <mat-slide-toggle
-                    class="example-margin"
-                    [color]="color"
-                    (toggleChange)="onToggleChangeVideoPersonal()"
-                    [checked]="checkedVideoPersonal"
-                    [disabled]="disabledVideoPersonal">
-                  </mat-slide-toggle>
-                  Mal
-                </div>
-              </div>
-            </mat-list-item>
-
-          </mat-list>
-      
-        </mat-expansion-panel>
-        <!-- PLAY OUT -->
-        <mat-expansion-panel (opened)="panelOpenState = false"
-        (closed)="panelOpenState = true">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              PLAY OUT
-            </mat-panel-title>
-            <mat-panel-description>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <mat-list role="list">
-            <mat-list-item role="listitem">
-            <div class="Row">
-            <div class="Column">Recurso Técnico:</div>
-            <div class="Column">
-            <mat-checkbox class="example-margin" (change)="onChangePlayRecurso($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
-            </div>
-            <div class="Column">
-            Bien
-            <mat-slide-toggle
-            class="example-margin"
-            [color]="color"
-            (toggleChange)="onToggleChangePlayRecurso()"
-            [checked]="checkedPlayRecurso"
-            [disabled]="disabledPlayRecurso">
-            </mat-slide-toggle>
-            Mal
-            </div>
-            </div>
-            </mat-list-item>
-
-            <mat-divider inset="true"></mat-divider>
-
-            <mat-list-item role="listitem">
-            <div class="Row">
-            <div class="Column">Contenido:</div>
-            <div class="Column">
-            <mat-checkbox class="example-margin" (change)="onChangePlayContenido($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
-            </div>
-            <div class="Column">
-            Bien
-            <mat-slide-toggle
-            class="example-margin"
-            [color]="color"
-            (toggleChange)="onToggleChangePlayContenido()"
-            [checked]="checkedPlayContenido"
-            [disabled]="disabledPlayContenido">
-            </mat-slide-toggle>
-            Mal
-            </div>
-            </div>
-            </mat-list-item>
-
-            <mat-divider inset="true"></mat-divider>
-
-            <mat-list-item role="listitem">
-            <div class="Row">
-            <div class="Column">Personal:</div>
-            <div class="Column">
-            <mat-checkbox class="example-margin" (change)="onChangePlayPersonal($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
-            </div>
-            <div class="Column">
-            Bien
-            <mat-slide-toggle
-            class="example-margin"
-            [color]="color"
-            (toggleChange)="onToggleChangePlayPersonal()"
-            [checked]="checkedPlayPersonal"
-            [disabled]="disabledPlayPersonal">
-            </mat-slide-toggle>
-            Mal
-            </div>
-            </div>
-            </mat-list-item>
-          </mat-list>
-        </mat-expansion-panel>
-
-        <!-- GRAFICA -->
-        <mat-expansion-panel (opened)="panelOpenState = false"
-        (closed)="panelOpenState = true">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-            GRAFICA
-            </mat-panel-title>
-            <mat-panel-description>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <mat-list role="list">
-            <mat-list-item role="listitem">
+            </mat-list>
+        
+          </mat-expansion-panel>
+          <!-- PLAY OUT -->
+          <mat-expansion-panel (opened)="panelOpenState = false"
+          (closed)="panelOpenState = true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                PLAY OUT
+              </mat-panel-title>
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-list role="list">
+              <mat-list-item role="listitem">
               <div class="Row">
               <div class="Column">Recurso Técnico:</div>
               <div class="Column">
-              <mat-checkbox class="example-margin" (change)="onChangeGraficaRecurso($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+              <mat-checkbox class="example-margin" (change)="onChangePlayRecurso($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
               </div>
               <div class="Column">
               Bien
               <mat-slide-toggle
               class="example-margin"
               [color]="color"
-              (toggleChange)="onToggleChangeGraficaRecurso()"
-              [checked]="checkedGraficaRecurso"
-              [disabled]="disabledGraficaRecurso">
+              (toggleChange)="onToggleChangePlayRecurso()"
+              [checked]="checkedPlayRecurso"
+              [disabled]="disabledPlayRecurso">
               </mat-slide-toggle>
               Mal
               </div>
               </div>
-            </mat-list-item>
+              </mat-list-item>
 
-            <mat-divider inset="true"></mat-divider>
+              <mat-divider inset="true"></mat-divider>
 
-            <mat-list-item role="listitem">
+              <mat-list-item role="listitem">
               <div class="Row">
               <div class="Column">Contenido:</div>
               <div class="Column">
-              <mat-checkbox class="example-margin" (change)="onChangeGraficaContenido($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+              <mat-checkbox class="example-margin" (change)="onChangePlayContenido($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
               </div>
               <div class="Column">
               Bien
               <mat-slide-toggle
               class="example-margin"
               [color]="color"
-              (toggleChange)="onToggleChangeGraficaContenido()"
-              [checked]="checkedGraficaContenido"
-              [disabled]="disabledGraficaContenido">
+              (toggleChange)="onToggleChangePlayContenido()"
+              [checked]="checkedPlayContenido"
+              [disabled]="disabledPlayContenido">
               </mat-slide-toggle>
               Mal
               </div>
               </div>
-            </mat-list-item>
+              </mat-list-item>
 
-            <mat-divider inset="true"></mat-divider>
+              <mat-divider inset="true"></mat-divider>
 
-            <mat-list-item role="listitem">
+              <mat-list-item role="listitem">
               <div class="Row">
               <div class="Column">Personal:</div>
               <div class="Column">
-              <mat-checkbox class="example-margin" (change)="onChangeGraficaPersonal($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+              <mat-checkbox class="example-margin" (change)="onChangePlayPersonal($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
               </div>
               <div class="Column">
               Bien
               <mat-slide-toggle
               class="example-margin"
               [color]="color"
-              (toggleChange)="onToggleChangeGraficaPersonal()"
-              [checked]="checkedGraficaPersonal"
-              [disabled]="disabledGraficaPersonal">
+              (toggleChange)="onToggleChangePlayPersonal()"
+              [checked]="checkedPlayPersonal"
+              [disabled]="disabledPlayPersonal">
               </mat-slide-toggle>
               Mal
               </div>
               </div>
-            </mat-list-item>
-          </mat-list>
-        </mat-expansion-panel>
+              </mat-list-item>
+            </mat-list>
+          </mat-expansion-panel>
 
-        <!-- AUDIO -->
-        <mat-expansion-panel (opened)="panelOpenState = false"
-        (closed)="panelOpenState = true">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              AUDIO
-            </mat-panel-title>
-            <mat-panel-description>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <mat-list role="list">
-            <mat-list-item role="listitem">
-              <div class="Row">
-              <div class="Column">Recurso Técnico:</div>
-              <div class="Column">
-              <mat-checkbox class="example-margin" (change)="onChangeAudioRecurso($event)">Evaluar</mat-checkbox>
-              </div>
-              <div class="Column">
-              Bien
-              <mat-slide-toggle
-              class="example-margin"
-              [color]="color"
-              (toggleChange)="onToggleChangeAudioRecurso()"
-              [checked]="checkedAudioRecurso"
-              [disabled]="disabledAudioRecurso">
-              </mat-slide-toggle>
-              Mal
-              </div>
-              </div>
-            </mat-list-item>
-
-            <mat-divider inset="true"></mat-divider>
-
-            <mat-list-item role="listitem">
-              <div class="Row">
-              <div class="Column">Personal:</div>
-              <div class="Column">
-              <mat-checkbox class="example-margin" (change)="onChangeAudioPersonal($event)">Evaluar</mat-checkbox>
-              </div>
-              <div class="Column">
-              Bien
-              <mat-slide-toggle
-              class="example-margin"
-              [color]="color"
-              (toggleChange)="onToggleChangeAudioPersonal()"
-              [checked]="checkedAudioPersonal"
-              [disabled]="disabledAudioPersonal">
-              </mat-slide-toggle>
-              Mal
-              </div>
-              </div>
-            </mat-list-item>
-          </mat-list>
-        </mat-expansion-panel>
-
-        <!-- ILUMINACION -->
-        <mat-expansion-panel (opened)="panelOpenState = false"
-        (closed)="panelOpenState = true">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              ILUMINACION
-            </mat-panel-title>
-            <mat-panel-description>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <mat-list role="list">
-            <mat-list-item role="listitem">
-              <div class="Row">
-              <div class="Column">Recurso Técnico:</div>
-              <div class="Column">
-              <mat-checkbox class="example-margin" (change)="onChangeIluminacionRecurso($event)">Evaluar</mat-checkbox>
-              </div>
-              <div class="Column">
-              Bien
-              <mat-slide-toggle
-              class="example-margin"
-              [color]="color"
-              (toggleChange)="onToggleChangeIluminacionRecurso()"
-              [checked]="checkedIluminacionRecurso"
-              [disabled]="disabledIluminacionRecurso">
-              </mat-slide-toggle>
-              Mal
-              </div>
-              </div>
-            </mat-list-item>
-
-            <mat-divider inset="true"></mat-divider>
-
-            <mat-list-item role="listitem">
-              <div class="Row">
-              <div class="Column">Personal:</div>
-              <div class="Column">
-              <mat-checkbox class="example-margin" (change)="onChangeIluminacionPersonal($event)">Evaluar</mat-checkbox>
-              </div>
-              <div class="Column">
-              Bien
-              <mat-slide-toggle
-              class="example-margin"
-              [color]="color"
-              (toggleChange)="onToggleChangeIluminacionPersonal()"
-              [checked]="checkedIluminacionPersonal"
-              [disabled]="disabledIluminacionPersonal">
-              </mat-slide-toggle>
-              Mal
-              </div>
-              </div>
-            </mat-list-item>
-          </mat-list>
-        </mat-expansion-panel>
-
-        <!-- TRANSPORTE SEÑAL -->
-        <mat-expansion-panel (opened)="panelOpenState = false"
+          <!-- GRAFICA -->
+          <mat-expansion-panel (opened)="panelOpenState = false"
           (closed)="panelOpenState = true">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              TRANSPORTE SEÑAL / ENLACE
-            </mat-panel-title>
-            <mat-panel-description>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <mat-list role="list">
-            <mat-list-item role="listitem">
-              <div class="Row">
-                <div class="Column">Servicio:</div>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+              GRAFICA
+              </mat-panel-title>
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-list role="list">
+              <mat-list-item role="listitem">
+                <div class="Row">
+                <div class="Column">Recurso Técnico:</div>
                 <div class="Column">
-              <mat-checkbox class="example-margin" (change)="onChangeTransporteEnlaceServicio($event)">Evaluar</mat-checkbox>
+                <mat-checkbox class="example-margin" (change)="onChangeGraficaRecurso($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
                 </div>
                 <div class="Column">
                 Bien
                 <mat-slide-toggle
                 class="example-margin"
                 [color]="color"
-                (toggleChange)="onToggleChangeTransporteEnlaceServicio()"
-                [checked]="checkedTransporteEnlaceServicio"
-                [disabled]="disabledTransporteEnlaceServicio">
+                (toggleChange)="onToggleChangeGraficaRecurso()"
+                [checked]="checkedGraficaRecurso"
+                [disabled]="disabledGraficaRecurso">
                 </mat-slide-toggle>
                 Mal
                 </div>
-              </div>
-            </mat-list-item>
-          </mat-list>
-        </mat-expansion-panel>
+                </div>
+              </mat-list-item>
 
-        <!-- ENERGIA -->
-        <mat-expansion-panel (opened)="panelOpenState = false"
-          (closed)="panelOpenState = true">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              ENERGIA 
-            </mat-panel-title>
-            <mat-panel-description>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <mat-list role="list">
-            <mat-list-item role="listitem">
-              <div class="Row">
-                <div class="Column">Servicio:</div>
+              <mat-divider inset="true"></mat-divider>
+
+              <mat-list-item role="listitem">
+                <div class="Row">
+                <div class="Column">Contenido:</div>
                 <div class="Column">
-                <mat-checkbox class="example-margin" (change)="onChangeEnergiaServicio($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
-              </div>
+                <mat-checkbox class="example-margin" (change)="onChangeGraficaContenido($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+                </div>
                 <div class="Column">
                 Bien
                 <mat-slide-toggle
                 class="example-margin"
                 [color]="color"
-                (toggleChange)="onToggleChangeEnergiaServicio()"
-                [checked]="checkedEnergiaServicio"
-                [disabled]="disabledEnergiaServicio">
+                (toggleChange)="onToggleChangeGraficaContenido()"
+                [checked]="checkedGraficaContenido"
+                [disabled]="disabledGraficaContenido">
                 </mat-slide-toggle>
                 Mal
                 </div>
-              </div>
-            </mat-list-item>
-          </mat-list>
-        </mat-expansion-panel>
+                </div>
+              </mat-list-item>
 
-        <!-- AC -->
-        <mat-expansion-panel (opened)="panelOpenState = false"
-          (closed)="panelOpenState = true">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              AC 
-            </mat-panel-title>
-            <mat-panel-description>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <mat-list role="list">
-            <mat-list-item role="listitem">
-              <div class="Row">
-                <div class="Column">Servicio:</div>
+              <mat-divider inset="true"></mat-divider>
+
+              <mat-list-item role="listitem">
+                <div class="Row">
+                <div class="Column">Personal:</div>
                 <div class="Column">
-                <mat-checkbox class="example-margin" (change)="onChangeACServicio($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
-              </div>
+                <mat-checkbox class="example-margin" (change)="onChangeGraficaPersonal($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+                </div>
                 <div class="Column">
                 Bien
                 <mat-slide-toggle
                 class="example-margin"
                 [color]="color"
-                (toggleChange)="onToggleChangeACServicio()"
-                [checked]="checkedACServicio"
-                [disabled]="disabledACServicio">
+                (toggleChange)="onToggleChangeGraficaPersonal()"
+                [checked]="checkedGraficaPersonal"
+                [disabled]="disabledGraficaPersonal">
                 </mat-slide-toggle>
                 Mal
                 </div>
-              </div>
-            </mat-list-item>
-          </mat-list>
-        </mat-expansion-panel>
+                </div>
+              </mat-list-item>
+            </mat-list>
+          </mat-expansion-panel>
 
-        <!-- MAQUILLAJE/PELUQUERIA -->
-        <mat-expansion-panel (opened)="panelOpenState = false"
+          <!-- AUDIO -->
+          <mat-expansion-panel (opened)="panelOpenState = false"
           (closed)="panelOpenState = true">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              MAQUILLAJE/PELUQUERIA 
-            </mat-panel-title>
-            <mat-panel-description>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <mat-list role="list">
-            <mat-list-item role="listitem">
-              <div class="Row">
-                <div class="Column">Servicio:</div>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                AUDIO
+              </mat-panel-title>
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-list role="list">
+              <mat-list-item role="listitem">
+                <div class="Row">
+                <div class="Column">Recurso Técnico:</div>
                 <div class="Column">
-                <mat-checkbox class="example-margin" (change)="onChangeMaquillajeServicio($event)">Evaluar</mat-checkbox>
-              </div>
+                <mat-checkbox class="example-margin" (change)="onChangeAudioRecurso($event)">Evaluar</mat-checkbox>
+                </div>
                 <div class="Column">
                 Bien
                 <mat-slide-toggle
                 class="example-margin"
                 [color]="color"
-                (toggleChange)="onToggleChangeMaquillajeServicio()"
-                [checked]="checkedMaquillajeServicio"
-                [disabled]="disabledMaquillajeServicio">
+                (toggleChange)="onToggleChangeAudioRecurso()"
+                [checked]="checkedAudioRecurso"
+                [disabled]="disabledAudioRecurso">
                 </mat-slide-toggle>
                 Mal
                 </div>
-              </div>
-            </mat-list-item>
-          </mat-list>
-        </mat-expansion-panel>
+                </div>
+              </mat-list-item>
 
-        <!-- UTILERIA -->
-        <mat-expansion-panel (opened)="panelOpenState = false"
-          (closed)="panelOpenState = true">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              UTILERIA 
-            </mat-panel-title>
-            <mat-panel-description>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <mat-list role="list">
-            <mat-list-item role="listitem">
-              <div class="Row">
-                <div class="Column">Servicio:</div>
+              <mat-divider inset="true"></mat-divider>
+
+              <mat-list-item role="listitem">
+                <div class="Row">
+                <div class="Column">Personal:</div>
                 <div class="Column">
-                <mat-checkbox class="example-margin" (change)="onChangeUtileriaServicio($event)">Evaluar</mat-checkbox>
-              </div>
+                <mat-checkbox class="example-margin" (change)="onChangeAudioPersonal($event)">Evaluar</mat-checkbox>
+                </div>
                 <div class="Column">
                 Bien
                 <mat-slide-toggle
                 class="example-margin"
                 [color]="color"
-                (toggleChange)="onToggleChangeUtileriaServicio()"
-                [checked]="checkedUtileriaServicio"
-                [disabled]="disabledUtileriaServicio">
+                (toggleChange)="onToggleChangeAudioPersonal()"
+                [checked]="checkedAudioPersonal"
+                [disabled]="disabledAudioPersonal">
                 </mat-slide-toggle>
                 Mal
                 </div>
-              </div>
-            </mat-list-item>
-          </mat-list>
-        </mat-expansion-panel>
+                </div>
+              </mat-list-item>
+            </mat-list>
+          </mat-expansion-panel>
 
-        <!-- TRAMOYA -->
-        <mat-expansion-panel (opened)="panelOpenState = false"
+          <!-- ILUMINACION -->
+          <mat-expansion-panel (opened)="panelOpenState = false"
           (closed)="panelOpenState = true">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              TRAMOYA 
-            </mat-panel-title>
-            <mat-panel-description>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <mat-list role="list">
-            <mat-list-item role="listitem">
-              <div class="Row">
-                <div class="Column">Servicio:</div>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                ILUMINACION
+              </mat-panel-title>
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-list role="list">
+              <mat-list-item role="listitem">
+                <div class="Row">
+                <div class="Column">Recurso Técnico:</div>
                 <div class="Column">
-                <mat-checkbox class="example-margin" (change)="onChangeTramoyaServicio($event)">Evaluar</mat-checkbox>
-              </div>
+                <mat-checkbox class="example-margin" (change)="onChangeIluminacionRecurso($event)">Evaluar</mat-checkbox>
+                </div>
                 <div class="Column">
                 Bien
                 <mat-slide-toggle
                 class="example-margin"
                 [color]="color"
-                (toggleChange)="onToggleChangeTramoyaServicio()"
-                [checked]="checkedTramoyaServicio"
-                [disabled]="disabledTramoyaServicio">
+                (toggleChange)="onToggleChangeIluminacionRecurso()"
+                [checked]="checkedIluminacionRecurso"
+                [disabled]="disabledIluminacionRecurso">
                 </mat-slide-toggle>
                 Mal
                 </div>
-              </div>
-            </mat-list-item>
-          </mat-list>
-        </mat-expansion-panel>
+                </div>
+              </mat-list-item>
 
-        <!-- SUPERVISOR -->
-        <mat-expansion-panel (opened)="panelOpenState = false"
-          (closed)="panelOpenState = true">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              SUPERVISOR
-            </mat-panel-title>
-            <mat-panel-description>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <mat-list role="list">
-            <mat-list-item role="listitem">
-              <div class="Row">
-                <div class="Column">Servicio:</div>
+              <mat-divider inset="true"></mat-divider>
+
+              <mat-list-item role="listitem">
+                <div class="Row">
+                <div class="Column">Personal:</div>
                 <div class="Column">
-                <mat-checkbox class="example-margin" (change)="onChangeSupervisorServicio($event)"  [checked]="defaultchecked">Evaluar</mat-checkbox>
-              </div>
+                <mat-checkbox class="example-margin" (change)="onChangeIluminacionPersonal($event)">Evaluar</mat-checkbox>
+                </div>
                 <div class="Column">
                 Bien
                 <mat-slide-toggle
                 class="example-margin"
                 [color]="color"
-                (toggleChange)="onToggleChangeSupervisorServicio()"
-                [checked]="checkedSupervisorServicio"
-                [disabled]="disabledSupervisorServicio">
+                (toggleChange)="onToggleChangeIluminacionPersonal()"
+                [checked]="checkedIluminacionPersonal"
+                [disabled]="disabledIluminacionPersonal">
                 </mat-slide-toggle>
                 Mal
                 </div>
-              </div>
-            </mat-list-item>
-          </mat-list>
-        </mat-expansion-panel>
+                </div>
+              </mat-list-item>
+            </mat-list>
+          </mat-expansion-panel>
 
-        <!-- FIN CATEGORIAS -->
-      </mat-accordion>
-    </mat-card>
+          <!-- TRANSPORTE SEÑAL -->
+          <mat-expansion-panel (opened)="panelOpenState = false"
+            (closed)="panelOpenState = true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                TRANSPORTE SEÑAL / ENLACE
+              </mat-panel-title>
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-list role="list">
+              <mat-list-item role="listitem">
+                <div class="Row">
+                  <div class="Column">Servicio:</div>
+                  <div class="Column">
+                <mat-checkbox class="example-margin" (change)="onChangeTransporteEnlaceServicio($event)">Evaluar</mat-checkbox>
+                  </div>
+                  <div class="Column">
+                  Bien
+                  <mat-slide-toggle
+                  class="example-margin"
+                  [color]="color"
+                  (toggleChange)="onToggleChangeTransporteEnlaceServicio()"
+                  [checked]="checkedTransporteEnlaceServicio"
+                  [disabled]="disabledTransporteEnlaceServicio">
+                  </mat-slide-toggle>
+                  Mal
+                  </div>
+                </div>
+              </mat-list-item>
+            </mat-list>
+          </mat-expansion-panel>
+
+          <!-- ENERGIA -->
+          <mat-expansion-panel (opened)="panelOpenState = false"
+            (closed)="panelOpenState = true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                ENERGIA 
+              </mat-panel-title>
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-list role="list">
+              <mat-list-item role="listitem">
+                <div class="Row">
+                  <div class="Column">Servicio:</div>
+                  <div class="Column">
+                  <mat-checkbox class="example-margin" (change)="onChangeEnergiaServicio($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+                </div>
+                  <div class="Column">
+                  Bien
+                  <mat-slide-toggle
+                  class="example-margin"
+                  [color]="color"
+                  (toggleChange)="onToggleChangeEnergiaServicio()"
+                  [checked]="checkedEnergiaServicio"
+                  [disabled]="disabledEnergiaServicio">
+                  </mat-slide-toggle>
+                  Mal
+                  </div>
+                </div>
+              </mat-list-item>
+            </mat-list>
+          </mat-expansion-panel>
+
+          <!-- AC -->
+          <mat-expansion-panel (opened)="panelOpenState = false"
+            (closed)="panelOpenState = true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                AC 
+              </mat-panel-title>
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-list role="list">
+              <mat-list-item role="listitem">
+                <div class="Row">
+                  <div class="Column">Servicio:</div>
+                  <div class="Column">
+                  <mat-checkbox class="example-margin" (change)="onChangeACServicio($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
+                </div>
+                  <div class="Column">
+                  Bien
+                  <mat-slide-toggle
+                  class="example-margin"
+                  [color]="color"
+                  (toggleChange)="onToggleChangeACServicio()"
+                  [checked]="checkedACServicio"
+                  [disabled]="disabledACServicio">
+                  </mat-slide-toggle>
+                  Mal
+                  </div>
+                </div>
+              </mat-list-item>
+            </mat-list>
+          </mat-expansion-panel>
+
+          <!-- MAQUILLAJE/PELUQUERIA -->
+          <mat-expansion-panel (opened)="panelOpenState = false"
+            (closed)="panelOpenState = true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                MAQUILLAJE/PELUQUERIA 
+              </mat-panel-title>
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-list role="list">
+              <mat-list-item role="listitem">
+                <div class="Row">
+                  <div class="Column">Servicio:</div>
+                  <div class="Column">
+                  <mat-checkbox class="example-margin" (change)="onChangeMaquillajeServicio($event)">Evaluar</mat-checkbox>
+                </div>
+                  <div class="Column">
+                  Bien
+                  <mat-slide-toggle
+                  class="example-margin"
+                  [color]="color"
+                  (toggleChange)="onToggleChangeMaquillajeServicio()"
+                  [checked]="checkedMaquillajeServicio"
+                  [disabled]="disabledMaquillajeServicio">
+                  </mat-slide-toggle>
+                  Mal
+                  </div>
+                </div>
+              </mat-list-item>
+            </mat-list>
+          </mat-expansion-panel>
+
+          <!-- UTILERIA -->
+          <mat-expansion-panel (opened)="panelOpenState = false"
+            (closed)="panelOpenState = true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                UTILERIA 
+              </mat-panel-title>
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-list role="list">
+              <mat-list-item role="listitem">
+                <div class="Row">
+                  <div class="Column">Servicio:</div>
+                  <div class="Column">
+                  <mat-checkbox class="example-margin" (change)="onChangeUtileriaServicio($event)">Evaluar</mat-checkbox>
+                </div>
+                  <div class="Column">
+                  Bien
+                  <mat-slide-toggle
+                  class="example-margin"
+                  [color]="color"
+                  (toggleChange)="onToggleChangeUtileriaServicio()"
+                  [checked]="checkedUtileriaServicio"
+                  [disabled]="disabledUtileriaServicio">
+                  </mat-slide-toggle>
+                  Mal
+                  </div>
+                </div>
+              </mat-list-item>
+            </mat-list>
+          </mat-expansion-panel>
+
+          <!-- TRAMOYA -->
+          <mat-expansion-panel (opened)="panelOpenState = false"
+            (closed)="panelOpenState = true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                TRAMOYA 
+              </mat-panel-title>
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-list role="list">
+              <mat-list-item role="listitem">
+                <div class="Row">
+                  <div class="Column">Servicio:</div>
+                  <div class="Column">
+                  <mat-checkbox class="example-margin" (change)="onChangeTramoyaServicio($event)">Evaluar</mat-checkbox>
+                </div>
+                  <div class="Column">
+                  Bien
+                  <mat-slide-toggle
+                  class="example-margin"
+                  [color]="color"
+                  (toggleChange)="onToggleChangeTramoyaServicio()"
+                  [checked]="checkedTramoyaServicio"
+                  [disabled]="disabledTramoyaServicio">
+                  </mat-slide-toggle>
+                  Mal
+                  </div>
+                </div>
+              </mat-list-item>
+            </mat-list>
+          </mat-expansion-panel>
+
+          <!-- SUPERVISOR -->
+          <mat-expansion-panel (opened)="panelOpenState = false"
+            (closed)="panelOpenState = true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                SUPERVISOR
+              </mat-panel-title>
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-list role="list">
+              <mat-list-item role="listitem">
+                <div class="Row">
+                  <div class="Column">Servicio:</div>
+                  <div class="Column">
+                  <mat-checkbox class="example-margin" (change)="onChangeSupervisorServicio($event)"  [checked]="defaultchecked">Evaluar</mat-checkbox>
+                </div>
+                  <div class="Column">
+                  Bien
+                  <mat-slide-toggle
+                  class="example-margin"
+                  [color]="color"
+                  (toggleChange)="onToggleChangeSupervisorServicio()"
+                  [checked]="checkedSupervisorServicio"
+                  [disabled]="disabledSupervisorServicio">
+                  </mat-slide-toggle>
+                  Mal
+                  </div>
+                </div>
+              </mat-list-item>
+            </mat-list>
+          </mat-expansion-panel>
+
+          <!-- FIN CATEGORIAS -->
+        </mat-accordion>
+      </mat-card>
+      <mat-divider inset="true"></mat-divider>
+
+      <mat-card>
+        <mat-card-content>
+          <div class="mymat" >
+            <button mat-raised-button color="primary" class="my-class" (click)="openDialog()">
+              APROBAR
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      </div>
     </div>
   </div>
-</div>
 </form>

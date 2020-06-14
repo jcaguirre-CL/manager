@@ -78,3 +78,22 @@
     .DetalleInforme {
       margin-top: 15px;
     }
+
+.DetallesSelector {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.mymat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-class{
+  width: 300px!important;
+  min-width: unset!important;
+}
