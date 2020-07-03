@@ -50,6 +50,17 @@ interface TipoPrograma {
   value: string;
   viewValue: string;
 }
+
+interface SwitchEvento {
+  value: string;
+  viewValue: string;
+}
+
+interface LocacionEvento {
+  value: string;
+  viewValue: string;
+}
+
 interface NombrePrograma {
   value: string;
   viewValue: string;
@@ -102,18 +113,34 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     {value: 'Entretención', viewValue: 'Entretención'},
     {value: 'Otro', viewValue: 'Otro'}
   ];
+
+  switcheventos: SwitchEvento[] = [
+    {value: 'Control Est2', viewValue: 'Control Est2'},
+    {value: 'Control Est3', viewValue: 'Control Est3'},
+    {value: 'Control Est4', viewValue: 'Control Est4'}
+  ];
+
+  locacioneventos: LocacionEvento[] = [
+    {value: 'Estudio 2', viewValue: 'Estudio 2'},
+    {value: 'Estudio 3', viewValue: 'Estudio 3'},
+    {value: 'Estudio 4', viewValue: 'Estudio 4'},
+    {value: 'Estudio 5', viewValue: 'Estudio 5'},
+    {value: 'Estudio 6', viewValue: 'Estudio 6'},
+    {value: 'Estudio 8', viewValue: 'Estudio 8'}
+  ];
+
   nombreprogramas: NombrePrograma[] = [
     {value: 'Teletrece', viewValue: 'Teletrece'},
     {value: 'Teletrece Tarde', viewValue: 'Teletrece Tarde'},
     {value: 'Bienvenidos', viewValue: 'Bienvenidos'},
+    {value: 'Aqui Somos Todos', viewValue: 'Aqui Somos Todos'},
     {value: 'Sigamos de largo', viewValue: 'Sigamos de Largo'},
-    {value: 'Desarrollo', viewValue: 'Desarrollo'}
+    {value: 'Desarrollo', viewValue: 'Desarrollo'},
+    {value: 'Otro', viewValue: 'Otro'}
   ];
 
   atencionempresas: AtencionEmpresas[] = [
     {value: 'Secuoya', viewValue: 'Secuoya'},
-    {value: 'AGTV', viewValue: 'AGTV'},
-    {value: 'Bizarro', viewValue: 'Bizarro'},
     {value: 'Otro', viewValue: 'Otro'}
   ];
 
@@ -173,14 +200,14 @@ export class DetalleEventoOperacionesComponent implements OnInit {
   disabledGraficaPersonal = true;
 
   checkedAudioRecurso = false;
-  disabledAudioRecurso = true;
+  disabledAudioRecurso = false;
   checkedAudioPersonal = false;
-  disabledAudioPersonal = true;
+  disabledAudioPersonal = false;
 
   checkedIluminacionRecurso = false;
-  disabledIluminacionRecurso = true;
+  disabledIluminacionRecurso = false;
   checkedIluminacionPersonal = false;
-  disabledIluminacionPersonal = true;
+  disabledIluminacionPersonal = false;
 
   checkedTransporteEnlaceServicio = false;
   disabledTransporteEnlaceServicio = true;
@@ -221,40 +248,11 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     {value: 'COMERCIAL', viewValue: 'COMERCIAL'},
     {value: 'SENALES', viewValue: 'SENALES'},
     {value: 'MEDIOS_DIGITALES', viewValue: 'MEDIOS DIGITALES'},
+    {value: 'EXTERNA', viewValue: 'EXTERNA'},
     {value: 'INGENIERIA', viewValue: 'INGENIERIA'}
   ];
 
   responsables: Responsable[] = [
-    {
-      nombre: 'Ruben Mauna',
-      empresa: 'Canal 13',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
-    },
-    {
-      nombre: 'Juan Carlos Aguirre',
-      empresa: 'Canal 13',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
-    },
-    {
-      nombre: 'Julio Antonio Muga',
-      empresa: 'Canal 13',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
-    },
-    {
-      nombre: 'Jorge Hayden Manríquez',
-      empresa: 'Canal 13',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
-    },
-    {
-      nombre: 'Cristobal Catalan',
-      empresa: 'Canal 13',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
-    },
     {
       nombre: 'Oscar Ibañez',
       empresa: 'Secuoya',
@@ -278,6 +276,36 @@ export class DetalleEventoOperacionesComponent implements OnInit {
       empresa: 'Secuoya',
       // https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
       flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
+    },
+    {
+      nombre: 'Jorge Hayden Manríquez',
+      empresa: 'Canal 13',
+      // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
+    },
+    {
+      nombre: 'Cristobal Catalan',
+      empresa: 'Canal 13',
+      // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
+    },
+    {
+      nombre: 'Ruben Mauna',
+      empresa: 'Canal 13',
+      // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
+    },
+    {
+      nombre: 'Juan Carlos Aguirre',
+      empresa: 'Canal 13',
+      // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
+    },
+    {
+      nombre: 'Julio Antonio Muga',
+      empresa: 'Canal 13',
+      // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
     }
   ];
 
@@ -356,6 +384,18 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     this.disabledGraficaPersonal = false;
     this.group.controls['graficaPersonal'].setValue('BIEN');
 
+    // CHECK AUDIO
+    this.disabledAudioRecurso = false;
+    this.group.controls['audioRecurso'].setValue('BIEN');
+    this.disabledAudioPersonal = false;
+    this.group.controls['audioPersonal'].setValue('BIEN');
+
+    // CHECK ILUMINACION
+    this.disabledIluminacionRecurso = false;
+    this.group.controls['iluminacionRecurso'].setValue('BIEN');
+    this.disabledIluminacionPersonal = false;
+    this.group.controls['iluminacionPersonal'].setValue('BIEN');
+
     this.disabledACServicio = false;
     this.group.controls['acServicio'].setValue('BIEN');
 
@@ -402,6 +442,8 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     if(ob.value=='Bienvenidos'){
       changeNombrePrograma.controls['areaProduccion'].setValue('MATINAL');
       changeNombrePrograma.controls['tipopgmProduccion'].setValue('Franjeado');
+      this.group.controls['switchEvento'].setValue('Control Est2');
+      this.group.controls['locacionEvento'].setValue('Estudio 2');
     }
     if(ob.value=='Sigamos de largo'){
       changeNombrePrograma.controls['areaProduccion'].setValue('ENTRETENCION');
@@ -410,6 +452,10 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     if(ob.value=='Desarrollo'){
       changeNombrePrograma.controls['areaProduccion'].setValue('INGENIERIA');
       changeNombrePrograma.controls['tipopgmProduccion'].setValue('Otro');
+    }
+    if(ob.value=='Aqui Somos Todos'){
+      changeNombrePrograma.controls['areaProduccion'].setValue('EXTERNA');
+      changeNombrePrograma.controls['tipopgmProduccion'].setValue('Franjeado');
     }
   }
   onChange(ob: MatCheckboxChange) {

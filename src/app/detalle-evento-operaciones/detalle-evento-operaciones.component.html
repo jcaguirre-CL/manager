@@ -51,7 +51,7 @@
               <mat-radio-button value="VIVO" checked>Vivo</mat-radio-button>
               <mat-radio-button value="GX">Grabación</mat-radio-button>
             </mat-radio-group>
-          </div>
+            </div>
 
             <!-- ESTUDIO/EXTERIOR -->
             <div class="Row">
@@ -60,12 +60,30 @@
               <mat-radio-button value="ESTUDIO" checked>Estudio</mat-radio-button>
               <mat-radio-button value="EXTERIOR">Exterior</mat-radio-button>
             </mat-radio-group>
-          </div>
+            </div>
+
+            <!-- SWITCH EVENTO -->
+            <mat-form-field class="example-full-width">
+              <mat-select placeholder="Switch Evento" formControlName="switchEvento">
+                <mat-option *ngFor="let switchevento of switcheventos" [value]="switchevento.value">
+                  {{switchevento.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <!-- LOCACION EVENTO -->
+            <mat-form-field class="example-full-width">
+              <mat-select placeholder="Locacion Evento" formControlName="locacionEvento">
+                <mat-option *ngFor="let locacionevento of locacioneventos" [value]="locacionevento.value">
+                  {{locacionevento.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
 
             <!-- LOCACION -->
-            <mat-form-field class="example-full-width">
+<!--             <mat-form-field class="example-full-width">
               <textarea matInput placeholder="Locación"></textarea>
-            </mat-form-field>
+            </mat-form-field> -->
 
         <!-- FECHA -->
         <mat-form-field class="example-full-width example-h2">
@@ -212,7 +230,7 @@
 
               <mat-list-item role="listitem">
                 <div class="Row">
-                  <div class="Column">Pluma:</div>
+                  <div class="Column">Pluma/Brazo:</div>
                   <div class="Column">
                     <mat-checkbox class="example-margin" (change)="onChangeCamaraPluma($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
                   </div>
@@ -591,7 +609,7 @@
                 <div class="Row">
                 <div class="Column">Recurso Técnico:</div>
                 <div class="Column">
-                <mat-checkbox class="example-margin" (change)="onChangeAudioRecurso($event)">Evaluar</mat-checkbox>
+                <mat-checkbox class="example-margin" (change)="onChangeAudioRecurso($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
                 </div>
                 <div class="Column">
                 Bien
@@ -613,7 +631,7 @@
                 <div class="Row">
                 <div class="Column">Personal:</div>
                 <div class="Column">
-                <mat-checkbox class="example-margin" (change)="onChangeAudioPersonal($event)">Evaluar</mat-checkbox>
+                <mat-checkbox class="example-margin" (change)="onChangeAudioPersonal($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
                 </div>
                 <div class="Column">
                 Bien
@@ -646,7 +664,7 @@
                 <div class="Row">
                 <div class="Column">Recurso Técnico:</div>
                 <div class="Column">
-                <mat-checkbox class="example-margin" (change)="onChangeIluminacionRecurso($event)">Evaluar</mat-checkbox>
+                <mat-checkbox class="example-margin" (change)="onChangeIluminacionRecurso($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
                 </div>
                 <div class="Column">
                 Bien
@@ -668,7 +686,7 @@
                 <div class="Row">
                 <div class="Column">Personal:</div>
                 <div class="Column">
-                <mat-checkbox class="example-margin" (change)="onChangeIluminacionPersonal($event)">Evaluar</mat-checkbox>
+                <mat-checkbox class="example-margin" (change)="onChangeIluminacionPersonal($event)" [checked]="defaultchecked">Evaluar</mat-checkbox>
                 </div>
                 <div class="Column">
                 Bien

@@ -35,6 +35,8 @@ export interface IIncidenteFormInterface {
     fechaEvento: string;
     responsableEvento: string;  
     atencionEvento: string;
+    switchEvento: string;
+    locacionEvento: string;
     obsEvento: string;
     camaraCamara: string;
     camaraPluma: string;

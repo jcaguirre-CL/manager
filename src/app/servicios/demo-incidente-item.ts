@@ -10,6 +10,8 @@ export const DEMO_INCIDENTE: IIncidenteFormInterface = {
     },
     tipoOperacion: 'TEST',
     tipoLocacion: 'TEST',
+    switchEvento: 'TEST',
+    locacionEvento: 'TEST',
     fechaEvento: '10/10/2000',
     responsableEvento: 'Responsable 1',
     atencionEvento: 'Canal 13',
