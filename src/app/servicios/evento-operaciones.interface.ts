@@ -80,12 +80,19 @@ export interface IIncidenteFormInterface {
   }
   
   export enum IncidenteDetallesEnum {
-    TIPOFALLA1 = 'Audio',
-    TIPOFALLA2 = 'Cámara',
-    TIPOFALLA3 = 'Iluminación',
-    TIPOFALLA4 = 'Ingesta',
-    TIPOFALLA5 = 'Edición',
-    TIPOFALLA6 = 'Supervisión',
-    TIPOFALLA7 = 'Utilería'
+    TIPOFALLA1 = 'CAMARA',
+    TIPOFALLA2 = 'VIDEO',
+    TIPOFALLA3 = 'PLAY OUT',
+    TIPOFALLA4 = 'GRAFICA',
+    TIPOFALLA5 = 'AUDIO',
+    TIPOFALLA6 = 'ILUMINACION',
+    TIPOFALLA7 = 'TRANSPORTE SEÑAL/ENLACE',
+    TIPOFALLA8 = 'ENERGIA',
+    TIPOFALLA9 = 'AC',
+    TIPOFALLA10 = 'MAQUILLAJE/PELUQUERIA',
+    TIPOFALLA11 = 'UTILERIA',
+    TIPOFALLA12 = 'TRAMOYA',
+    TIPOFALLA13 = 'SUPERVISOR'
+
   }
   
