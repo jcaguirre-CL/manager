@@ -33,6 +33,12 @@ export interface IIncidenteFormInterface {
     tipoOperacion: string;
     tipoLocacion: string;
     fechaEvento: string;
+    horaProgIni: string;
+    horaProgFin: string;
+    horaRealIni: string;
+    horaRealFin: string;
+    atrasoIni: string;
+    atrasoFin: string;
     responsableEvento: string;  
     atencionEvento: string;
     switchEvento: string;

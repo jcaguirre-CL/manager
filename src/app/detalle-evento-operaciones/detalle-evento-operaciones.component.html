@@ -99,21 +99,21 @@
           <mat-list-item>Hora Programada</mat-list-item>
           <mat-list-item>
             <mat-form-field class="example-h2">
-              <input class="reloj" matInput type="time" placeholder="Inicio">
+              <input class="reloj" matInput type="time" placeholder="Inicio" formControlName="horaProgIni">
             </mat-form-field>
             <mat-form-field class="example-h2">
-              <input class="reloj" matInput type="time" placeholder="Fin">
+              <input class="reloj" matInput type="time" placeholder="Fin" formControlName="horaProgFin">
             </mat-form-field>
           </mat-list-item>
 
           <mat-list-item>Hora Real</mat-list-item>
           <mat-list-item>
             <mat-form-field class="example-h2">
-              <input class="reloj" matInput type="time" placeholder="Inicio">
+              <input class="reloj" matInput type="time" placeholder="Inicio" formControlName="horaRealIni">
             </mat-form-field>
             <mat-form-field class="example-h2">
               <mat-label>Atraso?</mat-label>
-              <mat-select name="atrasoin" [(value)]="selectedAtrasoIn">
+              <mat-select name="atrasoin" [(value)]="selectedAtrasoIn" formControlName="atrasoIni">
                 <mat-option *ngFor="let atrasoin of atrasoins" [value]="atrasoin.value">
                   {{atrasoin.viewValue}}
                 </mat-option>
@@ -123,11 +123,11 @@
 
           <mat-list-item>
             <mat-form-field class="example-h2">
-              <input class="reloj" matInput type="time" placeholder="Fin">
+              <input class="reloj" matInput type="time" placeholder="Fin" formControlName="horaRealFin">
             </mat-form-field>
             <mat-form-field class="example-h2">
               <mat-label>Atraso?</mat-label>
-              <mat-select name="atrasoout" [(value)]="selectedAtrasoOut">
+              <mat-select name="atrasoout" [(value)]="selectedAtrasoOut" formControlName="atrasoFin">
                 <mat-option *ngFor="let atrasoout of atrasoouts" [value]="atrasoout.value">
                   {{atrasoout.viewValue}}
                 </mat-option>
