@@ -1,19 +1,19 @@
 <h1 mat-dialog-title>Responsable Produccion: {{data.name}}</h1>
-<div mat-dialog-content>
+<div mat-dialog-content [formGroup]="form">
     <mat-form-field class="example-full-width">
         <!-- <mat-select name="responsableproduccion" (selectionChange)="changeNombrePrograma($event)"> -->
         <mat-label>Nombre</mat-label>
-        <mat-select name="responsableproduccion">
+        <mat-select name="responsableproduccion" formControlName="nombre">
             <mat-option *ngFor="let responsable of responsables" [value]="responsable.value">
             {{responsable.viewValue}}
             </mat-option>
         </mat-select>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-        <input matInput type="password" placeholder="PIN 4 DIGITOS">
+        <input matInput type="password" placeholder="PIN 4 DIGITOS" formControlName="passwd">
     </mat-form-field>
 </div>
 <div mat-dialog-actions class="mymat">
   <!-- <button mat-button (click)="onNoClick()">No Thanks</button> -->
-  <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial>CONFIRMAR</button>
+  <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial (click)="confirmar()">CONFIRMAR</button>
 </div>

@@ -48,7 +48,8 @@ export const DEMO_INCIDENTE: IIncidenteFormInterface = {
     maquillajeServicio: 'SI',
     utileriaServicio: 'SI',
     tramoyaServicio: 'SI',
-    supervisorServicio: 'SI'
+    supervisorServicio: 'SI',
+    confirmaProd: 'SI'
   },
   incidentes: [{
     detalles: [IncidenteDetallesEnum.TIPOFALLA1, IncidenteDetallesEnum.TIPOFALLA2] as any,

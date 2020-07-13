@@ -3,7 +3,7 @@ import {ThemePalette} from '@angular/material/core';
 
 import { NgbPopoverConfig } from '@ng-bootstrap/ng-bootstrap';
 
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
@@ -15,7 +15,7 @@ import { User } from '../login-containers/_models';
 
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { MatSelectChange } from '@angular/material/select';
-
+import { Dictionary } from './claves-prod-dict';
 import {
   MAT_MOMENT_DATE_FORMATS,
   MomentDateAdapter,
@@ -103,6 +103,7 @@ export class DetalleEventoOperacionesComponent implements OnInit {
   @Input() group: FormGroup;
 
   name_dialog: string;
+  confirmado: string;
 
   tipoprogramas: TipoPrograma[] = [
     {value: 'Noticia', viewValue: 'Noticia'},
@@ -334,13 +335,18 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // console.log('The dialog was closed');
-      this.name_dialog = result;
+      console.log(result);
+      // this.name_dialog = result;
+      result=='SI'? this.group.controls['confirmaProd'].setValue(result):null  
+      result=='SI'? this.confirmado='SI':null  
     });
   }
 
   ngOnInit() {
     // DEFAULT VALUE
+    this.confirmado='NO';
+    this.group.controls['confirmaProd'].setValue('NO');
+
     this.group.controls['tipoLocacion'].setValue('ESTUDIO');
     this.group.controls['tipoOperacion'].setValue('VIVO');
 
@@ -1170,15 +1176,55 @@ export class DetalleEventoOperacionesComponent implements OnInit {
   templateUrl: 'dialog-overview.html',
   styleUrls: ['./detalle-evento-operaciones.component.css'],
 })
-export class DialogOverviewExampleDialog {
+export class DialogOverviewExampleDialog implements OnInit{
+  dict = new Dictionary();
+  map = new Map<string, string>();
+  Object = Object;
   responsables: ResponsableProduccion[] = [
     {value: 'Franjeado', viewValue: 'Alvaro Vásquez Yung'},
     {value: 'Matinal', viewValue: 'Lilian Pérez Rojas'},
+    {value: 'Matinal', viewValue: 'Andres Venegas'},
+    {value: 'Matinal', viewValue: 'Jorge Hayden'},
     {value: 'Noticia', viewValue: 'Camila Cáceres'}
   ];
+  form: FormGroup;
+  nombre:string;
+  passwd:string;
   constructor(
+    private fb: FormBuilder,
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  ngOnInit(){
+    this.dict.set("Franjeado", "1313"); 
+    this.dict.set("Matinal", "1313");
+    this.dict.set("Noticia", "1313");
+    this.form = this.fb.group({
+      nombre: [this.nombre, []],
+      passwd: [this.passwd, []]
+    });
+    this.form.controls['passwd'].setValue('9999');
+  }
+
+  confirmar(){
+    if (this.form.controls['passwd'].value==this.dict.get(this.form.controls['nombre'].value)) 
+    {
+/*       console.log(this.form.controls['nombre'].value)
+      console.log(this.form.controls['passwd'].value)
+      console.log(this.dict.get(this.form.controls['nombre'].value)) */
+      this.dialogRef.close('SI')    
+    } 
+    else
+    {
+/*       console.log(this.form.controls['nombre'].value)
+      console.log(this.form.controls['passwd'].value)
+      console.log(this.dict.get(this.form.controls['nombre'].value)) */
+      this.dialogRef.close('NO')
+    }
+    // this.nombre==this.passwd? this.dialogRef.close('NO'): this.dialogRef.close('SI')
+
+    /* this.dialogRef.close('SI') */;
+  }
 
   onNoClick(): void {
     this.dialogRef.close();

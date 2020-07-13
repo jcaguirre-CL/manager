@@ -71,6 +71,7 @@ export interface IIncidenteFormInterface {
     utileriaServicio: string;
     tramoyaServicio: string;
     supervisorServicio: string;
+    confirmaProd: string;
     produccion: {
       areaProduccion: string;
       pgmProduccion: string;

@@ -944,8 +944,14 @@
         <mat-card-content>
           <div class="mymat" >
             <button mat-raised-button color="primary" class="my-class" (click)="openDialog()">
-              APROBAR
+              CONFIRMA PRODUCCION
             </button>
+            <a aria-label="LogOut" target="_blank" rel="noopener" title="LogOut" *ngIf="confirmado === 'SI'">
+              <i data-name="Logo — FIXED" viewBox="0 0 400 400" class="material-icons md-24">done_outline</i>
+            </a>
+            <a aria-label="LogOut" target="_blank" rel="noopener" title="LogOut" *ngIf="confirmado === 'NO'">
+              <i data-name="Logo — FIXED" viewBox="0 0 400 400" class="material-icons md-24">not_interested</i>
+            </a>
           </div>
         </mat-card-content>
       </mat-card>

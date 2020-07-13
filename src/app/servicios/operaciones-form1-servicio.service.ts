@@ -80,6 +80,7 @@ export class OperacionesForm1ServicioService {
         utileriaServicio: [null,],
         tramoyaServicio: [null,],
         supervisorServicio: [null,],
+        confirmaProd: [null,],
         produccion: this.fb.group({
           areaProduccion: [null, Validators.required],
           responsableProduccion: [null, Validators.required],
@@ -156,6 +157,7 @@ export class OperacionesForm1ServicioService {
         utileriaServicio: this.form.value.detalleeventoOperaciones.utileriaServicio,
         tramoyaServicio: this.form.value.detalleeventoOperaciones.tramoyaServicio,
         supervisorServicio: this.form.value.detalleeventoOperaciones.supervisorServicio,
+        confirmaProd: this.form.value.detalleeventoOperaciones.confirmaProd,
         produccion: { 
           areaProduccion: this.form.value.detalleeventoOperaciones.produccion.areaProduccion,
           responsableProduccion: this.mycurrentUser.nombre + ' ' + this.mycurrentUser.apellido,
@@ -247,6 +249,7 @@ export class OperacionesForm1ServicioService {
         utileriaServicio: data.detalleeventoOperaciones.utileriaServicio,
         tramoyaServicio: data.detalleeventoOperaciones.tramoyaServicio,
         supervisorServicio: data.detalleeventoOperaciones.supervisorServicio,
+        confirmaProd: data.detalleeventoOperaciones.confirmaProd,
         produccion: { 
           areaProduccion: data.detalleeventoOperaciones.produccion.areaProduccion,
           responsableProduccion: this.mycurrentUser.nombre + ' ' + this.mycurrentUser.apellido,
