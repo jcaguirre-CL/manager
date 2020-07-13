@@ -1,0 +1,81 @@
+.button-row {
+  display: flex;
+  align-items: right;
+  justify-content: space-around;
+}
+
+.example-full-width {
+  width: 90%;
+  margin: 1em auto;    
+  text-align: left;  
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 90%;
+  align-content: center;
+}
+
+.container-form {
+  min-width: 600px;
+  max-width: 900px;
+  width: 90%;
+}
+
+.alinear-center {
+  align-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+.alinear-left {
+  align-content: left;
+  align-items: left;
+  align-self: left;
+}
+
+.example-mat {
+  min-width: 150px;
+  max-width: 500px;
+  width: 90%;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+.app-class .mat-list-item {
+  height: auto;
+}
+
+.example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.example-selected-value {
+  margin: 15px 0;
+}
+
+.right-aligned-header > .mat-content {
+  justify-content: space-between;
+  text-align: right;
+}
+
+.mat-content > mat-panel-title, .mat-content > mat-panel-description {
+flex: 0 0 auto;
+}
+
+.mat-row:hover {
+background-color: lightsalmon;
+}

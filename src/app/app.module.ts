@@ -15,7 +15,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { Form1Component } from './form1/form1.component';
 import { Config1Component } from './config1/config1.component';
-import { Historial1Component } from './historial1/historial1.component';
+import { Historial1Component, IncidenciaDialogComponent } from './historial1/historial1.component';
 import { AlertComponent } from './login-containers/_components';
 
 import { JwtInterceptor, ErrorInterceptor } from './login-containers/_helpers';
@@ -46,6 +46,7 @@ import {MatDialogModule} from "@angular/material";
     Opc1OperacionesComponent,
     DetalleEventoOperacionesComponent,
     DialogOverviewExampleDialog,
+    IncidenciaDialogComponent,
     DetalleIncidenteOperacionesComponent,
     ListaIncidentesOperacionesComponent,
     IncidenteAreaPickerComponent,
@@ -71,6 +72,6 @@ import {MatDialogModule} from "@angular/material";
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     OperacionesForm1ServicioService],
   bootstrap: [AppComponent],
-  entryComponents: [DialogOverviewExampleDialog]
+  entryComponents: [DialogOverviewExampleDialog, IncidenciaDialogComponent]
 })
 export class AppModule { }
