@@ -19,7 +19,9 @@ mat-form-field {
   }
   
   .example-full-width {
-    width: 100%;
+    width: 90%;
+    margin: 1em auto;    
+    text-align: left;  
   }
   
   .example-option-img {
@@ -39,4 +41,15 @@ mat-form-field {
   
   .example-container > * {
     width: 100%;
+  }
+
+  .my-field {
+    font-size: 14px;
+    max-width: 200px;
+    word-wrap: break-word;
+  }
+
+  .my-fecha {
+    font-size: 14px;
+    max-width: 80px;
   }

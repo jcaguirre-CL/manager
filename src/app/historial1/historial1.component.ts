@@ -12,6 +12,8 @@ import { AuthenticationService } from '../login-containers/_services';
 import { User } from '../login-containers/_models';
 
 import { MatSnackBar, MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
+
 
 import { FormArray, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -147,9 +149,15 @@ export class Historial1Component implements OnInit {
       this.authenticationService.currentUser.subscribe(x => this.mycurrentUser = x);
     }
   ngOnInit() { }
+
   filaSeleccionada(row: any) {
     this.openDialog(row);
   }
+
+  public doFilter = (value: string) => {
+    // this.dataSource.filter = value.trim().toLocaleLowerCase();
+  }
+
   openDialog(row): void {
     const dialogRef = this.dialog.open(IncidenciaDialogComponent, {
       width: '1200px',
@@ -164,6 +172,7 @@ export class Historial1Component implements OnInit {
 }
 
 export class RegistroDataSource extends DataSource<any> {
+
   constructor(private operacionesForm1ServicioService: OperacionesForm1ServicioService
     ) {
     super();
