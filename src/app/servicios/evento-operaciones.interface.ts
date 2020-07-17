@@ -3,6 +3,7 @@ export interface IIncidenteFormInterface {
     selectedIncidente?: IIncidenteItem;
     incidentes: IIncidenteItem[];
     detalleeventoOperaciones: IDetalleEventoOperaciones;
+    id: string;
     // customerDetails: ICustomerDetails;
   }
   
@@ -72,6 +73,7 @@ export interface IIncidenteFormInterface {
     tramoyaServicio: string;
     supervisorServicio: string;
     confirmaProd: string;
+    obsEventoProduccion: string;
     produccion: {
       areaProduccion: string;
       pgmProduccion: string;

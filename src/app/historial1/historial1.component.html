@@ -44,19 +44,19 @@
           
             <!-- Weight Column -->
             <ng-container matColumnDef="responsable">
-              <th mat-header-cell *matHeaderCellDef> OBSERVACIONES </th>
+              <th mat-header-cell *matHeaderCellDef> OBS SUPERVISOR </th>
               <td mat-cell *matCellDef="let element"> {{element.detalleeventoOperaciones.obsEvento}} </td>
             </ng-container>
           
             <!-- Symbol Column -->
             <ng-container matColumnDef="aprobado">
-              <th mat-header-cell *matHeaderCellDef> APROBADO PROD </th>
-              <td mat-cell *matCellDef="let element"> {{element.incidentes}} </td>
+              <th mat-header-cell *matHeaderCellDef> OBS PRODUCCION </th>
+              <td mat-cell *matCellDef="let element"> {{element.detalleeventoOperaciones.obsEventoProduccion}} </td>
             </ng-container>
 
             <ng-container matColumnDef="estado">
-                <th mat-header-cell *matHeaderCellDef> ESTADO </th>
-                <td mat-cell *matCellDef="let element"> {{element.incidentes}} </td>
+                <th mat-header-cell *matHeaderCellDef> CONFIRMA PROD </th>
+                <td mat-cell *matCellDef="let element"> {{element.detalleeventoOperaciones.confirmaProd}} </td>
               </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -1,24 +1,73 @@
+<!-- <form [formGroup]="incidenciaDialogForm" (ngSubmit)="onSubmit()"> -->
 <form [formGroup]="incidenciaDialogForm">
-  <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap fxLayoutAlign="center" fxLayoutGap="25px">
-    <div fxFlex="90" fxFlex.xs="50%" fxFlex.sm="50%">
+  <!-- <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap fxLayoutAlign="center" fxLayoutGap="25px"> -->
+    <!-- <div fxFlex="90" fxFlex.xs="50%" fxFlex.sm="50%"> -->
       <mat-card>
         <mat-list>
           <mat-list-item>Descripción del Evento de Operación:</mat-list-item>
           <mat-divider inset="true"></mat-divider>
         </mat-list>
-        <div [formGroup]="incidenciaDialogForm.get('detalleeventoOperaciones.produccion')">
-          <mat-form-field class="example-full-width">
-            <mat-label>Programa</mat-label>
-            <input matInput formControlName="pgmProduccion" readonly="true">
-          </mat-form-field>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap fxLayoutAlign="center">
+          <div fxFlex="100" fxFlex.xs="50%" fxFlex.sm="50%">
+            <mat-grid-list cols="4" rowHeight="2:1">
+              <mat-grid-tile>            
+                <div [formGroup]="incidenciaDialogForm.get('detalleeventoOperaciones.produccion')">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Programa</mat-label>
+                    <input matInput formControlName="pgmProduccion" readonly="true">
+                  </mat-form-field>
+                </div>
+              </mat-grid-tile>
+
+              <div [formGroup]="incidenciaDialogForm.get('detalleeventoOperaciones')">
+                <mat-grid-tile>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Fecha</mat-label>
+                    <input matInput formControlName="fechaEvento" readonly="true">
+                  </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Hora Incio Real</mat-label>
+                    <input matInput formControlName="horaRealIni" readonly="true">
+                  </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Hora Fin Real</mat-label>
+                    <input matInput formControlName="horaRealFin" readonly="true">
+                  </mat-form-field>
+                </mat-grid-tile>
+              </div>
+            </mat-grid-list>
+              <mat-list-item>Areas con Observacion:</mat-list-item>
+              <li *ngFor="let hero of data.incidentes">
+                {{ hero.detalles[0] }}:
+                {{ hero.descripcion }}
+              </li>
+            <div [formGroup]="incidenciaDialogForm.get('detalleeventoOperaciones')">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Observacion Supervisor</mat-label>
+                  <input matInput formControlName="obsEvento" readonly="true">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Observacion Produccion (Indicar comentarios)</mat-label>
+                  <input matInput formControlName="obsEventoProduccion">
+                </mat-form-field>
+            </div>
+          </div>
         </div>
-        <div [formGroup]="incidenciaDialogForm.get('detalleeventoOperaciones')">
-          <mat-form-field class="example-full-width">
-            <mat-label>Fecha</mat-label>
-            <input matInput formControlName="fechaEvento" readonly="true">
-          </mat-form-field>
-        </div>
+        
       </mat-card>
-    </div>
-  </div>
+      <mat-card-actions class="mymat">
+        <button mat-raised-button color="primary" (click)="submit(incidenciaDialogForm.value)">
+          CONFIRMAR
+        </button>
+        <button mat-raised-button color="warning" (click)="submit_no(incidenciaDialogForm.value)">
+          NO CONFIRMAR
+        </button>
+      </mat-card-actions>
+    <!-- </div> -->
+  <!-- </div> -->
 </form>
