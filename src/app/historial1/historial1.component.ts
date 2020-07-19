@@ -91,6 +91,7 @@ export class IncidenciaDialogComponent implements OnInit {
         supervisorServicio: [this.data.detalleeventoOperaciones.supervisorServicio,],
         confirmaProd: [this.data.detalleeventoOperaciones.confirmaProd,],
         obsEventoProduccion: [this.data.detalleeventoOperaciones.obsEventoProduccion,],
+        errorArea: [this.data.detalleeventoOperaciones.errorArea,],
         produccion: this.fb.group({
           areaProduccion: [this.data.detalleeventoOperaciones.produccion.areaProduccion, Validators.required],
           responsableProduccion: [this.data.detalleeventoOperaciones.produccion.responsableProduccion, Validators.required],

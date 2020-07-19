@@ -51,6 +51,7 @@ export const DEMO_INCIDENTE: IIncidenteFormInterface = {
     supervisorServicio: 'SI',
     confirmaProd: 'SI',
     obsEventoProduccion: 'OBS',
+    errorArea: 'NO',
   },
   id: '',
   incidentes: [{

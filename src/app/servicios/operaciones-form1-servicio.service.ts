@@ -83,6 +83,7 @@ export class OperacionesForm1ServicioService {
         supervisorServicio: [null,],
         confirmaProd: [null,],
         obsEventoProduccion: [null,],
+        errorArea: [null,],
         produccion: this.fb.group({
           areaProduccion: [null, Validators.required],
           responsableProduccion: [null, Validators.required],
@@ -162,6 +163,7 @@ export class OperacionesForm1ServicioService {
         supervisorServicio: this.form.value.detalleeventoOperaciones.supervisorServicio,
         confirmaProd: this.form.value.detalleeventoOperaciones.confirmaProd,
         obsEventoProduccion: this.form.value.detalleeventoOperaciones.obsEventoProduccion,
+        errorArea: this.form.value.detalleeventoOperaciones.errorArea,
         produccion: { 
           areaProduccion: this.form.value.detalleeventoOperaciones.produccion.areaProduccion,
           responsableProduccion: this.mycurrentUser.nombre + ' ' + this.mycurrentUser.apellido,
@@ -256,6 +258,7 @@ export class OperacionesForm1ServicioService {
         supervisorServicio: data.detalleeventoOperaciones.supervisorServicio,
         confirmaProd: data.detalleeventoOperaciones.confirmaProd,
         obsEventoProduccion: data.detalleeventoOperaciones.obsEventoProduccion,
+        errorArea: data.detalleeventoOperaciones.errorArea,
         produccion: { 
           areaProduccion: data.detalleeventoOperaciones.produccion.areaProduccion,
           responsableProduccion: this.mycurrentUser.nombre + ' ' + this.mycurrentUser.apellido,
@@ -359,6 +362,7 @@ export class OperacionesForm1ServicioService {
         supervisorServicio: data.detalleeventoOperaciones.supervisorServicio,
         confirmaProd: confirma,
         obsEventoProduccion: data.detalleeventoOperaciones.obsEventoProduccion,
+        errorArea: data.detalleeventoOperaciones.errorArea,
         produccion: { 
           areaProduccion: data.detalleeventoOperaciones.produccion.areaProduccion,
           responsableProduccion: this.mycurrentUser.nombre + ' ' + this.mycurrentUser.apellido,
