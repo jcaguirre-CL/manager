@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'form1', component: Form1Component, canActivate: [AuthGuard] },
   { path: 'formportatil', component: FormportatilComponent, canActivate: [AuthGuard] },
   { path: 'formedicion', component: FormedicionComponent, canActivate: [AuthGuard] },
-  { path: 'historial1', component: Historial1Component, canActivate: [AuthGuard] },
+  { path: 'historial1', component: Historial1Component, canActivate: [AuthGuard],
+          data: { roles: ['produccion','administrador','gestion','perfil'] }},
   { path: 'config1', component: Config1Component, canActivate: [AuthGuard] },
   { path: '**', redirectTo: ''},
 ];
