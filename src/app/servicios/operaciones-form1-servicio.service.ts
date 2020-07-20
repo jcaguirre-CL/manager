@@ -7,12 +7,11 @@ import { AuthenticationService } from '../login-containers/_services';
 import { User } from '../login-containers/_models';
 import { Observable, of } from 'rxjs';
 
-import { HttpClient } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
-import { catchError, delay } from 'rxjs/operators';
+import { HttpClient, HttpParams, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
+
+import { catchError, delay, map } from 'rxjs/operators';
 import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
 
-import { HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 
 import { UserService } from '../login-containers/_services/user.service';
@@ -397,6 +396,24 @@ export class OperacionesForm1ServicioService {
         catchError(err => this.handleError(err))
       );
   }
+
+  findLessons(filter = ''):  Observable<IIncidenteFormInterface[]> {
+
+/*     const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.mycurrentUser['token']}`})
+    }; */
+
+    return this.http.get<IIncidenteFormInterface[]>(`${this.config.apiUrl}/formdataOperaciones/recuperarRegistrosFiltro`, {
+        params: new HttpParams()
+            .set('filter', filter),
+            headers: new HttpHeaders({ 'Content-Type': 'application/json',
+            'Authorization': `Bearer ${this.mycurrentUser['token']}`})
+    });
+    /* .pipe(
+        map(res =>  res["payload"])
+    ); */
+}
 
   private mapToCheckboxArrayGroup(data: string[]): FormArray {
     return this.fb.array(data.map((i) => {

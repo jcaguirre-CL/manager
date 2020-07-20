@@ -1,10 +1,9 @@
-import { Component, OnInit, Inject, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import {PageEvent} from '@angular/material/paginator';
 import { OperacionesForm1ServicioService } from '../servicios/operaciones-form1-servicio.service';
 import { OperacionesForm1ValidadorService } from '../servicios/operaciones-form1-validador.service';
-import { Observable, merge, fromEvent} from "rxjs";
-
-import {debounceTime, distinctUntilChanged, startWith, tap, delay} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 import { DataSource } from '@angular/cdk/collections';
 import { IIncidenteFormInterface } from '../servicios/evento-operaciones.interface';
@@ -15,7 +14,6 @@ import { User } from '../login-containers/_models';
 import { MatSnackBar, MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { MatTableDataSource } from '@angular/material/table';
 
-import {LessonsDataSource} from "./datos.datasource";
 
 import { FormArray, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -31,6 +29,7 @@ import { FormArray, FormBuilder, FormGroup, FormControl, Validators } from '@ang
 })
 export class IncidenciaDialogComponent implements OnInit {
   incidenciaDialogForm: FormGroup;
+  // operacionesForm1ServicioService: OperacionesForm1ServicioService;
 
   constructor(
     private fb: FormBuilder,
@@ -45,6 +44,7 @@ export class IncidenciaDialogComponent implements OnInit {
     ngOnInit() {
     this.incidenciaDialogForm = this.fb.group({
       selectedIncidente: null,
+      // incidentes: this.fb.array([]),
       incidentes: this.data.incidentes,
       id: this.data.id,
       detalleeventoOperaciones: this.fb.group({
@@ -123,14 +123,12 @@ export class IncidenciaDialogComponent implements OnInit {
     OperacionesForm1ValidadorService
   ]
 })
-export class Historial1Component implements OnInit, AfterViewInit {
-  iincidenteFormInterface: IIncidenteFormInterface;
+export class Historial1Component implements OnInit {
   displayedColumns: string[] = ['fecha', 'produccion', 'programa', 'responsable', 'aprobado', 'estado'];
   isLoading = false;
 
-  // dataSource = new RegistroDataSource(this.operacionesForm1ServicioService);
-  dataSource2: LessonsDataSource;
-
+  dataSource = new RegistroDataSource(this.operacionesForm1ServicioService);
+  dataSource2 = new MatTableDataSource();
   public mycurrentUser: User;
 
   // MatPaginator Inputs
@@ -145,8 +143,6 @@ export class Historial1Component implements OnInit, AfterViewInit {
     this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
   }
 
-  @ViewChild('input', { static: true }) input: ElementRef;
-
   constructor(
     private authenticationService: AuthenticationService,
     private operacionesForm1ServicioService: OperacionesForm1ServicioService,
@@ -154,50 +150,35 @@ export class Historial1Component implements OnInit, AfterViewInit {
     ) {
       this.authenticationService.currentUser.subscribe(x => this.mycurrentUser = x);
     }
-  ngOnInit() { 
-    this.dataSource2 = new LessonsDataSource(this.operacionesForm1ServicioService);
-
-    this.dataSource2.loadLessons('');
-  }
+  ngOnInit() { }
 
   filaSeleccionada(row: any) {
     this.openDialog(row);
+  }
+
+  public doFilter = (value: string) => {
+    // this.dataSource.filter = value.trim().toLocaleLowerCase();
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource2.filter = filterValue.trim().toLowerCase();
   }
 
   openDialog(row: any): void {
     const dialogRef = this.dialog.open(IncidenciaDialogComponent, {
       width: '1200px',
       data: row,
+      // data: {name: row.respevento, animal: this.animal}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // this.dataSource = new RegistroDataSource(this.operacionesForm1ServicioService);
-      // this.dataSource2 = new LessonsDataSource(this.operacionesForm1ServicioService);
-      this.ngOnInit();
+      this.dataSource = new RegistroDataSource(this.operacionesForm1ServicioService);
     });
   }
-
-  ngAfterViewInit() {
-
-      fromEvent(this.input.nativeElement,'keyup')
-          .pipe(
-              debounceTime(150),
-              distinctUntilChanged(),
-              tap(() => {
-                  this.loadLessonsPage();
-              })
-          )
-          .subscribe();
-
-  }
-
-  loadLessonsPage() {
-      this.dataSource2.loadLessons(this.input.nativeElement.value);
-  }
-
 }
 
-/* export class RegistroDataSource extends DataSource<any> {
+export class RegistroDataSource extends DataSource<any> {
 
   constructor(private operacionesForm1ServicioService: OperacionesForm1ServicioService
     ) {
@@ -208,7 +189,7 @@ export class Historial1Component implements OnInit, AfterViewInit {
   }
 
   disconnect() { }
-} */
+}
 
 
 
