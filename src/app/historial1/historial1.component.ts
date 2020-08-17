@@ -31,6 +31,7 @@ import { FormArray, FormBuilder, FormGroup, FormControl, Validators } from '@ang
 })
 export class IncidenciaDialogComponent implements OnInit {
   incidenciaDialogForm: FormGroup;
+  gestion: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -43,60 +44,67 @@ export class IncidenciaDialogComponent implements OnInit {
       this.dialogRef.close();
     }
     ngOnInit() {
+    console.log(this.data["user"].perfil);
+    if (this.data["user"].perfil == 'gestion' || this.data["user"].perfil == 'perfil') {
+      this.gestion = true;
+    }
     this.incidenciaDialogForm = this.fb.group({
       selectedIncidente: null,
-      incidentes: this.data.incidentes,
-      id: this.data.id,
+      incidentes: this.data["data"].incidentes,
+      id: this.data["data"].id,
       detalleeventoOperaciones: this.fb.group({
-        fechaEvento: [this.data.detalleeventoOperaciones.fechaEvento,],
-        horaProgIni: [this.data.detalleeventoOperaciones.horaProgIni,],
-        horaProgFin: [this.data.detalleeventoOperaciones.horaProgFin,],
-        horaRealIni: [this.data.detalleeventoOperaciones.horaRealIni,],
-        horaRealFin: [this.data.detalleeventoOperaciones.horaRealFin,],
-        atrasoIni: [this.data.detalleeventoOperaciones.atrasoIni,],
-        atrasoFin: [this.data.detalleeventoOperaciones.atrasoFin,],
-        responsableEvento: [this.data.detalleeventoOperaciones.responsableEvento,],
-        atencionEvento: [this.data.detalleeventoOperaciones.atencionEvento,],
-        switchEvento: [this.data.detalleeventoOperaciones.switchEvento,],
-        locacionEvento: [this.data.detalleeventoOperaciones.locacionEvento,],
-        tipoOperacion: [this.data.detalleeventoOperaciones.tipoOperacion,],
-        tipoLocacion: [this.data.detalleeventoOperaciones.tipoLocacion,],
-        obsEvento: [this.data.detalleeventoOperaciones.obsEvento,],
-        camaraCamara: [this.data.detalleeventoOperaciones.camaraCamara,],
-        camaraPluma: [this.data.detalleeventoOperaciones.camaraPluma,],
-        camaraSteady: [this.data.detalleeventoOperaciones.camaraSteady,],
-        camaraRiel: [this.data.detalleeventoOperaciones.camaraRiel,],
-        camaraDron: [this.data.detalleeventoOperaciones.camaraDron,],
-        camaraPersonal: [this.data.detalleeventoOperaciones.camaraPersonal,],
-        videoComunicaciones: [this.data.detalleeventoOperaciones.videoComunicaciones,],
-        videoPantallas: [this.data.detalleeventoOperaciones.videoPantallas,],
-        videoSwitch: [this.data.detalleeventoOperaciones.videoSwitch,],
-        videoPersonal: [this.data.detalleeventoOperaciones.videoPersonal,],
-        playRecurso: [this.data.detalleeventoOperaciones.playRecurso,],
-        playContenido: [this.data.detalleeventoOperaciones.playContenido,],
-        playPersonal: [this.data.detalleeventoOperaciones.playPersonal,],
-        graficaRecurso: [this.data.detalleeventoOperaciones.graficaRecurso,],
-        graficaContenido: [this.data.detalleeventoOperaciones.graficaContenido,],
-        graficaPersonal: [this.data.detalleeventoOperaciones.graficaPersonal,],
-        audioRecurso: [this.data.detalleeventoOperaciones.audioRecurso,],
-        audioPersonal: [this.data.detalleeventoOperaciones.audioPersonal,],
-        iluminacionRecurso: [this.data.detalleeventoOperaciones.iluminacionRecurso,],
-        iluminacionPersonal: [this.data.detalleeventoOperaciones.iluminacionPersonal,],
-        transporteEnlaceServicio: [this.data.detalleeventoOperaciones.transporteEnlaceServicio,],
-        energiaServicio: [this.data.detalleeventoOperaciones.energiaServicio,],
-        acServicio: [this.data.detalleeventoOperaciones.acServicio,],
-        maquillajeServicio: [this.data.detalleeventoOperaciones.maquillajeServicio,],
-        utileriaServicio: [this.data.detalleeventoOperaciones.utileriaServicio,],
-        tramoyaServicio: [this.data.detalleeventoOperaciones.tramoyaServicio,],
-        supervisorServicio: [this.data.detalleeventoOperaciones.supervisorServicio,],
-        confirmaProd: [this.data.detalleeventoOperaciones.confirmaProd,],
-        obsEventoProduccion: [this.data.detalleeventoOperaciones.obsEventoProduccion,],
-        errorArea: [this.data.detalleeventoOperaciones.errorArea,],
+        fechaEvento: [this.data["data"].detalleeventoOperaciones.fechaEvento,],
+        horaProgIni: [this.data["data"].detalleeventoOperaciones.horaProgIni,],
+        horaProgFin: [this.data["data"].detalleeventoOperaciones.horaProgFin,],
+        horaRealIni: [this.data["data"].detalleeventoOperaciones.horaRealIni,],
+        horaRealFin: [this.data["data"].detalleeventoOperaciones.horaRealFin,],
+        atrasoIni: [this.data["data"].detalleeventoOperaciones.atrasoIni,],
+        atrasoFin: [this.data["data"].detalleeventoOperaciones.atrasoFin,],
+        responsableEvento: [this.data["data"].detalleeventoOperaciones.responsableEvento,],
+        atencionEvento: [this.data["data"].detalleeventoOperaciones.atencionEvento,],
+        switchEvento: [this.data["data"].detalleeventoOperaciones.switchEvento,],
+        locacionEvento: [this.data["data"].detalleeventoOperaciones.locacionEvento,],
+        tipoOperacion: [this.data["data"].detalleeventoOperaciones.tipoOperacion,],
+        tipoLocacion: [this.data["data"].detalleeventoOperaciones.tipoLocacion,],
+        obsEvento: [this.data["data"].detalleeventoOperaciones.obsEvento,],
+        camaraCamara: [this.data["data"].detalleeventoOperaciones.camaraCamara,],
+        camaraPluma: [this.data["data"].detalleeventoOperaciones.camaraPluma,],
+        camaraSteady: [this.data["data"].detalleeventoOperaciones.camaraSteady,],
+        camaraRiel: [this.data["data"].detalleeventoOperaciones.camaraRiel,],
+        camaraDron: [this.data["data"].detalleeventoOperaciones.camaraDron,],
+        camaraPersonal: [this.data["data"].detalleeventoOperaciones.camaraPersonal,],
+        videoComunicaciones: [this.data["data"].detalleeventoOperaciones.videoComunicaciones,],
+        videoPantallas: [this.data["data"].detalleeventoOperaciones.videoPantallas,],
+        videoSwitch: [this.data["data"].detalleeventoOperaciones.videoSwitch,],
+        videoPersonal: [this.data["data"].detalleeventoOperaciones.videoPersonal,],
+        playRecurso: [this.data["data"].detalleeventoOperaciones.playRecurso,],
+        playContenido: [this.data["data"].detalleeventoOperaciones.playContenido,],
+        playPersonal: [this.data["data"].detalleeventoOperaciones.playPersonal,],
+        graficaRecurso: [this.data["data"].detalleeventoOperaciones.graficaRecurso,],
+        graficaContenido: [this.data["data"].detalleeventoOperaciones.graficaContenido,],
+        graficaPersonal: [this.data["data"].detalleeventoOperaciones.graficaPersonal,],
+        audioRecurso: [this.data["data"].detalleeventoOperaciones.audioRecurso,],
+        audioPersonal: [this.data["data"].detalleeventoOperaciones.audioPersonal,],
+        iluminacionRecurso: [this.data["data"].detalleeventoOperaciones.iluminacionRecurso,],
+        iluminacionPersonal: [this.data["data"].detalleeventoOperaciones.iluminacionPersonal,],
+        transporteEnlaceServicio: [this.data["data"].detalleeventoOperaciones.transporteEnlaceServicio,],
+        energiaServicio: [this.data["data"].detalleeventoOperaciones.energiaServicio,],
+        acServicio: [this.data["data"].detalleeventoOperaciones.acServicio,],
+        maquillajeServicio: [this.data["data"].detalleeventoOperaciones.maquillajeServicio,],
+        utileriaServicio: [this.data["data"].detalleeventoOperaciones.utileriaServicio,],
+        tramoyaServicio: [this.data["data"].detalleeventoOperaciones.tramoyaServicio,],
+        supervisorServicio: [this.data["data"].detalleeventoOperaciones.supervisorServicio,],
+        confirmaProd: [this.data["data"].detalleeventoOperaciones.confirmaProd,],
+        obsEventoProduccion: [this.data["data"].detalleeventoOperaciones.obsEventoProduccion,],
+        obsEventoGestion: [this.data["data"].detalleeventoOperaciones.obsEventoGestion,],
+        nivelIncidencia: [this.data["data"].detalleeventoOperaciones.nivelIncidencia,],
+        nivelImpacto: [this.data["data"].detalleeventoOperaciones.nivelImpacto,],
+        errorArea: [this.data["data"].detalleeventoOperaciones.errorArea,],
         produccion: this.fb.group({
-          areaProduccion: [this.data.detalleeventoOperaciones.produccion.areaProduccion, Validators.required],
-          responsableProduccion: [this.data.detalleeventoOperaciones.produccion.responsableProduccion, Validators.required],
-          pgmProduccion: [this.data.detalleeventoOperaciones.produccion.pgmProduccion, Validators.required],
-          tipopgmProduccion: [this.data.detalleeventoOperaciones.produccion.tipopgmProduccion, Validators.required],
+          areaProduccion: [this.data["data"].detalleeventoOperaciones.produccion.areaProduccion, Validators.required],
+          responsableProduccion: [this.data["data"].detalleeventoOperaciones.produccion.responsableProduccion, Validators.required],
+          pgmProduccion: [this.data["data"].detalleeventoOperaciones.produccion.pgmProduccion, Validators.required],
+          tipopgmProduccion: [this.data["data"].detalleeventoOperaciones.produccion.tipopgmProduccion, Validators.required],
         })
       })
     });
@@ -112,6 +120,15 @@ export class IncidenciaDialogComponent implements OnInit {
     this.incidenciaDialogForm.reset();
     this.dialogRef.close();
   }
+  async submit_gestion() {
+    this.operacionesForm1ServicioService.modifyIncidenteEventoDto(this.incidenciaDialogForm.value, 'SI')
+    this.incidenciaDialogForm.reset();
+    this.dialogRef.close();
+  }
+async submit_nogestion() {
+  this.incidenciaDialogForm.reset();
+  this.dialogRef.close();
+}
 }
 
 @Component({
@@ -167,7 +184,9 @@ export class Historial1Component implements OnInit, AfterViewInit {
   openDialog(row: any): void {
     const dialogRef = this.dialog.open(IncidenciaDialogComponent, {
       width: '1200px',
-      data: row,
+      data: {
+        data: row,
+        user: this.mycurrentUser},
     });
 
     dialogRef.afterClosed().subscribe(result => {

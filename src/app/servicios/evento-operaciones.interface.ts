@@ -74,6 +74,9 @@ export interface IIncidenteFormInterface {
     supervisorServicio: string;
     confirmaProd: string;
     obsEventoProduccion: string;
+    obsEventoGestion: string;
+    nivelIncidencia: string,
+    nivelImpacto: string,
     errorArea: string;
     produccion: {
       areaProduccion: string;

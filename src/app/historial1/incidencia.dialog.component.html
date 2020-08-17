@@ -41,6 +41,10 @@
                 </mat-grid-tile>
               </div>
             </mat-grid-list>
+              <mat-list-item>Responsable Operación:</mat-list-item>
+              <li>
+                {{ data["data"].detalleeventoOperaciones.responsableEvento }}
+              </li>
               <mat-list-item>Areas con Observacion:</mat-list-item>
               <li *ngFor="let hero of data.incidentes">
                 {{ hero.detalles[0] }}:
@@ -55,19 +59,51 @@
                   <mat-label>Observacion Produccion (Indicar comentarios)</mat-label>
                   <input matInput formControlName="obsEventoProduccion">
                 </mat-form-field>
+                <mat-form-field class="example-full-width" *ngIf="gestion">
+                  <mat-label>Observacion Gestion (Indicar comentarios)</mat-label>
+                  <input matInput formControlName="obsEventoGestion">
+                </mat-form-field>
+                  <p *ngIf="gestion">
+                    Nivel de incidencia:
+                    <mat-button-toggle-group formControlName="nivelIncidencia">
+                      <mat-button-toggle value="Menor">Menor</mat-button-toggle>
+                      <mat-button-toggle value="Moderada">Moderada</mat-button-toggle>
+                      <mat-button-toggle value="Grave">Grave</mat-button-toggle>
+                      <mat-button-toggle value="Crítica">Crítica</mat-button-toggle>
+                    </mat-button-toggle-group>
+                  </p>
+                  <p *ngIf="gestion">
+                    Nivel de impacto:
+                    <mat-button-toggle-group aria-label="Font Style" formControlName="nivelImpacto">
+                      <mat-button-toggle value="Leve">Leve</mat-button-toggle>
+                      <mat-button-toggle value="Bajo">Bajo</mat-button-toggle>
+                      <mat-button-toggle value="Medio">Medio</mat-button-toggle>
+                      <mat-button-toggle value="Alto">Alto</mat-button-toggle>
+                    </mat-button-toggle-group>
+                  </p>
             </div>
           </div>
         </div>
-        
       </mat-card>
-      <mat-card-actions class="mymat">
-        <button mat-raised-button color="primary" (click)="submit()">
-          CONFIRMAR
+      <mat-card-actions class="mymat" *ngIf="gestion; else nogestion">
+        <button mat-raised-button color="primary" (click)="submit_gestion()">
+          GUARDAR
         </button>
-        <button mat-raised-button color="warning" (click)="submit_no()">
-          NO CONFIRMAR
+        <button mat-raised-button color="warning" (click)="submit_nogestion()">
+          CANCELAR
         </button>
       </mat-card-actions>
+      <ng-template #nogestion>
+        <mat-card-actions class="mymat">
+          <button mat-raised-button color="primary" (click)="submit()">
+            CONFIRMAR
+          </button>
+          <button mat-raised-button color="warning" (click)="submit_no()">
+            NO CONFIRMAR
+          </button>
+        </mat-card-actions>
+      </ng-template>
+
     <!-- </div> -->
   <!-- </div> -->
 </form>

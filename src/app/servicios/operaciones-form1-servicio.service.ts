@@ -82,6 +82,9 @@ export class OperacionesForm1ServicioService {
         supervisorServicio: [null,],
         confirmaProd: [null,],
         obsEventoProduccion: [null,],
+        obsEventoGestion: [null,],
+        nivelIncidencia: [null,],
+        nivelImpacto: [null,],
         errorArea: [null,],
         produccion: this.fb.group({
           areaProduccion: [null, Validators.required],
@@ -162,6 +165,9 @@ export class OperacionesForm1ServicioService {
         supervisorServicio: this.form.value.detalleeventoOperaciones.supervisorServicio,
         confirmaProd: this.form.value.detalleeventoOperaciones.confirmaProd,
         obsEventoProduccion: this.form.value.detalleeventoOperaciones.obsEventoProduccion,
+        obsEventoGestion: this.form.value.detalleeventoOperaciones.obsEventoGestion,
+        nivelIncidencia: this.form.value.detalleeventoOperaciones.nivelIncidencia,
+        nivelImpacto: this.form.value.detalleeventoOperaciones.nivelImpacto,
         errorArea: this.form.value.detalleeventoOperaciones.errorArea,
         produccion: { 
           areaProduccion: this.form.value.detalleeventoOperaciones.produccion.areaProduccion,
@@ -257,6 +263,9 @@ export class OperacionesForm1ServicioService {
         supervisorServicio: data.detalleeventoOperaciones.supervisorServicio,
         confirmaProd: data.detalleeventoOperaciones.confirmaProd,
         obsEventoProduccion: data.detalleeventoOperaciones.obsEventoProduccion,
+        obsEventoGestion: data.detalleeventoOperaciones.obsEventoGestion,
+        nivelIncidencia: data.detalleeventoOperaciones.nivelIncidencia,
+        nivelImpacto: data.detalleeventoOperaciones.nivelImpacto,
         errorArea: data.detalleeventoOperaciones.errorArea,
         produccion: { 
           areaProduccion: data.detalleeventoOperaciones.produccion.areaProduccion,
@@ -361,6 +370,9 @@ export class OperacionesForm1ServicioService {
         supervisorServicio: data.detalleeventoOperaciones.supervisorServicio,
         confirmaProd: confirma,
         obsEventoProduccion: data.detalleeventoOperaciones.obsEventoProduccion,
+        obsEventoGestion: data.detalleeventoOperaciones.obsEventoGestion,
+        nivelIncidencia: data.detalleeventoOperaciones.nivelIncidencia,
+        nivelImpacto: data.detalleeventoOperaciones.nivelImpacto,
         errorArea: data.detalleeventoOperaciones.errorArea,
         produccion: { 
           areaProduccion: data.detalleeventoOperaciones.produccion.areaProduccion,
