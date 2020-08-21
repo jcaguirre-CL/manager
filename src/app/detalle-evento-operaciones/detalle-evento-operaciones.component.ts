@@ -131,8 +131,10 @@ export class DetalleEventoOperacionesComponent implements OnInit {
   ];
 
   nombreprogramas: NombrePrograma[] = [
-    {value: 'Teletrece', viewValue: 'Teletrece'},
-    {value: 'Teletrece Tarde', viewValue: 'Teletrece Tarde'},
+    {value: 'T13AM', viewValue: 'T13AM'},
+    {value: 'T13TARDE', viewValue: 'T13TARDE'},
+    {value: 'T13CIUDADANO', viewValue: 'T13CIUDADANO'},
+    {value: 'T13', viewValue: 'T13'},
     {value: 'Bienvenidos', viewValue: 'Bienvenidos'},
     {value: 'Aqui Somos Todos', viewValue: 'Aqui Somos Todos'},
     {value: 'Sigamos de largo', viewValue: 'Sigamos de Largo'},
@@ -262,6 +264,36 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     },
     {
       nombre: 'Felipe Salazar',
+      empresa: 'Secuoya',
+      // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
+    },
+    {
+      nombre: 'Camilo Arancibia',
+      empresa: 'Secuoya',
+      // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
+    },
+    {
+      nombre: 'Rodrigo Lozano',
+      empresa: 'Secuoya',
+      // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
+    },
+    {
+      nombre: 'Juan Carlos Gonzalez',
+      empresa: 'Secuoya',
+      // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
+    },
+    {
+      nombre: 'Alberto Fischer',
+      empresa: 'Secuoya',
+      // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
+    },
+    {
+      nombre: 'Claudio Abarca',
       empresa: 'Secuoya',
       // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
       flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
