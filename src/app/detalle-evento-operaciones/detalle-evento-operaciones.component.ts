@@ -118,7 +118,9 @@ export class DetalleEventoOperacionesComponent implements OnInit {
   switcheventos: SwitchEvento[] = [
     {value: 'Control Est2', viewValue: 'Control Est2'},
     {value: 'Control Est3', viewValue: 'Control Est3'},
-    {value: 'Control Est4', viewValue: 'Control Est4'}
+    {value: 'Control Est4', viewValue: 'Control Est4'},
+    {value: 'Control Est Prensa', viewValue: 'Control Est Prensa'},
+    {value: 'Otro', viewValue: 'Otro'}
   ];
 
   locacioneventos: LocacionEvento[] = [
@@ -127,7 +129,8 @@ export class DetalleEventoOperacionesComponent implements OnInit {
     {value: 'Estudio 4', viewValue: 'Estudio 4'},
     {value: 'Estudio 5', viewValue: 'Estudio 5'},
     {value: 'Estudio 6', viewValue: 'Estudio 6'},
-    {value: 'Estudio 8', viewValue: 'Estudio 8'}
+    {value: 'Estudio 8', viewValue: 'Estudio 8'},
+    {value: 'Otro', viewValue: 'Otro'}
   ];
 
   nombreprogramas: NombrePrograma[] = [
