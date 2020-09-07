@@ -99,6 +99,7 @@ export class IncidenciaDialogComponent implements OnInit {
         obsEventoGestion: [this.data["data"].detalleeventoOperaciones.obsEventoGestion,],
         nivelIncidencia: [this.data["data"].detalleeventoOperaciones.nivelIncidencia,],
         nivelImpacto: [this.data["data"].detalleeventoOperaciones.nivelImpacto,],
+        estadoEvento: [this.data["data"].detalleeventoOperaciones.estadoEvento,],
         errorArea: [this.data["data"].detalleeventoOperaciones.errorArea,],
         produccion: this.fb.group({
           areaProduccion: [this.data["data"].detalleeventoOperaciones.produccion.areaProduccion, Validators.required],
@@ -142,7 +143,7 @@ async submit_nogestion() {
 })
 export class Historial1Component implements OnInit, AfterViewInit {
   iincidenteFormInterface: IIncidenteFormInterface;
-  displayedColumns: string[] = ['fecha', 'produccion', 'programa', 'responsable', 'aprobado', 'estado'];
+  displayedColumns: string[] = ['fecha', 'produccion', 'programa', 'responsable', 'aprobado', 'estado', 'estadoEvento'];
   isLoading = false;
 
   // dataSource = new RegistroDataSource(this.operacionesForm1ServicioService);

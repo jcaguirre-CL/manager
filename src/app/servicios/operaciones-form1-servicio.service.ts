@@ -85,6 +85,7 @@ export class OperacionesForm1ServicioService {
         obsEventoGestion: [null,],
         nivelIncidencia: [null,],
         nivelImpacto: [null,],
+        estadoEvento: [null,],
         errorArea: [null,],
         produccion: this.fb.group({
           areaProduccion: [null, Validators.required],
@@ -168,6 +169,7 @@ export class OperacionesForm1ServicioService {
         obsEventoGestion: this.form.value.detalleeventoOperaciones.obsEventoGestion,
         nivelIncidencia: this.form.value.detalleeventoOperaciones.nivelIncidencia,
         nivelImpacto: this.form.value.detalleeventoOperaciones.nivelImpacto,
+        estadoEvento: this.form.value.detalleeventoOperaciones.estadoEvento,
         errorArea: this.form.value.detalleeventoOperaciones.errorArea,
         produccion: { 
           areaProduccion: this.form.value.detalleeventoOperaciones.produccion.areaProduccion,
@@ -266,6 +268,7 @@ export class OperacionesForm1ServicioService {
         obsEventoGestion: data.detalleeventoOperaciones.obsEventoGestion,
         nivelIncidencia: data.detalleeventoOperaciones.nivelIncidencia,
         nivelImpacto: data.detalleeventoOperaciones.nivelImpacto,
+        estadoEvento: data.detalleeventoOperaciones.estadoEvento,
         errorArea: data.detalleeventoOperaciones.errorArea,
         produccion: { 
           areaProduccion: data.detalleeventoOperaciones.produccion.areaProduccion,
@@ -373,6 +376,7 @@ export class OperacionesForm1ServicioService {
         obsEventoGestion: data.detalleeventoOperaciones.obsEventoGestion,
         nivelIncidencia: data.detalleeventoOperaciones.nivelIncidencia,
         nivelImpacto: data.detalleeventoOperaciones.nivelImpacto,
+        estadoEvento: data.detalleeventoOperaciones.estadoEvento,
         errorArea: data.detalleeventoOperaciones.errorArea,
         produccion: { 
           areaProduccion: data.detalleeventoOperaciones.produccion.areaProduccion,

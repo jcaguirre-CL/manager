@@ -81,6 +81,14 @@
                       <mat-button-toggle value="Alto">Alto</mat-button-toggle>
                     </mat-button-toggle-group>
                   </p>
+                  <p *ngIf="gestion">
+                    Estado del Evento:
+                    <mat-button-toggle-group aria-label="Font Style" formControlName="estadoEvento">
+                      <mat-button-toggle value="Cerrado">Cerrado</mat-button-toggle>
+                      <mat-button-toggle value="Pendiente">Pendiente</mat-button-toggle>
+                      <mat-button-toggle value="Activo">Activo</mat-button-toggle>
+                    </mat-button-toggle-group>
+                  </p>
             </div>
           </div>
         </div>

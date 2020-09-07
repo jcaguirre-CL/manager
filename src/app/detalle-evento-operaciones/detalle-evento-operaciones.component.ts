@@ -104,6 +104,7 @@ export class DetalleEventoOperacionesComponent implements OnInit {
 
   name_dialog: string;
   confirmado: string;
+  estadoEvento: string;
 
   tipoprogramas: TipoPrograma[] = [
     {value: 'Noticia', viewValue: 'Noticia'},
@@ -380,7 +381,9 @@ export class DetalleEventoOperacionesComponent implements OnInit {
   ngOnInit() {
     // DEFAULT VALUE
     this.confirmado='NO';
+    this.estadoEvento='Pendiente';
     this.group.controls['confirmaProd'].setValue('NO');
+    this.group.controls['estadoEvento'].setValue('Pendiente');
 
     this.group.controls['tipoLocacion'].setValue('ESTUDIO');
     this.group.controls['tipoOperacion'].setValue('VIVO');

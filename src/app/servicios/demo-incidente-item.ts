@@ -54,6 +54,7 @@ export const DEMO_INCIDENTE: IIncidenteFormInterface = {
     obsEventoGestion: 'OBS',
     nivelIncidencia: 'Leve',
     nivelImpacto: 'Leve',
+    estadoEvento: 'Cerrado',
     errorArea: 'NO',
   },
   id: '',
