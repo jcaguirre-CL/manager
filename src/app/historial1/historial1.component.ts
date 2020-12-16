@@ -32,6 +32,7 @@ import { FormArray, FormBuilder, FormGroup, FormControl, Validators } from '@ang
 export class IncidenciaDialogComponent implements OnInit {
   incidenciaDialogForm: FormGroup;
   gestion: boolean = false;
+  incidentes: string;
 
   constructor(
     private fb: FormBuilder,
@@ -44,10 +45,12 @@ export class IncidenciaDialogComponent implements OnInit {
       this.dialogRef.close();
     }
     ngOnInit() {
-    console.log(this.data["user"].perfil);
+/*     console.log(this.data["user"].perfil);
+    console.log(this.data["data"].incidentes); */
+    this.incidentes = this.data["data"].incidentes;
     if (this.data["user"].perfil == 'gestion' || this.data["user"].perfil == 'perfil') {
       this.gestion = true;
-    }
+    }     
     this.incidenciaDialogForm = this.fb.group({
       selectedIncidente: null,
       incidentes: this.data["data"].incidentes,

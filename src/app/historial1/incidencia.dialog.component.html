@@ -7,7 +7,6 @@
           <mat-list-item>Descripción del Evento de Operación:</mat-list-item>
           <mat-divider inset="true"></mat-divider>
         </mat-list>
-
         <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap fxLayoutAlign="center">
           <div fxFlex="100" fxFlex.xs="50%" fxFlex.sm="50%">
             <mat-grid-list cols="4" rowHeight="2:1">
@@ -46,10 +45,11 @@
                 {{ data["data"].detalleeventoOperaciones.responsableEvento }}
               </li>
               <mat-list-item>Areas con Observacion:</mat-list-item>
-              <li *ngFor="let hero of data.incidentes">
-                {{ hero.detalles[0] }}:
-                {{ hero.descripcion }}
-              </li>
+                <li *ngFor="let hero of incidentes">
+                  {{ hero.detalles }}:
+                  {{ hero.descripcion }}
+                </li>
+
             <div [formGroup]="incidenciaDialogForm.get('detalleeventoOperaciones')">
                 <mat-form-field class="example-full-width">
                   <mat-label>Observacion Supervisor</mat-label>
